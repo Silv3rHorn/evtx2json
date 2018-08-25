@@ -19,7 +19,10 @@ CHANNEL_NAMES = {'bits': "Microsoft-Windows-Bits-Client/Operational",
                  'wmi': "Microsoft-Windows-WMI-Activity/Operational"}
 
 
-def _check_file(fpath):
+def _check_file(fpath, is_xml):
+    if is_xml:
+        return True
+
     if fpath.endswith('evtx'):
         with open(os.path.join(fpath), 'rb') as infile:
             header = infile.read()[0:8]
@@ -35,13 +38,13 @@ def _validate_input(options):
         return False
 
     if options.file and os.path.isfile(options.file):
-        if _check_file(options.file):
+        if _check_file(options.file, options.evtxtract):
             LOGS.append(options.file)
 
     if options.dir and os.path.isdir(options.dir):
         for root, subdirs, files in os.walk(options.dir):
             for f in files:
-                if _check_file(os.path.join(root, f)):
+                if _check_file(os.path.join(root, f), options.evtxtract):
                     LOGS.append(os.path.join(root, f))
 
     if len(LOGS) == 0:
@@ -110,6 +113,7 @@ def get_selection():
         "category of event logs to process. Separate multiple categories with a comma."))
     argument_parser.add_argument('-o', '--output', default=os.getcwd(), help=(
         "path to the directory to store the output."))
+    argument_parser.add_argument('--evtxtract', action='store_true', help="file(s) to process is evtxtract output")
     argument_parser.add_argument('--dedup', action='store_true', help="de-duplicate events.")
 
     options = argument_parser.parse_args()

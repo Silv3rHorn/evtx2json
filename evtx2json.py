@@ -10,8 +10,9 @@ import os
 import re
 import sys
 
-import evtl_selector as es
 import events
+import evtl_selector as es
+import evtxtract_formatter as ef
 import message_table
 
 from datetime import datetime as dt
@@ -24,22 +25,12 @@ LOG_FILE = ''
 PARSED_RECORDS = {}
 
 
-def to_lxml(record_xml):
-    rep_xml = record_xml.replace("xmlns=\"http://schemas.microsoft.com/win/2004/08/events/event\"", "")
-    rep_xml = rep_xml.replace("xmlns=\"http://manifests.microsoft.com/win/2004/08/windows/eventlog\"", "")
-    rep_xml = rep_xml.replace("xmlns=\"http://manifests.microsoft.com/win/2006/windows/WMI\"", "")
-    rep_xml = rep_xml.replace("xmlns=\"Event_NS\"", "")
-    set_xml = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>%s" % rep_xml
-    fin_xml = set_xml.encode("utf-8")
-    return etree.fromstring(fin_xml)
-
-
 def xml_records(filename):
     with Evtx(filename) as evtx:
         try:
             for xml, record in evtx_file_xml_view(evtx.get_file_header()):
                 try:
-                    yield to_lxml(xml), None
+                    yield ef.to_lxml(xml), None
                 except etree.XMLSyntaxError as e:
                     yield xml, e
         except UnicodeDecodeError as e:
@@ -104,6 +95,8 @@ def _parse_event(node, channel, supported_events):
                     event[value] = node.xpath(path)[0].text
             except KeyError:
                 event[value] = node.xpath(path)[0].text
+            except IndexError:
+                logging.error("Index Error: {0}, {1}, {2}".format(event['Channel'], event['EventID'], key))
 
     return json.dumps(event)
 
@@ -117,63 +110,74 @@ def _isdup(parsed_output, channel):
         return False
 
 
-def _write_to_file(dest, to_write):
-    with open(dest, 'a') as outfile:
-        for item in to_write:
-            outfile.write(item)
-            outfile.write('\r')
+def run(options, output_path):
+    with open(output_path, 'a') as outfile:
+        for log in es.LOGS:
+            print("\rInput file: {}".format(log))
+            logging.info("Input file: {}".format(log))
 
+            channel = None
+            event_id = None
+            supported_events = []
+            count = 0
 
-def run(options):
-    for log in es.LOGS:
-        to_write = []
-        print(u"\rInput file: {}".format(log))
-        logging.info(u"Input file: {}".format(log))
+            if options.evtxtract:
+                nodes = ef.get_log(log)
+            else:
+                nodes = xml_records(log)
 
-        channel = None
-        supported_events = []
-        count = 0
+            for node, err in nodes:
+                if err is not None:
+                    continue  # skip record
 
-        for node, err in xml_records(log):
-            if err is not None:
-                continue  # skip record
+                if options.evtxtract:
+                    channel = None
+                    event_id = None
 
-            if channel is None:
-                channel = node.xpath("/Event/System/Channel")[0].text
-                if channel not in options.cat:  # if event log not selected by user
-                    print("\r{}\n".format("Not selected by user!"))
-                    logging.info("{}\n".format("Not selected by user!"))
-                    break  # skip event log
+                if channel is None:  # for xml, channel can vary for each record in log
+                    for _ in node.xpath("/Event/System/Channel"):  # get channel
+                        channel = node.xpath("/Event/System/Channel")[0].text
+                    if channel not in options.cat:  # if event log not selected by user
+                        if options.evtxtract:
+                            continue
+                        else:
+                            print("\r{}\n".format("Not selected by user!"))
+                            logging.info("{}\n".format("Not selected by user!"))
+                            break
 
-            count += 1
-            if not count % 100:
-                sys.stdout.write("\r[*] %i records processed." % count)
-                sys.stdout.flush()
+                count += 1
+                if not count % 100:
+                    sys.stdout.write("\r[*] %i records processed." % count)
+                    sys.stdout.flush()
 
-            if len(supported_events) == 0:  # get supported events of event log
-                evtl_name = list(es.CHANNEL_NAMES.keys())[list(es.CHANNEL_NAMES.values()).index(channel)]
-                supported_events = getattr(events, evtl_name)
+                if options.evtxtract or len(supported_events) == 0:  # get supported events of event log
+                    evtl_name = list(es.CHANNEL_NAMES.keys())[list(es.CHANNEL_NAMES.values()).index(channel)]
+                    supported_events = getattr(events, evtl_name)
 
-            event_id = int(node.xpath("/Event/System/EventID")[0].text)
-            if event_id not in supported_events:
-                continue  # skip record
+                for _ in node.xpath("/Event/System/EventID"):
+                    event_id = int(node.xpath("/Event/System/EventID")[0].text)
+                if event_id not in supported_events:
+                    continue  # skip record
 
-            parsed_output = _parse_event(node, channel, supported_events)
-            if parsed_output:
-                if options.dedup:
-                    if not _isdup(parsed_output, channel):
-                        to_write.append(parsed_output)
-                else:
-                    to_write.append(parsed_output)
+                parsed_record = _parse_event(node, channel, supported_events)
+                if parsed_record:
+                    if options.dedup:
+                        if not _isdup(parsed_record, channel):
+                            outfile.write(parsed_record)
+                            outfile.write('\r')
+                    else:
+                        outfile.write(parsed_record)
+                        outfile.write('\r')
+            # flush buffered output to file
+            outfile.flush()
+            os.fsync(outfile)
 
-        if channel in options.cat:
-            print("\r[*] {} records processed!\n".format(count))
-            logging.info("{} records processed!\n".format(count))
-        if channel is None and count == 0:
-            print("\rNo records in log!\n")
-            logging.info("No records in log!\n")
-
-        _write_to_file(os.path.join(options.output, 'evtxport_output.json'), to_write)
+            if options.evtxtract or channel in options.cat:
+                print("\r[*] {} records processed!\n".format(count))
+                logging.info("{} records processed!\n".format(count))
+            if not options.evtxtract and channel is None and count == 0:
+                print("\rNo records in log!\n")
+                logging.info("No records in log!\n")
 
 
 def main():
@@ -184,20 +188,24 @@ def main():
         return False
 
     global LOG_FILE
-    timestamp = dt.now()
-    LOG_FILE = os.path.join(options.output, "_evtxport_log.{}.txt".format(timestamp.strftime("%Y-%m-%d@%H%M%S")))
+    timestamp = dt.now().strftime("%Y-%m-%d@%H%M%S")
+    LOG_FILE = os.path.join(options.output, "_evtx2json_log.{}.txt".format(timestamp))
     logging.basicConfig(filename=LOG_FILE, level=logging.INFO, format=u'[%(levelname)s] %(message)s')
+
+    # log all argument values
     for arg in dir(options):
         if not arg.startswith('__') and not callable(getattr(options, arg)):
-            logging.info(u"{0}:\t{1}".format(arg, getattr(options, arg)))
+            logging.info("{0}:\t{1}".format(arg, getattr(options, arg)))
 
     global PARSED_RECORDS
     for selected in options.cat:
         PARSED_RECORDS[selected] = set()
 
-    run(options)
-    print("\rTime Taken: {}".format(dt.now()-start_time))
-    logging.info("Time Taken: {}".format(dt.now()-start_time))
+    output_path = os.path.join(options.output, "evtx2json_{}.txt".format(timestamp))
+    run(options, output_path)
+
+    print("\rTime Taken: {}".format(dt.now() - start_time))
+    logging.info("Time Taken: {}".format(dt.now() - start_time))
 
 
 if __name__ == '__main__':
