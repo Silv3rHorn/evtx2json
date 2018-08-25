@@ -539,7 +539,10 @@ rdpclient = {  # Microsoft-Windows-TerminalServices-RDPClient/Operational
            "SessionID": "TargetSessionId"},
 
     # 1029: Base64(SHA256(UserName)) is = <X>
-    1029: {"TraceMessage": "TargetUsername"}
+    1029: {"TraceMessage": "TargetUsername"},
+
+    # Destination IP
+    1102: {"Value": "TargetIP"}
 }
 
 rdpcorets = {  # Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational
