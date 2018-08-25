@@ -567,7 +567,7 @@ wmi = {  # Microsoft-Windows-WMI-Activity/Operational
            "Query": "Query",
            "User": "Username",
            "Processid": "ProcessId",
-           "Hostname": "Hostname",
+           "ClientMachine": "Hostname",
            "PossibleCause": "PossibleCause"},
 
     # Registration of permanent event consumer
