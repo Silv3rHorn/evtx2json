@@ -33,14 +33,14 @@ def xml_records(filename):
                     yield ef.to_lxml(xml), None
                 except etree.XMLSyntaxError as e:
                     yield xml, e
-        except UnicodeDecodeError as e:
-            logging.error("Unicode Decode Error!")
-            yield None, e
         except BinaryParser.OverrunBufferException as e:
             logging.error("Overrun Buffer Exception!")
             yield None, e
         except BinaryParser.ParseException as e:
             logging.error("Parse Exception!")
+            yield None, e
+        except Exception as e:  # UnicodeDecodeError, AttributeError
+            logging.error(e)
             yield None, e
 
 
