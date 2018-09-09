@@ -2,19 +2,19 @@ import re
 import xml.etree.ElementTree as Et
 
 from lxml import etree
+from tempfile import NamedTemporaryFile
 
 
 def _sanitise_xml(original):
     with open(original, 'r') as infile:
-        new = original.replace('.xml', '_2.xml')
-        with open(new, 'w') as outfile:
-            outfile.write('<data>\n')
+        with NamedTemporaryFile(delete=False) as outfile:
+            temp_name = outfile.name
             for line in infile:
                 line = re.sub(r'(\x00|\x5c&[lg]t)+', '', line)
-                line = line.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>", '')
+                line = line.replace('\-', '-')
+                line = line.replace('\/', '/')
                 outfile.write(line)
-            outfile.write('</data>')
-    return new
+    return temp_name
 
 
 def _list_to_generator(list_to_convert):
