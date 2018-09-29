@@ -10,7 +10,7 @@ def _sanitise_xml(original):
         with NamedTemporaryFile(delete=False) as outfile:
             temp_name = outfile.name
             for line in infile:
-                line = re.sub(r'(\x00|\x5c&[lg]t)+', '', line)
+                line = re.sub(r'((\x00)|\x5c&([lg]t|amp))+', '', line)  # null | \&lt | \&gt | \&amp
                 line = line.replace('\-', '-')
                 line = line.replace('\/', '/')
                 outfile.write(line)
