@@ -14,6 +14,7 @@ CHANNEL_NAMES = {'bits': "Microsoft-Windows-Bits-Client/Operational",
                  'rdpclient': "Microsoft-Windows-TerminalServices-RDPClient/Operational",
                  'rdpcorets': "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational",
                  'sch': "Microsoft-Windows-TaskScheduler/Operational", 'sec': "Security", 'sys': "System",
+                 'symantec': "Symantec Endpoint Protection Client",
                  'wdef': "Microsoft-Windows-Windows Defender/Operational",
                  'winrm': "Microsoft-Windows-WinRM/Operational",
                  'wmi': "Microsoft-Windows-WMI-Activity/Operational"}
@@ -98,6 +99,7 @@ def get_selection():
         '\t rdpcorets \t Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational\n'
         '\t wdef \t\t Microsoft-Windows-Windows Defender/Operational\n'
         '\t fwall \t\t Microsoft-Windows-Windows Firewall With Advanced Security/Firewall\n'
+        '\t symantec \t Symantec Endpoint Protection Client\n'
         '\t pshell \t Windows PowerShell\n'
         '\t pashello \t Microsoft-Windows-PowerShell/Operational\n'
         '\t wmi \t\t Microsoft-Windows-WMI-Activity/Operational\n'

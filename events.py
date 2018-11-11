@@ -636,3 +636,8 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"}
 }
+
+symantec = {  # Symantec Endpoint Protection Client
+    # 51: Detection Finish
+    51: {}
+}
