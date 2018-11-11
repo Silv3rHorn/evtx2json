@@ -11,8 +11,7 @@ def _sanitise_xml(original):
             temp_name = outfile.name
             for line in infile:
                 line = re.sub(r'((\x00)|\x5c&([lg]t|amp))+', '', line)  # null | \&lt | \&gt | \&amp
-                line = line.replace('\-', '-')
-                line = line.replace('\/', '/')
+                line = re.sub(r'\\([-/%])', r'\1', line)
                 outfile.write(line)
     return temp_name
 
