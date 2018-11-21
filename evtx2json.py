@@ -155,7 +155,12 @@ def run(options, output_path):
                     supported_events = getattr(events, evtl_name)
 
                 for _ in node.xpath("/Event/System/EventID"):
-                    event_id = int(node.xpath("/Event/System/EventID")[0].text)
+                    try:
+                        event_id = int(node.xpath("/Event/System/EventID")[0].text)
+                    except TypeError:  # e.g. None
+                        event_id = -1
+                        continue
+
                 if event_id not in supported_events:
                     continue  # skip record
 

@@ -123,8 +123,10 @@ def get_selection():
     if not _validate_input(options):
         return False
 
-    options.dir = os.path.abspath(options.dir)
-    options.file = os.path.abspath(options.file)
+    if options.dir is not None:
+        options.dir = os.path.abspath(options.dir)
+    if options.file is not None:
+        options.file = os.path.abspath(options.file)
     options.output = os.path.abspath(options.output)
 
     options.cat = _parse_selection(options.cat)

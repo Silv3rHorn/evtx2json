@@ -1,4 +1,6 @@
 # evtx2json
+![](https://img.shields.io/badge/python-2.7-blue.svg) ![](https://img.shields.io/badge/python-3.7-blue.svg)
+
 evtx2json extracts supported events from event logs, dedups them, and exports them 
 to json.
 
