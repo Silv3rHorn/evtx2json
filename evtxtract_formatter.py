@@ -7,7 +7,7 @@ from tempfile import NamedTemporaryFile
 
 def _sanitise_xml(original):
     with open(original, 'r') as infile:
-        with NamedTemporaryFile(delete=False) as outfile:
+        with NamedTemporaryFile(delete=False, mode='w+') as outfile:
             temp_name = outfile.name
             for line in infile:
                 line = re.sub(r'((\x00)|\x5c&([lg]t|amp))+', '', line)  # null | \&lt | \&gt | \&amp
