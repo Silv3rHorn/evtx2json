@@ -204,8 +204,8 @@ sec = {  # Security
            "SubjectLogonId": "LogonId",
            "CategoryId": "CategoryId",  # %% format
            "SubcategoryId": "SubcategoryId",  # %% format
-           "SubcategoryGuid": "SubcategoryGuid",  # to convert
-           "AuditPolicyChanges": "AuditPolicyChanges"},  # to convert (%% joined with ', ')
+           "SubcategoryGuid": "SubcategoryGuid",  # %% format
+           "AuditPolicyChanges": "AuditPolicyChanges"},  # %% format (multiple, joined with ', ')
 
     # 4720: A user account was created
     4720: {"SubjectUserSid": "SID",
@@ -277,7 +277,7 @@ sec = {  # Security
            "OldUacValue": "OldUacValue",
            "SidHistory": "SIDHistory",
            "LogonHours": "LogonHours",
-           "UserAccountControl": "UserAccountControl"},  # to convert
+           "UserAccountControl": "UserAccountControl"},  # %% format
 
     # 4768: A Kerberos authentication ticket (TGT) was requested
     4768: {"TargetUserSid": "TargetSID",
@@ -285,10 +285,10 @@ sec = {  # Security
            "TargetDomainName": "TargetDomain",
            "ServiceSid": "ServiceSID",
            "ServiceName": "ServiceName",
-           "TicketOptions": "TicketOptions",  # to convert
+           "TicketOptions": "TicketOptions",  # to convert, bitflag
            "Status": "ResultCode",  # to convert
            "TicketEncryptionType": "TicketEncryptionType",  # to convert
-           "PreAuthType": "PreAuthType",
+           "PreAuthType": "PreAuthType",  # to convert
            "IpAddress": "IP",
            "IpPort": "Port",
            "CertIssuerName": "CertIssuerName",
@@ -303,7 +303,7 @@ sec = {  # Security
            "TicketOptions": "TicketOptions",  # to convert
            "Status": "ResultCode",  # to convert
            "TicketEncryptionType": "TicketEncryptionType",  # to convert
-           "PreAuthType": "PreAuthType",
+           "PreAuthType": "PreAuthType",  # to convert
            "IpAddress": "IP",
            "IpPort": "Port",
            "LogonGuid": "LogonGUID",
@@ -315,7 +315,7 @@ sec = {  # Security
            "ServiceName": "ServiceName",
            "TicketOptions": "TicketOptions",  # to convert
            "Status": "ResultCode",  # to convert
-           "PreAuthType": "PreAuthType",
+           "PreAuthType": "PreAuthType",  # to convert
            "IpAddress": "IP",
            "IpPort": "Port"},
 
@@ -355,7 +355,7 @@ sec = {  # Security
     # 5156: The Windows Filtering Platform has permitted a connection
     5156: {"ProcessId": "ProcessId",
            "Application": "ProcessPath",
-           "Direction": "Direction",  # to convert
+           "Direction": "Direction",  # %% format
            "IpAddress": "IP",
            "IpPort": "Port",
            "DestAddress": "TargetIP",
@@ -371,6 +371,9 @@ sys = {  # System
           "SubjectDomainName": "Domain",
           "Channel": "EventLogName",
           "BackupPath": "BackupPath"},
+
+    # 1001: Windows Error Reporting
+    1001: {},  # TODO
 
     # 7040: The start type of a service was changed
     7040: {"param1": "ServiceName",
@@ -392,6 +395,15 @@ sch = {  # Microsoft-Windows-TaskScheduler/Operational
     # 106: A new job was scheduled
     106: {"TaskName": "TaskName",
           "UserContext": "Username"},
+
+    # 118: Task triggered by computer startup
+    118: {"TaskName": "TaskName",
+          "InstanceId": "TaskInstanceId"},
+
+    # 119: Task triggered on logon
+    119: {"TaskName": "TaskName",
+          "UserName": "Username",
+          "InstanceId": "TaskInstanceId"},
 
     # 140: Scheduled task updated
     140: {"TaskName": "TaskName",
@@ -439,7 +451,7 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "ApplicationPath": "ApplicationPath",
            "ServiceName": "ServiceName",
            "Direction": "Direction",  # to convert
-           "Protocol": "Protocol",
+           "Protocol": "Protocol",  # to convert
            "LocalPorts": "TargetPort",
            "RemotePorts": "RemotePort",
            "Action": "Action",  # to convert
@@ -578,11 +590,18 @@ wmi = {  # Microsoft-Windows-WMI-Activity/Operational
 }
 
 winrm = {  # Microsoft-Windows-WinRM/Operational
+    # 6: Creating WSMan session
     6: {"connection": "Connection"},
 
+    # 8: Closing WSMan session
     8: {},
 
-    33: {}
+    # 33: Closed WSMan session successfully
+    33: {},
+
+    # 169: User <X> authenticated successfully using <Y> authentication (not present in Win 10?)
+    169: {"username": "TargetUsername",
+          "authenticationMechanism": "authenticationMechanism"}
 }
 
 bits = {  # Microsoft-Windows-Bits-Client/Operational
