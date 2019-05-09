@@ -59,14 +59,14 @@ def _map_to_message(string):
 
 def _parse_event(node, channel, supported_events):
     event = dict()
-    event['RecordID'] = int(node.xpath("/Event/System/EventRecordID")[0].text)
-    event['EventID'] = int(node.xpath("/Event/System/EventID")[0].text)
-    event['Timestamp'] = node.xpath("/Event/System/TimeCreated")[0].get("SystemTime")
-    event['Hostname'] = node.xpath("/Event/System/Computer")[0].text
-    event['SID'] = node.xpath("/Event/System/Security")[0].get("UserID")
-    event['Channel'] = channel
+    event['*RecordID'] = int(node.xpath("/Event/System/EventRecordID")[0].text)
+    event['*EventID'] = int(node.xpath("/Event/System/EventID")[0].text)
+    event['*Timestamp'] = node.xpath("/Event/System/TimeCreated")[0].get("SystemTime")
+    event['*Hostname'] = node.xpath("/Event/System/Computer")[0].text
+    event['*SID'] = node.xpath("/Event/System/Security")[0].get("UserID")
+    event['*Channel'] = channel
 
-    fields = supported_events[event['EventID']]
+    fields = supported_events[event['*EventID']]
     se_keys = list(fields.keys())
     event_data = node.xpath("/Event/EventData/Data")
 
@@ -96,7 +96,7 @@ def _parse_event(node, channel, supported_events):
             except KeyError:
                 event[value] = node.xpath(path)[0].text
             except IndexError:
-                logging.error("Index Error: {0}, {1}, {2}".format(event['Channel'], event['EventID'], key))
+                logging.error("Index Error: {0}, {1}, {2}".format(event['*Channel'], event['*EventID'], key))
 
     return json.dumps(event)
 
