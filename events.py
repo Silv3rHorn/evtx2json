@@ -43,7 +43,7 @@ sec = {  # Security
            "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
-           "LogonType": "TargetLogonType",  # to convert
+           "LogonType": "LogonType",  # to convert
            "WorkstationName": "WorkstationName",
            "IpAddress": "IP",
            "IpPort": "Port",
@@ -53,6 +53,17 @@ sec = {  # Security
            "SubStatus": "SubStatus",
            "ProcessId": "ProcessId",
            "ProcessName": "ProcessPath"},
+
+    # 4627: Group membership information
+    4627: {"SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetUserSid": "TargetSID",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain",
+           "LogonType": "LogonType",
+           "GroupMembership": "GroupMembership"},  # to convert
 
     # 4634: An account was logged off
     4634: {"TargetUserSid": "TargetSID",
@@ -98,17 +109,52 @@ sec = {  # Security
            "ProcessId": "ProcessId",
            "ProcessName": "ProcessPath"},
 
+    # 4661: A handle to an object was requested
+    4661: {"SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "ObjectServer": "ObjectServer",
+           "ObjectType": "ObjectType",
+           "ObjectName": "ObjectName",
+           "HandleId": "HandleId",
+           "TransactionId": "TransactionId",
+           "AccessList": "AccessList",  # %% format
+           "AccessMask": "AccessMask",  # alternate representation of AccessList
+           "PrivilegeList": "PrivilegeList",
+           "Properties": "Properties",
+           "RestrictedSidCount": "RestrictedSidCount",
+           "ProcessId": "ProcessId",
+           "ProcessName": "ProcessPath"},
+
+    # 4662: An operation was performed on an object
+    4662: {"SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "ObjectServer": "ObjectServer",
+           "ObjectType": "ObjectType",
+           "ObjectName": "ObjectName",
+           "OperationType": "OperationType",
+           "HandleId": "HandleId",
+           "AccessList": "AccessList",  # %% format
+           "AccessMask": "AccessMask",  # alternate representation of AccessList
+           "Properties": "Properties"},
+
     # 4663: An attempt was made to access an object
     4663: {"SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
+           "ObjectServer": "ObjectServer",
            "ObjectType": "ObjectType",
            "ObjectName": "ObjectName",
+           "HandleId": "HandleId",
            "AccessList": "AccessList",  # %% format
-           "AccessMask": "AccessMask",  # to convert
+           "AccessMask": "AccessMask",  # alternate representation of AccessList
            "ProcessId": "ProcessId",
-           "ProcessName": "ProcessPath"},
+           "ProcessName": "ProcessPath",
+           "ResourceAttributes": "ResourceAttributes"},
 
     # 4672: Special privileges assigned to new logon
     4672: {"SubjectUserSid": "SID",
@@ -248,20 +294,61 @@ sec = {  # Security
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
            "MemberSid": "TargetSID",
-           "MemberName": "TargetName",
-           "TargetSid": "GroupSID",
-           "TargetUserName": "GroupName",
-           "TargetDomainName": "GroupDomain"},
+           "MemberName": "TargetUsername",
+           "TargetSid": "TargetGroupSID",
+           "TargetUserName": "TargetGroup",
+           "TargetDomainName": "TargetDomain",
+           "PrivilegeList": "PrivilegeList"},
+
+    # 4732: A member was added to a security-enabled local group
+    4732: {"SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "MemberSid": "TargetSID",
+           "MemberName": "TargetUsername",
+           "TargetSid": "TargetGroupSID",
+           "TargetUserName": "TargetGroup",
+           "TargetDomainName": "TargetDomain",
+           "PrivilegeList": "PrivilegeList"},
 
     # 4738: A user account was changed  # non-changed values are -, so ignore values that are -?
     4738: {"SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
-           "TargetUserSid": "TargetSID",
+           "TargetSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
-           "PrivilegeList": "Privilege List",
+           "PrivilegeList": "PrivilegeList",
+           "SamAccountName": "SamAccountName",
+           "DisplayName": "DisplayName",
+           "UserPrincipalName": "UserPrincipalName",
+           "HomeDirectory": "HomeDirectory",
+           "HomePath": "HomePath",
+           "ScriptPath": "ScriptPath",
+           "ProfilePath": "ProfilePath",
+           "UserWorkstations": "UserWorkstations",
+           "PasswordLastSet": "PasswordLastSet",
+           "AccountExpires": "AccountExpires",
+           "PrimaryGroupId": "PrimaryGroupId",
+           "AllowedToDelegateTo": "AllowedToDelegateTo",
+           "OldUacValue": "OldUacValue",  # to convert
+           "NewUacValue": "NewUacValue",  # to convert
+           "UserParameters": "UserParameters",
+           "SidHistory": "SIDHistory",
+           "LogonHours": "LogonHours",
+           "UserAccountControl": "UserAccountControl"},  # %% format
+
+    # 4741: A computer account was created
+    4741: {"SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetSid": "TargetSID",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain",
+           "PrivilegeList": "PrivilegeList",
            "SamAccountName": "SamAccountName",
            "DisplayName": "DisplayName",
            "UserPrincipalName": "UserPrincipalName",
@@ -275,9 +362,13 @@ sec = {  # Security
            "PrimaryGroupId": "PrimaryGroupId",
            "AllowedToDelegateTo": "AllowedToDelegateTo",
            "OldUacValue": "OldUacValue",
+           "NewUacValue": "NewUacValue",  # to convert
+           "UserParameters": "UserParameters",
            "SidHistory": "SIDHistory",
            "LogonHours": "LogonHours",
-           "UserAccountControl": "UserAccountControl"},  # %% format
+           "UserAccountControl": "UserAccountControl",  # %% format
+           "DnsHostName": "Hostname",
+           "ServicePrincipalNames": "SPNs"},
 
     # 4768: A Kerberos authentication ticket (TGT) was requested
     4768: {"TargetUserSid": "TargetSID",
@@ -340,6 +431,35 @@ sec = {  # Security
            "ClientName": "WorkstationName",
            "ClientAddress": "IP"},
 
+    # 4798: A user's local group membership was enumerated
+    4798: {"SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain",
+           "TargetSid": "TargetSID",
+           "CallerProcessId": "ProcessId",
+           "CallerProcessName": "ProcessPath"},
+
+    # 4799: A security-enabled local group membership was enumerated
+    4799: {"SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain",
+           "TargetSid": "TargetSID",
+           "CallerProcessId": "ProcessId",
+           "CallerProcessName": "ProcessPath"},
+
+    # 4825: A user was denied the access to Remote Desktop. By default,
+    # users are allowed to connect only if they are members of the Remote Desktop Users group or Administrators group.
+    4825: {"AccountName": "TargetUsername",
+           "AccountDomain": "TargetDomain",
+           "LogonID": "TargetLogonId",
+           "ClientAddress": "IP"},
+
     # 5140: A network share object was accessed
     5140: {"SubjectUserSid": "SID",
            "SubjectUserName": "Username",
@@ -350,7 +470,48 @@ sec = {  # Security
            "ShareLocalPath": "ShareLocalPath",
            "IpAddress": "IP",
            "IpPort": "Port",
-           "AccessList": "AccessList"},
+           "AccessList": "AccessList"},  # %% format
+
+    # 5142: A network share object was added
+    5142: {"SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "ShareName": "ShareName",
+           "ShareLocalPath": "ShareLocalPath"},
+
+    # 5144: A network share object was deleted
+    5144: {"SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "ShareName": "ShareName",
+           "ShareLocalPath": "ShareLocalPath"},
+
+    # 5145: A network share object was checked to see whether client can be granted desired access
+    5145: {"SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "ObjectType": "ObjectType",
+           "ShareName": "ShareName",
+           "ShareLocalPath": "ShareLocalPath",
+           "RelativeTargetName": "RelativeTargetName",
+           "IpAddress": "IP",
+           "IpPort": "Port",
+           "AccessList": "AccessList",  # %% format
+           "AccessMask": "AccessMask",  # alternate representation of AccessList
+           "AccessReason": "AccessReason"},
+
+    # 5152: The Windows Filtering Platform blocked a packet
+    5152: {"ProcessId": "ProcessId",
+           "Application": "ProcessPath",
+           "Direction": "Direction",  # %% format
+           "SourceAddress": "IP",
+           "SourcePort": "Port",
+           "DestAddress": "TargetIP",
+           "DestPort": "TargetPort",
+           "Protocol": "Protocol"},  # to convert
 
     # 5156: The Windows Filtering Platform has permitted a connection
     5156: {"ProcessId": "ProcessId",
@@ -360,9 +521,17 @@ sec = {  # Security
            "IpPort": "Port",
            "DestAddress": "TargetIP",
            "DestPort": "TargetPort",
-           "Protocol": "Protocol",
+           "Protocol": "Protocol",  # to convert
            "RemoteUserID": "TargetSID",
            "RemoteMachineID": "TargetMachineSID"},
+
+    # 5158: The Windows Filtering Platform has permitted a bind to a local port
+    5158: {"ProcessId": "ProcessId",
+           "Application": "ProcessPath",
+           "Direction": "Direction",  # %% format
+           "SourceAddress": "IP",
+           "SourcePort": "Port",
+           "Protocol": "Protocol"},  # to convert
 }
 
 sys = {  # System
@@ -375,6 +544,10 @@ sys = {  # System
     # 1001: Windows Error Reporting
     1001: {},  # TODO
 
+    # 7036: The %1 service entered the %2 state
+    7036: {"param1": "ServiceName",
+           "param2": "StatusAfter"},
+
     # 7040: The start type of a service was changed
     7040: {"param1": "ServiceName",
            "param2": "StatusBefore",
@@ -384,11 +557,11 @@ sys = {  # System
     7045: {"ServiceName": "ServiceName",
            "ImagePath": "ServicePath",
            "ServiceType": "ServiceType",
+           "StartType": "StartType",
            "AccountName": "Username"},
 
     # 9009: The Desktop Window Manager has exited with code <x>
-    9009: {
-        "Param1": "ExitCode"}
+    9009: {"Param1": "ExitCode"}
 }
 
 sch = {  # Microsoft-Windows-TaskScheduler/Operational
@@ -517,7 +690,9 @@ lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
 pshell = {  # Windows PowerShell
     400: {},
 
-    403: {}
+    403: {},
+
+    600: {}
 }
 
 pshello = {  # Microsoft-Windows-PowerShell/Operational
@@ -628,12 +803,160 @@ bits = {  # Microsoft-Windows-Bits-Client/Operational
 }
 
 wdef = {  # Microsoft-Windows-Windows Defender/Operational
-    # 1015: The antimalware platform detected suspicious behavior
-    1015: {},  # TODO
+    # 1006: <ProductName> has detected malware or other potentially unwanted software
+    1006: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Detection ID": "DetectionID",
+           "Detection Source": "Source",
+           "Process Name": "ProcessPath",
+           "Domain": "Domain",
+           "User": "Username",
+           "SID": "SID",
+           "Threat ID": "ThreatID",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Path Found": "Path",
+           "Detection Origin": "Origin",
+           "Execution Status": "ExecutionStatus",
+           "Detection Type": "Type",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
 
-    # 1116: The antimalware platform detected malware or other potentially unwanted software
+    # 1007: <ProductName> has taken action to protect this machine from malware or other potentially unwanted software
+    1007: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Detection ID": "DetectionID",
+           "Status Description": "Status",
+           "Domain": "Domain",
+           "User": "Username",
+           "SID": "SID",
+           "Threat ID": "ThreatID",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Path": "Path",
+           "Cleaning Action": "Cleaning Action",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    # 1008: <ProductName> has encountered an error when taking action on malware or other potentially unwanted software
+    1008: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Detection ID": "DetectionID",
+           "Status Description": "Status",
+           "Domain": "Domain",
+           "User": "Username",
+           "SID": "SID",
+           "Threat ID": "ThreatID",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Path": "Path",
+           "Error Code": "ErrorCode",
+           "Error Description": "Error",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    # 1009: <ProductName> has restored an item from quarantine
+    1009: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Domain": "Domain",
+           "User": "Username",
+           "SID": "SID",
+           "Threat ID": "ThreatID",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Path": "Path",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    # 1010: <ProductName> has encountered an error trying to restore an item from quarantine
+    1010: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Error Code": "ErrorCode",
+           "Error Description": "Error",
+           "Domain": "Domain",
+           "User": "Username",
+           "SID": "SID",
+           "Threat ID": "ThreatID",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Path": "Path",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    # 1011: <ProductName> has deleted an item from quarantine
+    1011: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Domain": "Domain",
+           "User": "Username",
+           "SID": "SID",
+           "Threat ID": "ThreatID",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Path": "Path",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    # 1012: <ProductName> has encountered an error trying to restore an item from quarantine
+    1012: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Error Code": "ErrorCode",
+           "Error Description": "Error",
+           "Domain": "Domain",
+           "User": "Username",
+           "SID": "SID",
+           "Threat ID": "ThreatID",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Path": "Path",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    # 1015: <ProductName> has detected a suspicious behavior
+    1015: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Detection ID": "DetectionID",
+           "Detection Source": "Source",
+           "Process Name": "ProcessPath",
+           "Domain": "Domain",
+           "User": "Username",
+           "SID": "SID",
+           "Threat ID": "ThreatID",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Path Found": "Path",
+           "Detection Origin": "Origin",
+           "Execution Status": "ExecutionStatus",
+           "Detection Type": "Type",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion",
+           "Process ID": "ProcessID",
+           "Signature ID": "Signature ID",
+           "FidelityValue": "FidelityValue",
+           "FidelityLabel": "FidelityLabel",
+           "Image File Hash": "ImageFileHash",
+           "TargetFileName": "TargetFileName",
+           "TargetFileHash": "TargetFileHash"},
+
+    # 1116: <ProductName> has detected malware or other potentially unwanted software
     1116: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
+           "Detection ID": "DetectionID",
            "Detection Time": "DetectionTime",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
@@ -648,12 +971,178 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Execution Name": "Execution",
            "Type Name": "Type",
            "Action Name": "Action",
+           "Error Code": "ErrorCode",
            "Error Description": "Error",
            "Post Clean Status": "PostCleanStatus",
            "Additional Actions String": "AdditionalActions",
            "Remediation User": "RemediationUser",
            "Signature Version": "SignatureVersion",
-           "Engine Version": "EngineVersion"}
+           "Engine Version": "EngineVersion"},
+
+    # 1117: <ProductName> has taken action to protect this machine from malware or other potentially unwanted software
+    1117: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Detection ID": "DetectionID",
+           "Detection Time": "DetectionTime",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Status Description": "Status",
+           "Source Name": "Source",
+           "Process Name": "ProcessPath",
+           "Detection User": "DetectionUser",
+           "Path": "Path",
+           "Origin Name": "Origin",
+           "Execution Name": "Execution",
+           "Type Name": "Type",
+           "Action Name": "Action",
+           "Error Code": "ErrorCode",
+           "Error Description": "Error",
+           "Post Clean Status": "PostCleanStatus",
+           "Additional Actions String": "AdditionalActions",
+           "Remediation User": "RemediationUser",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    # 1118: <ProductName> has encountered a non-critical error when taking action on malware or
+    # other potentially unwanted software
+    1118: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Detection ID": "DetectionID",
+           "Detection Time": "DetectionTime",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Status Description": "Status",
+           "Source Name": "Source",
+           "Process Name": "ProcessPath",
+           "Detection User": "DetectionUser",
+           "Path": "Path",
+           "Origin Name": "Origin",
+           "Execution Name": "Execution",
+           "Type Name": "Type",
+           "Action Name": "Action",
+           "Error Code": "ErrorCode",
+           "Error Description": "Error",
+           "Post Clean Status": "PostCleanStatus",
+           "Additional Actions String": "AdditionalActions",
+           "Remediation User": "RemediationUser",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    # 1119: <ProductName> has encountered a critical error when taking action on malware or
+    # other potentially unwanted software
+    1119: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Detection ID": "DetectionID",
+           "Detection Time": "DetectionTime",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Status Description": "Status",
+           "Source Name": "Source",
+           "Process Name": "ProcessPath",
+           "Detection User": "DetectionUser",
+           "Path": "Path",
+           "Origin Name": "Origin",
+           "Execution Name": "Execution",
+           "Type Name": "Type",
+           "Action Name": "Action",
+           "Error Code": "ErrorCode",
+           "Error Description": "Error",
+           "Post Clean Status": "PostCleanStatus",
+           "Additional Actions String": "AdditionalActions",
+           "Remediation User": "RemediationUser",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    # 1160: <ProductName has detected potentially unwanted application (PUA)
+    1160: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Detection ID": "DetectionID",
+           "Detection Time": "DetectionTime",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Status Description": "Status",
+           "Source Name": "Source",
+           "Process Name": "ProcessPath",
+           "Detection User": "DetectionUser",
+           "Path": "Path",
+           "Origin Name": "Origin",
+           "Execution Name": "Execution",
+           "Type Name": "Type",
+           "Action Name": "Action",
+           "Error Code": "ErrorCode",
+           "Error Description": "Error",
+           "Post Clean Status": "PostCleanStatus",
+           "Additional Actions String": "AdditionalActions",
+           "Remediation User": "RemediationUser",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    # 2050: <ProductName> has uploaded a file for further analysis
+    2050: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Filename": "FileName",
+           "Sha256": "SHA256"},
+
+    # 2051: <ProductName> has encountered an error trying to upload a suspicious file for further analysis
+    2051: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Filename": "FileName",
+           "Sha256": "SHA256",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion",
+           "Error Code": "ErrorCode"},
+
+    # 5000: <ProductName> Real-time Protection scanning for malware and other potentially unwanted software was enabled
+    5000: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion"},
+
+    # 5001: <ProductName> Real-time Protection scanning for malware and other potentially unwanted software was disabled
+    5001: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion"},
+
+    # 5004: <ProductName> Real-time Protection feature configuration has changed
+    5004: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Feature Name": "FeatureName",
+           "Feature ID": "FeatureID"},
+
+    # 5007: <ProductName> Configuration has changed.
+    # If this is an unexpected event you should review the settings as this may be the result of malware
+    5007: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Old Value": "OldValue",
+           "New Value": "NewValue"},
+
+    # 5008: <ProductName> engine has been terminated due to an unexpected error
+    5008: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Resource": "Resource",
+           "Failure Type": "FailureType",
+           "Exception Code": "ExceptionCode"},
+
+    # 5009: <ProductName> scanning for spyware and other potentially unwanted software has been enabled
+    5009: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion"},
+
+    # 5010: <ProductName> scanning for spyware and other potentially unwanted software is disabled
+    5010: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion"},
+
+    # 5011: <ProductName> scanning for viruses has been enabled
+    5011: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion"},
+
+    # 5012: <ProductName> scanning for viruses is disabled
+    5012: {"Product Name": "ProductName",
+           "Product Version": "ProductVersion"},
 }
 
 symantec = {  # Symantec Endpoint Protection Client
