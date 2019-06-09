@@ -564,38 +564,27 @@ sys = {  # System
     9009: {"Param1": "ExitCode"}
 }
 
-sch = {  # Microsoft-Windows-TaskScheduler/Operational
-    # 106: A new job was scheduled
-    106: {"TaskName": "TaskName",
-          "UserContext": "Username"},
+bits = {  # Microsoft-Windows-Bits-Client/Operational
+    # 59: BITS started the transfer job
+    59: {"transferId": "TransferId",
+         "name": "Name",
+         "Id": "JobId",
+         "url": "URL",
+         "peer": "Peer",
+         "fileTime": "FileTime",
+         "fileLength": "FileSize"},
 
-    # 118: Task triggered by computer startup
-    118: {"TaskName": "TaskName",
-          "InstanceId": "TaskInstanceId"},
-
-    # 119: Task triggered on logon
-    119: {"TaskName": "TaskName",
-          "UserName": "Username",
-          "InstanceId": "TaskInstanceId"},
-
-    # 140: Scheduled task updated
-    140: {"TaskName": "TaskName",
-          "UserName": "Username"},
-
-    # 141: Scheduled task deleted
-    141: {"TaskName": "TaskName",
-          "UserName": "Username"},
-
-    # 200: Scheduled task started
-    200: {"TaskName": "TaskName",
-          "ActionName": "ApplicationPath",
-          "TaskInstanceId": "TaskInstanceId"},
-
-    # 201: Scheduled task completed
-    201: {"TaskName": "TaskName",
-          "ActionName": "ApplicationPath",
-          "TaskInstanceId": "TaskInstanceId",
-          "ResultCode": "ResultCode"},
+    # 60: BITS stopped transferring
+    60: {"transferId": "TransferId",
+         "name": "Name",
+         "Id": "JobId",
+         "url": "URL",
+         "peer": "Peer",
+         "fileTime": "FileTime",
+         "fileLength": "FileSize",
+         "bytesTotal": "BytesTotal",
+         "bytesTransferred": "BytesTransferred",
+         "bytesTransferredFromPeer": "BytesTransferredFromPeer"}
 }
 
 fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
@@ -640,13 +629,6 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "RuleName": "RuleName",
            "ModifyingUser": "SID",
            "ModifyingApplication": "ProcessPath"},
-}
-
-rcm = {  # Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational
-    # 1149: An RDP session has been successfully established
-    1149: {"Param1": "TargetUsername",
-           "Param2": "TargetDomain",
-           "Param3": "IP"}
 }
 
 lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
@@ -714,6 +696,13 @@ pshello = {  # Microsoft-Windows-PowerShell/Operational
     8197: {"param1": "Status"}
 }
 
+rcm = {  # Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational
+    # 1149: An RDP session has been successfully established
+    1149: {"Param1": "TargetUsername",
+           "Param2": "TargetDomain",
+           "Param3": "IP"}
+}
+
 rdpclient = {  # Microsoft-Windows-TerminalServices-RDPClient/Operational
     # 1024: RDP ClientActiveX is trying to connect to the server (<X>)
     1024: {"Value": "TargetHostname"},
@@ -741,65 +730,43 @@ rdpcorets = {  # Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational
     98: {}
 }
 
-wmi = {  # Microsoft-Windows-WMI-Activity/Operational
-    # 5857: wmiprvse execution
-    5857: {"ProviderName": "ProviderName",
-           "Code": "ResultCode",
-           "HostProcess": "ProcessName",
-           "ProcessID": "ProcessID",
-           "ProviderPath": "ProviderPath"},
+sch = {  # Microsoft-Windows-TaskScheduler/Operational
+    # 106: A new job was scheduled
+    106: {"TaskName": "TaskName",
+          "UserContext": "Username"},
 
-    # Registration of temporary event consumer
-    5860: {"NamespaceName": "Namespace",
-           "Query": "Query",
-           "User": "Username",
-           "Processid": "ProcessId",
-           "ClientMachine": "Hostname",
-           "PossibleCause": "PossibleCause"},
+    # 118: Task triggered by computer startup
+    118: {"TaskName": "TaskName",
+          "InstanceId": "TaskInstanceId"},
 
-    # Registration of permanent event consumer
-    5861: {"Namespace": "Namespace",
-           "ESS": "ESS",
-           "CONSUMER": "Consumer",
-           "PossibleCause": "PossibleCause"}
+    # 119: Task triggered on logon
+    119: {"TaskName": "TaskName",
+          "UserName": "Username",
+          "InstanceId": "TaskInstanceId"},
+
+    # 140: Scheduled task updated
+    140: {"TaskName": "TaskName",
+          "UserName": "Username"},
+
+    # 141: Scheduled task deleted
+    141: {"TaskName": "TaskName",
+          "UserName": "Username"},
+
+    # 200: Scheduled task started
+    200: {"TaskName": "TaskName",
+          "ActionName": "ApplicationPath",
+          "TaskInstanceId": "TaskInstanceId"},
+
+    # 201: Scheduled task completed
+    201: {"TaskName": "TaskName",
+          "ActionName": "ApplicationPath",
+          "TaskInstanceId": "TaskInstanceId",
+          "ResultCode": "ResultCode"},
 }
 
-winrm = {  # Microsoft-Windows-WinRM/Operational
-    # 6: Creating WSMan session
-    6: {"connection": "Connection"},
-
-    # 8: Closing WSMan session
-    8: {},
-
-    # 33: Closed WSMan session successfully
-    33: {},
-
-    # 169: User <X> authenticated successfully using <Y> authentication (not present in Win 10?)
-    169: {"username": "TargetUsername",
-          "authenticationMechanism": "authenticationMechanism"}
-}
-
-bits = {  # Microsoft-Windows-Bits-Client/Operational
-    # 59: BITS started the transfer job
-    59: {"transferId": "TransferId",
-         "name": "Name",
-         "Id": "JobId",
-         "url": "URL",
-         "peer": "Peer",
-         "fileTime": "FileTime",
-         "fileLength": "FileSize"},
-
-    # 60: BITS stopped transferring
-    60: {"transferId": "TransferId",
-         "name": "Name",
-         "Id": "JobId",
-         "url": "URL",
-         "peer": "Peer",
-         "fileTime": "FileTime",
-         "fileLength": "FileSize",
-         "bytesTotal": "BytesTotal",
-         "bytesTransferred": "BytesTransferred",
-         "bytesTransferredFromPeer": "BytesTransferredFromPeer"}
+symantec = {  # Symantec Endpoint Protection Client
+    # 51: Detection Finish
+    51: {}
 }
 
 wdef = {  # Microsoft-Windows-Windows Defender/Operational
@@ -1145,7 +1112,40 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Product Version": "ProductVersion"},
 }
 
-symantec = {  # Symantec Endpoint Protection Client
-    # 51: Detection Finish
-    51: {}
+winrm = {  # Microsoft-Windows-WinRM/Operational
+    # 6: Creating WSMan session
+    6: {"connection": "Connection"},
+
+    # 8: Closing WSMan session
+    8: {},
+
+    # 33: Closed WSMan session successfully
+    33: {},
+
+    # 169: User <X> authenticated successfully using <Y> authentication (not present in Win 10?)
+    169: {"username": "TargetUsername",
+          "authenticationMechanism": "authenticationMechanism"}
+}
+
+wmi = {  # Microsoft-Windows-WMI-Activity/Operational
+    # 5857: wmiprvse execution
+    5857: {"ProviderName": "ProviderName",
+           "Code": "ResultCode",
+           "HostProcess": "ProcessName",
+           "ProcessID": "ProcessID",
+           "ProviderPath": "ProviderPath"},
+
+    # Registration of temporary event consumer
+    5860: {"NamespaceName": "Namespace",
+           "Query": "Query",
+           "User": "Username",
+           "Processid": "ProcessId",
+           "ClientMachine": "Hostname",
+           "PossibleCause": "PossibleCause"},
+
+    # Registration of permanent event consumer
+    5861: {"Namespace": "Namespace",
+           "ESS": "ESS",
+           "CONSUMER": "Consumer",
+           "PossibleCause": "PossibleCause"}
 }
