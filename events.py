@@ -702,6 +702,7 @@ pshello = {  # Microsoft-Windows-PowerShell/Operational
 
     # 8194: Creating RunspacePool object (Session created)
     8194: {"InstanceId": "InstanceId",
+           "MaxRunspaces": "MaxRunspaces",
            "MinRunspaces": "MinRunspaces"},
 
     # 8197: Status of session
