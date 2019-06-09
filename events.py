@@ -541,8 +541,13 @@ sys = {  # System
           "Channel": "EventLogName",
           "BackupPath": "BackupPath"},
 
-    # 1001: Windows Error Reporting
-    1001: {},  # TODO
+    # 7034: The %1 service terminated unexpectedly. It has done this %2 time(s)
+    7034: {"param1": "ServiceName",
+           "param2": "Count"},
+
+    # 7035: The %1 service was successfully sent a %2 control
+    7035: {"param1": "ServiceName",
+           "param2": "Control"},
 
     # 7036: The %1 service entered the %2 state
     7036: {"param1": "ServiceName",
@@ -692,8 +697,25 @@ pshello = {  # Microsoft-Windows-PowerShell/Operational
            "ScriptBlockId": "ScriptBlockId",
            "Path": "Path"},
 
-    # Status of session
-    8197: {"param1": "Status"}
+    # 8193: Creating Runspace object (Session created)
+    8193: {"param1": "InstanceId"},
+
+    # 8194: Creating RunspacePool object (Session created)
+    8194: {"InstanceId": "InstanceId",
+           "MinRunspaces": "MinRunspaces"},
+
+    # 8197: Status of session
+    8197: {"param1": "Status"},
+
+    # 40961: PowerShell console is starting up
+    40961: {},  # empty
+
+    # 40962: PowerShell console is ready for user input
+    40962: {},  # empty
+
+    # 53504: Windows PowerShell has started an IPC listening thread on <ProcessPath> in <AppDomain>
+    53504: {"param1": "ProcessPath",
+            "param2": "AppDomain"}
 }
 
 rcm = {  # Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational
@@ -1113,16 +1135,26 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
 }
 
 winrm = {  # Microsoft-Windows-WinRM/Operational
-    # 6: Creating WSMan session
+    # 6: Creating WSMan session. The connection string is <Connection>
     6: {"connection": "Connection"},
 
     # 8: Closing WSMan session
-    8: {},
+    8: {},  # empty
 
-    # 33: Closed WSMan session successfully
-    33: {},
+    # 15: Closing WSMan command
+    15: {},  # empty
 
-    # 169: User <X> authenticated successfully using <Y> authentication (not present in Win 10?)
+    # 16: Closing WSMan shell
+    16: {},  # empty
+
+    # 33: Closing WSMan session completed successfully
+    33: {},  # empty
+
+    # 91: Creating WSMan shell on server with <ResourceUri>
+    91: {"resourceUri": "ResourceUri",
+         "shellId": "ShellId"},
+
+    # 169: User <X> authenticated successfully using <Y> authentication (Windows 7 only?)
     169: {"username": "TargetUsername",
           "authenticationMechanism": "authenticationMechanism"}
 }
