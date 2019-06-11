@@ -679,7 +679,7 @@ pshell = {  # Windows PowerShell
 
     403: {},
 
-    600: {}
+    800: {}
 }
 
 pshello = {  # Microsoft-Windows-PowerShell/Operational
