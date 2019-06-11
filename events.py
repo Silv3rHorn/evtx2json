@@ -569,6 +569,75 @@ sys = {  # System
     9009: {"Param1": "ExitCode"}
 }
 
+appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
+    # An instance of Program Data Updater (PDU) ran with the following information... (Windows 7, 8 only?)
+    800: {"StartTime": "StartTime",
+          "StopTime": "StopTime",
+          "ExitCode": "ExitCode",
+          "NumNewPrograms": "NumNewPrograms",
+          "NumRemovedPrograms": "NumRemovedPrograms",
+          "NumUpdatedPrograms": "NumUpdatedPrograms",
+          "NumInstalledPrograms": "NumInstalledPrograms",
+          "NumNewOrphans": "NumNewOrphans",
+          "NumNewAddOns": "NumNewAddOns",
+          "NumRemovedAddOns": "NumRemovedAddOns",
+          "NumUpdatedAddOns": "NumUpdatedAddOns",
+          "NumInstalledAddOns": "NumInstalledAddOns",
+          "NumNewInstallations": "NumNewInstallations"}
+}
+
+appexp2 = {  # Microsoft-Windows-Application-Experience/Program-Telemetry
+    # 500: Compatibility fix applied to <ProcessPath>.  Fix information: <FixName>, <FixId>, <Flags>
+    500: {"ProcessId": "ProcessId",
+          "ExePath": "ProcessPath",
+          "StartTime": "StartTime",
+          "FixID": "FixId",
+          "FixName": "FixName",
+          "Flags": "Flags"},
+
+    # 501: Compatibility fix applied to <ProcessPath>.  Fix information: <FixName>, <FixId>, <Flags>
+    501: {"ProcessId": "ProcessId",
+          "ExePath": "ProcessPath",
+          "StartTime": "StartTime",
+          "FixID": "FixId",
+          "FixName": "FixName",
+          "Flags": "Flags"},
+
+    # 502: Compatibility fix applied to <MsiPath>.  Fix information: <FixName>, <FixId>, <Flags>
+    502: {"ClientProcessId": "ProcessId",
+          "ClientStartTime": "StartTime",
+          "FixID": "FixId",
+          "FixName": "FixName",
+          "Flags": "Flags",
+          "ProductCode": "ProductCode",
+          "PackageCode": "PackageCode",
+          "MsiPath": "MsiPath"},
+
+    # 503: Compatibility fix applied to <MsiPath>.  Fix information: <FixName>, <FixId>, <Flags>
+    503: {"ClientProcessId": "ProcessId",
+          "ClientStartTime": "StartTime",
+          "FixID": "FixId",
+          "FixName": "FixName",
+          "Flags": "Flags",
+          "ProductCode": "ProductCode",
+          "PackageCode": "PackageCode",
+          "MsiPath": "MsiPath"},
+}
+
+applocker = {  # Microsoft-Windows-AppLocker/EXE and DLL
+    # 8004: <FilePath> was prevented from running
+    8004: {"PolicyNameBuffer": "PolicyName",
+           "RuleId": "RuleId",
+           "RuleNameBuffer": "RuleName",
+           "RuleSddlBuffer": "RuleSddl",
+           "TargetUser": "TargetUsername",
+           "TargetLogonId": "TargetLogonId",
+           "TargetProcessId": "TargetProcessId",
+           "FilePathBuffer": "FilePath",
+           "FileHash": "FileHash",
+           "Fqbn": "Fqbn"}
+}
+
 bits = {  # Microsoft-Windows-Bits-Client/Operational
     # 59: BITS started the transfer job
     59: {"transferId": "TransferId",
@@ -590,6 +659,21 @@ bits = {  # Microsoft-Windows-Bits-Client/Operational
          "bytesTotal": "BytesTotal",
          "bytesTransferred": "BytesTransferred",
          "bytesTransferredFromPeer": "BytesTransferredFromPeer"}
+}
+
+diag = {  # Microsoft-Windows-Diagnostics-Performance/Operational
+    # 100: Windows has started up
+    100: {"BootStartTime": "BootStartTime",
+          "BootEndTime": "BootEndTime",
+          "SystemBootInstance": "SystemBootInstance",
+          "UserBootInstance": "UserBootInstance",
+          "BootTime": "BootTime",  # in milliseconds
+          "UserLogonWaitDuration": "UserLogonWaitDuration"},
+
+    # 200: Windows has shutdown
+    200: {"ShutdownStartTime": "ShutdownStartTime",
+          "ShutdownEndTime": "ShutdownEndTime",
+          "ShutdownTime": "ShutdownTime"}  # in milliseconds
 }
 
 fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
@@ -636,6 +720,16 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "ModifyingApplication": "ProcessPath"},
 }
 
+offlinef = {  # Microsoft-Windows-OfflineFiles/Operational
+    # 7: User logon detected: <Username> <Session>
+    7: {"Account": "TargetUsername",
+        "Session": "TargetSession"},
+
+    # 8: User logoff detected: <Username> <Session>
+    8: {"Account": "TargetUsername",
+        "Session": "TargetSession"},
+}
+
 lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
     # 21: Remote Desktop Services: Session logon succeeded
     21: {"User": "TargetUsername",
@@ -674,7 +768,7 @@ lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
          "SessionID": "TargetSessionId"}
 }
 
-pshell = {  # Windows PowerShell
+pshell1 = {  # Windows PowerShell
     400: {},
 
     403: {},
@@ -682,7 +776,7 @@ pshell = {  # Windows PowerShell
     800: {}
 }
 
-pshello = {  # Microsoft-Windows-PowerShell/Operational
+pshell2 = {  # Microsoft-Windows-PowerShell/Operational
     # 4103: Module logging
     4103: {"MessageNumber": "MessageNumber",
            "MessageTotal": "MessageTotal",
@@ -785,6 +879,26 @@ sch = {  # Microsoft-Windows-TaskScheduler/Operational
           "ActionName": "ApplicationPath",
           "TaskInstanceId": "TaskInstanceId",
           "ResultCode": "ResultCode"},
+}
+
+shell = {  # Microsoft-Windows-Shell-Core/Operational
+    # 9707: Started execution of <Command> from Run/RunOnce
+    9707: {"Command": "Command"},
+
+    # 9708: Finished execution of <Command> (PID <ProcessPid>) from Run/RunOnce
+    9708: {"Command": "Command",
+           "PID": "ProcessId"}
+}
+
+smbclient = {  # Microsoft-Windows-SmbClient/Security
+    # 31001: Failed logon to destination
+    31001: {"Reason": "Reason",
+            "Status": "Status",
+            "SecurityStatus": "SecurityStatus",
+            "TargetLogonId": "TargetLogonId",
+            "UserName": "TargetUsername",
+            "ServerName": "ServerName",
+            "PrincipalName": "PrincipalName"}
 }
 
 symantec = {  # Symantec Endpoint Protection Client
@@ -1079,13 +1193,13 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     2050: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Filename": "FileName",
-           "Sha256": "SHA256"},
+           "Sha256": "FileHash"},
 
     # 2051: <ProductName> has encountered an error trying to upload a suspicious file for further analysis
     2051: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Filename": "FileName",
-           "Sha256": "SHA256",
+           "Sha256": "FileHash",
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion",
            "Error Code": "ErrorCode"},
