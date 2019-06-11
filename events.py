@@ -676,6 +676,113 @@ diag = {  # Microsoft-Windows-Diagnostics-Performance/Operational
           "ShutdownTime": "ShutdownTime"}  # in milliseconds
 }
 
+dns = {  # Microsoft-Windows-DNSServer/Analytical
+    # 256: Query received
+    256: {"TCP": "TCP",
+          "InterfaceIP": "InterfaceIP",
+          "Source": "Source",
+          "RD": "RD",
+          "QNAME": "QueryName",
+          "QTYPE": "QueryType",
+          "XID": "XID",
+          "Port": "Port",
+          "Flags": "Flags",
+          "PacketData": "PacketData",
+          "AdditionalInfo": "AdditionalInfo"},
+
+    # 257: Response success
+    257: {"TCP": "TCP",
+          "InterfaceIP": "InterfaceIP",
+          "Destination": "Destination",
+          "AA": "AA",
+          "AD": "AD",
+          "QNAME": "QueryName",
+          "QTYPE": "QueryType",
+          "XID": "XID",
+          "DNSSEC": "DNSSEC",
+          "RCODE": "RCode",
+          "Port": "Port",
+          "Flags": "Flags",
+          "Scope": "Scope",
+          "Zone": "Zone",
+          "PolicyName": "PolicyName",
+          "PacketData": "PacketData",
+          "AdditionalInfo": "AdditionalInfo"},
+
+    # 258: Response failure
+    258: {"TCP": "TCP",
+          "InterfaceIP": "InterfaceIP",
+          "Reason": "Reason",
+          "Destination": "Destination",
+          "QNAME": "QueryName",
+          "QTYPE": "QueryType",
+          "XID": "XID",
+          "RCODE": "RCode",
+          "Port": "Port",
+          "Flags": "Flags",
+          "Zone": "Zone",
+          "PolicyName": "PolicyName",
+          "PacketData": "PacketData",
+          "AdditionalInfo": "AdditionalInfo"},
+
+    # 259: Ignored query
+    259: {"TCP": "TCP",
+          "InterfaceIP": "InterfaceIP",
+          "Source": "Source",
+          "Reason": "Reason",
+          "QNAME": "QueryName",
+          "QTYPE": "QueryType",
+          "XID": "XID",
+          "Zone": "Zone",
+          "PolicyName": "PolicyName",
+          "AdditionalInfo": "AdditionalInfo"},
+
+    # 260: Recurse query out
+    260: {"TCP": "TCP",
+          "InterfaceIP": "InterfaceIP",
+          "Destination": "Destination",
+          "RD": "RD",
+          "QNAME": "QueryName",
+          "QTYPE": "QueryType",
+          "XID": "XID",
+          "Port": "Port",
+          "Flags": "Flags",
+          "RecursionScope": "RecursionScope",
+          "CacheScope": "CacheScope",
+          "PolicyName": "PolicyName",
+          "PacketData": "PacketData",
+          "AdditionalInfo": "AdditionalInfo"},
+
+    # 261: Recurse response in
+    261: {"TCP": "TCP",
+          "InterfaceIP": "InterfaceIP",
+          "Source": "Source",
+          "AA": "AA",
+          "AD": "AD",
+          "QNAME": "QueryName",
+          "QTYPE": "QueryType",
+          "XID": "XID",
+          "Port": "Port",
+          "Flags": "Flags",
+          "RecursionScope": "RecursionScope",
+          "CacheScope": "CacheScope",
+          "PacketData": "PacketData",
+          "AdditionalInfo": "AdditionalInfo"},
+
+    # 262: Recurse query timeout
+    262: {"TCP": "TCP",
+          "InterfaceIP": "InterfaceIP",
+          "Destination": "Destination",
+          "QNAME": "QueryName",
+          "QTYPE": "QueryType",
+          "XID": "XID",
+          "Port": "Port",
+          "Flags": "Flags",
+          "RecursionScope": "RecursionScope",
+          "CacheScope": "CacheScope",
+          "AdditionalInfo": "AdditionalInfo"},
+}
+
 fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
     # 2004: A rule has been added to the Windows Firewall exception list
     2004: {"RuleId": "RuleId",
