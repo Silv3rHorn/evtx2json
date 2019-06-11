@@ -101,7 +101,7 @@ sec = {  # Security
            "SubjectLogonId": "LogonId",
            "ObjectName": "RegKey",
            "ObjectValueName": "RegValue",
-           "OperationType": "ModType",
+           "OperationType": "OperationType",
            "OldValueType": "OldValueType",
            "OldValue": "OldValue",
            "NewValueType": "NewValueType",
@@ -182,7 +182,7 @@ sec = {  # Security
            "NewProcessId": "NewProcessId",
            "NewProcessName": "NewProcessPath",
            "TokenElevationType": "TokenElevationType",  # %% format
-           "CommandLine": "CommandLine",  # Win 8.1+
+           "CommandLine": "Command",  # Win 8.1+
            "ProcessId": "ProcessId",
            # Win 10+
            "ParentProcessName": "ProcessPath",
@@ -261,7 +261,7 @@ sec = {  # Security
            "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
-           "PrivilegeList": "Privilege List",
+           "PrivilegeList": "PrivilegeList",
            "SamAccountName": "SamAccountName",
            "DisplayName": "DisplayName",
            "UserPrincipalName": "UserPrincipalName",
@@ -382,7 +382,7 @@ sec = {  # Security
            "PreAuthType": "PreAuthType",  # to convert
            "IpAddress": "IP",
            "IpPort": "Port",
-           "CertIssuerName": "CertIssuerName",
+           "CertIssuerName": "CertIssuer",
            "CertSerialNumber": "CertSerialNumber",
            "CertThumbprint": "CertThumbprint"},
 
@@ -626,7 +626,7 @@ appexp2 = {  # Microsoft-Windows-Application-Experience/Program-Telemetry
 
 applocker = {  # Microsoft-Windows-AppLocker/EXE and DLL
     # 8004: <FilePath> was prevented from running
-    8004: {"PolicyNameBuffer": "PolicyName",
+    8004: {"PolicyNameBuffer": "Policy",
            "RuleId": "RuleId",
            "RuleNameBuffer": "RuleName",
            "RuleSddlBuffer": "RuleSddl",
@@ -705,7 +705,7 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "Flags": "Flags",
           "Scope": "Scope",
           "Zone": "Zone",
-          "PolicyName": "PolicyName",
+          "PolicyName": "Policy",
           "PacketData": "PacketData",
           "AdditionalInfo": "AdditionalInfo"},
 
@@ -721,7 +721,7 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "Port": "Port",
           "Flags": "Flags",
           "Zone": "Zone",
-          "PolicyName": "PolicyName",
+          "PolicyName": "Policy",
           "PacketData": "PacketData",
           "AdditionalInfo": "AdditionalInfo"},
 
@@ -734,7 +734,7 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "QTYPE": "QueryType",
           "XID": "XID",
           "Zone": "Zone",
-          "PolicyName": "PolicyName",
+          "PolicyName": "Policy",
           "AdditionalInfo": "AdditionalInfo"},
 
     # 260: Recurse query out
@@ -749,7 +749,7 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "Flags": "Flags",
           "RecursionScope": "RecursionScope",
           "CacheScope": "CacheScope",
-          "PolicyName": "PolicyName",
+          "PolicyName": "Policy",
           "PacketData": "PacketData",
           "AdditionalInfo": "AdditionalInfo"},
 
@@ -793,7 +793,7 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "Direction": "Direction",  # to convert
            "Protocol": "Protocol",  # to convert
            "LocalPorts": "TargetPort",
-           "RemotePorts": "RemotePort",
+           "RemotePorts": "RemotePorts",
            "Action": "Action",  # to convert
            "Profiles": "Profiles",  # to convert
            "LocalAddresses": "TargetIP",
@@ -811,7 +811,7 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "Direction": "Direction",  # to convert
            "Protocol": "Protocol",  # to convert
            "LocalPorts": "TargetPort",
-           "RemotePorts": "RemotePort",
+           "RemotePorts": "RemotePorts",
            "Action": "Action",  # to convert
            "Profiles": "Profiles",  # to convert
            "LocalAddresses": "TargetIP",
@@ -830,11 +830,11 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
 offlinef = {  # Microsoft-Windows-OfflineFiles/Operational
     # 7: User logon detected: <Username> <Session>
     7: {"Account": "TargetUsername",
-        "Session": "TargetSession"},
+        "Session": "TargetSessionId"},
 
     # 8: User logoff detected: <Username> <Session>
     8: {"Account": "TargetUsername",
-        "Session": "TargetSession"},
+        "Session": "TargetSessionId"},
 }
 
 lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
@@ -1017,13 +1017,13 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     # 1006: <ProductName> has detected malware or other potentially unwanted software
     1006: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
-           "Detection ID": "DetectionID",
+           "Detection ID": "DetectionId",
            "Detection Source": "Source",
            "Process Name": "ProcessPath",
            "Domain": "Domain",
            "User": "Username",
            "SID": "SID",
-           "Threat ID": "ThreatID",
+           "Threat ID": "ThreatId",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
            "Category Name": "Category",
@@ -1038,12 +1038,12 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     # 1007: <ProductName> has taken action to protect this machine from malware or other potentially unwanted software
     1007: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
-           "Detection ID": "DetectionID",
+           "Detection ID": "DetectionId",
            "Status Description": "Status",
            "Domain": "Domain",
            "User": "Username",
            "SID": "SID",
-           "Threat ID": "ThreatID",
+           "Threat ID": "ThreatId",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
            "Category Name": "Category",
@@ -1056,12 +1056,12 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     # 1008: <ProductName> has encountered an error when taking action on malware or other potentially unwanted software
     1008: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
-           "Detection ID": "DetectionID",
+           "Detection ID": "DetectionId",
            "Status Description": "Status",
            "Domain": "Domain",
            "User": "Username",
            "SID": "SID",
-           "Threat ID": "ThreatID",
+           "Threat ID": "ThreatId",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
            "Category Name": "Category",
@@ -1078,7 +1078,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Domain": "Domain",
            "User": "Username",
            "SID": "SID",
-           "Threat ID": "ThreatID",
+           "Threat ID": "ThreatId",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
            "Category Name": "Category",
@@ -1095,7 +1095,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Domain": "Domain",
            "User": "Username",
            "SID": "SID",
-           "Threat ID": "ThreatID",
+           "Threat ID": "ThreatId",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
            "Category Name": "Category",
@@ -1110,7 +1110,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Domain": "Domain",
            "User": "Username",
            "SID": "SID",
-           "Threat ID": "ThreatID",
+           "Threat ID": "ThreatId",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
            "Category Name": "Category",
@@ -1127,7 +1127,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Domain": "Domain",
            "User": "Username",
            "SID": "SID",
-           "Threat ID": "ThreatID",
+           "Threat ID": "ThreatId",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
            "Category Name": "Category",
@@ -1139,13 +1139,13 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     # 1015: <ProductName> has detected a suspicious behavior
     1015: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
-           "Detection ID": "DetectionID",
+           "Detection ID": "DetectionId",
            "Detection Source": "Source",
            "Process Name": "ProcessPath",
            "Domain": "Domain",
            "User": "Username",
            "SID": "SID",
-           "Threat ID": "ThreatID",
+           "Threat ID": "ThreatId",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
            "Category Name": "Category",
@@ -1156,8 +1156,8 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Detection Type": "Type",
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion",
-           "Process ID": "ProcessID",
-           "Signature ID": "Signature ID",
+           "Process ID": "ProcessId",
+           "Signature ID": "SignatureId",
            "FidelityValue": "FidelityValue",
            "FidelityLabel": "FidelityLabel",
            "Image File Hash": "ImageFileHash",
@@ -1167,7 +1167,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     # 1116: <ProductName> has detected malware or other potentially unwanted software
     1116: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
-           "Detection ID": "DetectionID",
+           "Detection ID": "DetectionId",
            "Detection Time": "DetectionTime",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
@@ -1193,7 +1193,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     # 1117: <ProductName> has taken action to protect this machine from malware or other potentially unwanted software
     1117: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
-           "Detection ID": "DetectionID",
+           "Detection ID": "DetectionId",
            "Detection Time": "DetectionTime",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
@@ -1220,7 +1220,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     # other potentially unwanted software
     1118: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
-           "Detection ID": "DetectionID",
+           "Detection ID": "DetectionId",
            "Detection Time": "DetectionTime",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
@@ -1247,7 +1247,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     # other potentially unwanted software
     1119: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
-           "Detection ID": "DetectionID",
+           "Detection ID": "DetectionId",
            "Detection Time": "DetectionTime",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
@@ -1273,7 +1273,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     # 1160: <ProductName has detected potentially unwanted application (PUA)
     1160: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
-           "Detection ID": "DetectionID",
+           "Detection ID": "DetectionId",
            "Detection Time": "DetectionTime",
            "Threat Name": "Threat",
            "Severity Name": "Severity",
@@ -1322,8 +1322,8 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     # 5004: <ProductName> Real-time Protection feature configuration has changed
     5004: {"Product Name": "ProductName",
            "Product Version": "ProductVersion",
-           "Feature Name": "FeatureName",
-           "Feature ID": "FeatureID"},
+           "Feature Name": "Feature",
+           "Feature ID": "FeatureId"},
 
     # 5007: <ProductName> Configuration has changed.
     # If this is an unexpected event you should review the settings as this may be the result of malware
@@ -1378,7 +1378,7 @@ winrm = {  # Microsoft-Windows-WinRM/Operational
 
     # 169: User <X> authenticated successfully using <Y> authentication (Windows 7 only?)
     169: {"username": "TargetUsername",
-          "authenticationMechanism": "authenticationMechanism"}
+          "authenticationMechanism": "AuthenticationMechanism"}
 }
 
 wmi = {  # Microsoft-Windows-WMI-Activity/Operational
