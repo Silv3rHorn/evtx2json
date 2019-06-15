@@ -1,12 +1,12 @@
 sec = {  # Security
-    # 1102: The audit log was cleared
-    1102: {"SubjectUserSid": "SID",
+    1102: {"Descr": "The audit log was cleared",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId"},
 
-    # 4616: The system time was changed
-    4616: {"SubjectUserSid": "SID",
+    4616: {"Descr": "The system time was changed",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -15,8 +15,8 @@ sec = {  # Security
            "ProcessId": "ProcessId",  # Win 7+
            "ProcessName": "ProcessPath"},  # Win 7+
 
-    # 4624: An account was successfully logged on
-    4624: {"SubjectUserSid": "SID",
+    4624: {"Descr": "An account was successfully logged on",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -35,8 +35,8 @@ sec = {  # Security
            "RestrictedAdminMode": "RestrictedAdminMode",  # Win 10+
            "ElevatedToken": "ElevatedToken"},  # Win 10+
 
-    # 4625: An account failed to log on
-    4625: {"SubjectUserSid": "SID",
+    4625: {"Descr": "An account failed to log on",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -54,8 +54,8 @@ sec = {  # Security
            "ProcessId": "ProcessId",
            "ProcessName": "ProcessPath"},
 
-    # 4627: Group membership information
-    4627: {"SubjectUserSid": "SID",
+    4627: {"Descr": "Group membership information",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -65,21 +65,21 @@ sec = {  # Security
            "LogonType": "LogonType",
            "GroupMembership": "GroupMembership"},  # to convert
 
-    # 4634: An account was logged off
-    4634: {"TargetUserSid": "TargetSID",
+    4634: {"Descr": "An account was logged off",
+           "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
            "TargetLogonId": "TargetLogonId",
            "LogonType": "LogonType"},  # to convert
 
-    # 4647: User initiated logoff
-    4647: {"TargetUserSid": "TargetSID",
+    4647: {"Descr": "User initiated logoff",
+           "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
            "TargetLogonId": "TargetLogonId"},
 
-    # 4648: A logon was attempted using explicit credentials
-    4648: {"SubjectUserSid": "SID",
+    4648: {"Descr": "A logon was attempted using explicit credentials",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -94,8 +94,8 @@ sec = {  # Security
            "ProcessId": "ProcessId",
            "ProcessName": "ProcessPath"},
 
-    # 4657: A registry value was modified
-    4657: {"SubjectUserSid": "SID",
+    4657: {"Descr": "A registry value was modified",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -109,8 +109,8 @@ sec = {  # Security
            "ProcessId": "ProcessId",
            "ProcessName": "ProcessPath"},
 
-    # 4661: A handle to an object was requested
-    4661: {"SubjectUserSid": "SID",
+    4661: {"Descr": "A handle to an object was requested",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -127,8 +127,8 @@ sec = {  # Security
            "ProcessId": "ProcessId",
            "ProcessName": "ProcessPath"},
 
-    # 4662: An operation was performed on an object
-    4662: {"SubjectUserSid": "SID",
+    4662: {"Descr": "An operation was performed on an object",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -141,8 +141,8 @@ sec = {  # Security
            "AccessMask": "AccessMask",  # alternate representation of AccessList
            "Properties": "Properties"},
 
-    # 4663: An attempt was made to access an object
-    4663: {"SubjectUserSid": "SID",
+    4663: {"Descr": "An attempt was made to access an object",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -156,15 +156,15 @@ sec = {  # Security
            "ProcessName": "ProcessPath",
            "ResourceAttributes": "ResourceAttributes"},
 
-    # 4672: Special privileges assigned to new logon
-    4672: {"SubjectUserSid": "SID",
+    4672: {"Descr": "Special privileges assigned to new logon",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
            "PrivilegeList": "PrivilegeList"},
 
-    # 4673: A privileged service was called
-    4673: {"SubjectUserSid": "SID",
+    4673: {"Descr": "A privileged service was called",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -174,8 +174,8 @@ sec = {  # Security
            "ProcessId": "ProcessId",
            "ProcessName": "ProcessPath"},
 
-    # 4688: A new process has been created
-    4688: {"SubjectUserSid": "SID",
+    4688: {"Descr": "A new process has been created",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -192,8 +192,8 @@ sec = {  # Security
            "TargetDomainName": "TargetDomain",
            "TargetLogonId": "TargetLogonId"},
 
-    # 4697: A service was installed in the system
-    4697: {"SubjectUserSid": "SID",
+    4697: {"Descr": "A service was installed in the system",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -203,48 +203,48 @@ sec = {  # Security
            "ServiceStartType": "ServiceStartType",  # to convert
            "ServiceAccount": "Username"},
 
-    # 4698: A scheduled task was created
-    4698: {"SubjectUserSid": "SID",
+    4698: {"Descr": "A scheduled task was created",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
            "TaskName": "TaskName",
            "TaskContent": "TaskContent"},
 
-    # 4699: A scheduled task was deleted
-    4699: {"SubjectUserSid": "SID",
+    4699: {"Descr": "A scheduled task was deleted",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
            "TaskName": "TaskName",
            "TaskContent": "TaskContent"},
 
-    # 4700: A scheduled task was enabled
-    4700: {"SubjectUserSid": "SID",
+    4700: {"Descr": "A scheduled task was enabled",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
            "TaskName": "TaskName",
            "TaskContent": "TaskContent"},
 
-    # 4701: A scheduled task was disabled
-    4701: {"SubjectUserSid": "SID",
+    4701: {"Descr": "A scheduled task was disabled",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
            "TaskName": "TaskName",
            "TaskContent": "TaskContent"},
 
-    # 4702: A scheduled task was updated
-    4702: {"SubjectUserSid": "SID",
+    4702: {"Descr": "A scheduled task was updated",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
            "TaskName": "TaskName",
            "TaskContentNew": "TaskContent"},
 
-    # 4719: System audit policy was changed
-    4719: {"SubjectUserSid": "SID",
+    4719: {"Descr": "System audit policy was changed",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -253,8 +253,8 @@ sec = {  # Security
            "SubcategoryGuid": "SubcategoryGuid",  # %% format
            "AuditPolicyChanges": "AuditPolicyChanges"},  # %% format (multiple, joined with ', ')
 
-    # 4720: A user account was created
-    4720: {"SubjectUserSid": "SID",
+    4720: {"Descr": "A user account was created",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -279,8 +279,8 @@ sec = {  # Security
            "LogonHours": "LogonHours",
            "UserAccountControl": "UserAccountControl"},  # to convert (%% joined with ' ')
 
-    # 4726: A user account was deleted
-    4726: {"SubjectUserSid": "SID",
+    4726: {"Descr": "A user account was deleted",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -288,8 +288,8 @@ sec = {  # Security
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain"},
 
-    # 4728: A member was added to a security enabled global group
-    4728: {"SubjectUserSid": "SID",
+    4728: {"Descr": "A member was added to a security-enabled global group",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -300,8 +300,8 @@ sec = {  # Security
            "TargetDomainName": "TargetDomain",
            "PrivilegeList": "PrivilegeList"},
 
-    # 4732: A member was added to a security-enabled local group
-    4732: {"SubjectUserSid": "SID",
+    4732: {"Descr": "A member was added to a security-enabled local group",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -312,8 +312,8 @@ sec = {  # Security
            "TargetDomainName": "TargetDomain",
            "PrivilegeList": "PrivilegeList"},
 
-    # 4738: A user account was changed  # non-changed values are -, so ignore values that are -?
-    4738: {"SubjectUserSid": "SID",
+    4738: {"Descr": "A user account was changed",  # non-changed values are -
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -340,8 +340,8 @@ sec = {  # Security
            "LogonHours": "LogonHours",
            "UserAccountControl": "UserAccountControl"},  # %% format
 
-    # 4741: A computer account was created
-    4741: {"SubjectUserSid": "SID",
+    4741: {"Descr": "A computer account was created",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -370,8 +370,8 @@ sec = {  # Security
            "DnsHostName": "Hostname",
            "ServicePrincipalNames": "SPNs"},
 
-    # 4768: A Kerberos authentication ticket (TGT) was requested
-    4768: {"TargetUserSid": "TargetSID",
+    4768: {"Descr": "A Kerberos authentication ticket (TGT) was requested",
+           "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
            "ServiceSid": "ServiceSID",
@@ -386,8 +386,8 @@ sec = {  # Security
            "CertSerialNumber": "CertSerialNumber",
            "CertThumbprint": "CertThumbprint"},
 
-    # 4769: A Kerberos service ticket was requested
-    4769: {"TargetUserName": "TargetUsername",
+    4769: {"Descr": "A Kerberos service ticket was requested",
+           "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
            "ServiceSid": "ServiceSID",
            "ServiceName": "ServiceName",
@@ -400,8 +400,8 @@ sec = {  # Security
            "LogonGuid": "LogonGUID",
            "TransmittedServices": "TransmittedServices"},
 
-    # 4771: Kerberos pre-authentication failed
-    4771: {"TargetUserName": "TargetUsername",
+    4771: {"Descr": "Kerberos pre-authentication failed",
+           "TargetUserName": "TargetUsername",
            "TargetSid": "TargetSID",
            "ServiceName": "ServiceName",
            "TicketOptions": "TicketOptions",  # to convert
@@ -410,29 +410,29 @@ sec = {  # Security
            "IpAddress": "IP",
            "IpPort": "Port"},
 
-    # 4776: The computer attempted to validate the credentials for an account
-    4776: {"TargetUserName": "TargetUsername",
+    4776: {"Descr": "The computer attempted to validate the credentials for an account",
+           "TargetUserName": "TargetUsername",
            "Workstation": "WorkstationName",
            "Status": "ResultCode"},  # to convert
 
-    # 4778: A session was reconnected to a Window Station
-    4778: {"AccountName": "TargetUsername",
+    4778: {"Descr": "A session was reconnected to a Window Station",
+           "AccountName": "TargetUsername",
            "AccountDomain": "TargetDomain",
            "LogonID": "TargetLogonId",
            "SessionName": "SessionName",
            "ClientName": "WorkstationName",
            "ClientAddress": "IP"},
 
-    # 4779: A session was disconnected from a Window Station
-    4779: {"AccountName": "TargetUsername",
+    4779: {"Descr": "A session was disconnected from a Window Station",
+           "AccountName": "TargetUsername",
            "AccountDomain": "TargetDomain",
            "LogonID": "TargetLogonId",
            "SessionName": "SessionName",
            "ClientName": "WorkstationName",
            "ClientAddress": "IP"},
 
-    # 4798: A user's local group membership was enumerated
-    4798: {"SubjectUserSid": "SID",
+    4798: {"Descr": "A user's local group membership was enumerated",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -442,8 +442,8 @@ sec = {  # Security
            "CallerProcessId": "ProcessId",
            "CallerProcessName": "ProcessPath"},
 
-    # 4799: A security-enabled local group membership was enumerated
-    4799: {"SubjectUserSid": "SID",
+    4799: {"Descr": "A security-enabled local group membership was enumerated",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -453,15 +453,15 @@ sec = {  # Security
            "CallerProcessId": "ProcessId",
            "CallerProcessName": "ProcessPath"},
 
-    # 4825: A user was denied the access to Remote Desktop. By default,
-    # users are allowed to connect only if they are members of the Remote Desktop Users group or Administrators group.
-    4825: {"AccountName": "TargetUsername",
+    4825: {"Descr": "A user was denied the access to Remote Desktop. By default, users are allowed to connect only "
+                    "if they are members of the Remote Desktop Users group or Administrators group",
+           "AccountName": "TargetUsername",
            "AccountDomain": "TargetDomain",
            "LogonID": "TargetLogonId",
            "ClientAddress": "IP"},
 
-    # 5140: A network share object was accessed
-    5140: {"SubjectUserSid": "SID",
+    5140: {"Descr": "A network share object was accessed",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -472,24 +472,24 @@ sec = {  # Security
            "IpPort": "Port",
            "AccessList": "AccessList"},  # %% format
 
-    # 5142: A network share object was added
-    5142: {"SubjectUserSid": "SID",
+    5142: {"Descr": "A network share object was added",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
            "ShareName": "ShareName",
            "ShareLocalPath": "ShareLocalPath"},
 
-    # 5144: A network share object was deleted
-    5144: {"SubjectUserSid": "SID",
+    5144: {"Descr": "A network share object was deleted",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
            "ShareName": "ShareName",
            "ShareLocalPath": "ShareLocalPath"},
 
-    # 5145: A network share object was checked to see whether client can be granted desired access
-    5145: {"SubjectUserSid": "SID",
+    5145: {"Descr": "A network share object was checked to see whether client can be granted desired access",
+           "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
@@ -503,8 +503,8 @@ sec = {  # Security
            "AccessMask": "AccessMask",  # alternate representation of AccessList
            "AccessReason": "AccessReason"},
 
-    # 5152: The Windows Filtering Platform blocked a packet
-    5152: {"ProcessId": "ProcessId",
+    5152: {"Descr": "The Windows Filtering Platform has blocked a packet",
+           "ProcessId": "ProcessId",
            "Application": "ProcessPath",
            "Direction": "Direction",  # %% format
            "SourceAddress": "IP",
@@ -513,8 +513,8 @@ sec = {  # Security
            "DestPort": "TargetPort",
            "Protocol": "Protocol"},  # to convert
 
-    # 5156: The Windows Filtering Platform has permitted a connection
-    5156: {"ProcessId": "ProcessId",
+    5156: {"Descr": "The Windows Filtering Platform has permitted a connection",
+           "ProcessId": "ProcessId",
            "Application": "ProcessPath",
            "Direction": "Direction",  # %% format
            "IpAddress": "IP",
@@ -525,53 +525,53 @@ sec = {  # Security
            "RemoteUserID": "TargetSID",
            "RemoteMachineID": "TargetMachineSID"},
 
-    # 5158: The Windows Filtering Platform has permitted a bind to a local port
-    5158: {"ProcessId": "ProcessId",
+    5158: {"Descr": "The Windows Filtering Platform has permitted a bind to a local port",
+           "ProcessId": "ProcessId",
            "Application": "ProcessPath",
            "Direction": "Direction",  # %% format
            "SourceAddress": "IP",
            "SourcePort": "Port",
-           "Protocol": "Protocol"},  # to convert
+           "Protocol": "Protocol"}  # to convert
 }
 
 sys = {  # System
-    # 104: Clearing of event log
-    104: {"SubjectUserName": "Username",
+    104: {"Descr": "The <EventLogName> log file was cleared",
+          "SubjectUserName": "Username",
           "SubjectDomainName": "Domain",
           "Channel": "EventLogName",
           "BackupPath": "BackupPath"},
 
-    # 7034: The %1 service terminated unexpectedly. It has done this %2 time(s)
-    7034: {"param1": "ServiceName",
+    7034: {"Descr": "The <ServiceName> terminated unexpectedly. It has done this <Count> time(s)",
+           "param1": "ServiceName",
            "param2": "Count"},
 
-    # 7035: The %1 service was successfully sent a %2 control
-    7035: {"param1": "ServiceName",
+    7035: {"Descr": "The <ServiceName> was successfully sent a <Control>",
+           "param1": "ServiceName",
            "param2": "Control"},
 
-    # 7036: The %1 service entered the %2 state
-    7036: {"param1": "ServiceName",
+    7036: {"Descr": "The <ServiceName> entered the <StatusAfter> state",
+           "param1": "ServiceName",
            "param2": "StatusAfter"},
 
-    # 7040: The start type of a service was changed
-    7040: {"param1": "ServiceName",
+    7040: {"Descr": "The start type of <ServiceName> was changed from <StatusBefore> to <StatusAfter>",
+           "param1": "ServiceName",
            "param2": "StatusBefore",
            "param3": "StatusAfter"},
 
-    # 7045: A service was installed on the system
-    7045: {"ServiceName": "ServiceName",
+    7045: {"Descr": "A service was installed on the system",
+           "ServiceName": "ServiceName",
            "ImagePath": "ServicePath",
            "ServiceType": "ServiceType",
            "StartType": "StartType",
            "AccountName": "Username"},
 
-    # 9009: The Desktop Window Manager has exited with code <x>
-    9009: {"Param1": "ExitCode"}
+    9009: {"Descr": "The Desktop Window Manager has exited with code <ExitCode>",  # classic event, incorrect channel?
+           "Param1": "ExitCode"}
 }
 
 appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
-    # An instance of Program Data Updater (PDU) ran with the following information... (Windows 7, 8 only?)
-    800: {"StartTime": "StartTime",
+    800: {"Descr": "An instance of Program Data Updater (PDU) ran with the following information...",  # Win7 - 8.1
+          "StartTime": "StartTime",
           "StopTime": "StopTime",
           "ExitCode": "ExitCode",
           "NumNewPrograms": "NumNewPrograms",
@@ -587,24 +587,24 @@ appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
 }
 
 appexp2 = {  # Microsoft-Windows-Application-Experience/Program-Telemetry
-    # 500: Compatibility fix applied to <ProcessPath>.  Fix information: <FixName>, <FixId>, <Flags>
-    500: {"ProcessId": "ProcessId",
+    500: {"Descr": "Compatibility fix applied to <ProcessPath>.  Fix information: <FixName>, <FixId>, <Flags>",
+          "ProcessId": "ProcessId",
           "ExePath": "ProcessPath",
           "StartTime": "StartTime",
           "FixID": "FixId",
           "FixName": "FixName",
           "Flags": "Flags"},
 
-    # 501: Compatibility fix applied to <ProcessPath>.  Fix information: <FixName>, <FixId>, <Flags>
-    501: {"ProcessId": "ProcessId",
+    501: {"Descr": "Compatibility fix applied to <ProcessPath>.  Fix information: <FixName>, <FixId>, <Flags>",
+          "ProcessId": "ProcessId",
           "ExePath": "ProcessPath",
           "StartTime": "StartTime",
           "FixID": "FixId",
           "FixName": "FixName",
           "Flags": "Flags"},
 
-    # 502: Compatibility fix applied to <MsiPath>.  Fix information: <FixName>, <FixId>, <Flags>
-    502: {"ClientProcessId": "ProcessId",
+    502: {"Descr": "Compatibility fix applied to <MsiPath>.  Fix information: <FixName>, <FixId>, <Flags>",
+          "ClientProcessId": "ProcessId",
           "ClientStartTime": "StartTime",
           "FixID": "FixId",
           "FixName": "FixName",
@@ -613,20 +613,20 @@ appexp2 = {  # Microsoft-Windows-Application-Experience/Program-Telemetry
           "PackageCode": "PackageCode",
           "MsiPath": "MsiPath"},
 
-    # 503: Compatibility fix applied to <MsiPath>.  Fix information: <FixName>, <FixId>, <Flags>
-    503: {"ClientProcessId": "ProcessId",
+    503: {"Descr": "Compatibility fix applied to <MsiPath>.  Fix information: <FixName>, <FixId>, <Flags>",
+          "ClientProcessId": "ProcessId",
           "ClientStartTime": "StartTime",
           "FixID": "FixId",
           "FixName": "FixName",
           "Flags": "Flags",
           "ProductCode": "ProductCode",
           "PackageCode": "PackageCode",
-          "MsiPath": "MsiPath"},
+          "MsiPath": "MsiPath"}
 }
 
 applocker = {  # Microsoft-Windows-AppLocker/EXE and DLL
-    # 8004: <FilePath> was prevented from running
-    8004: {"PolicyNameBuffer": "Policy",
+    8004: {"Descr": "<FilePath> was prevented from running",
+           "PolicyNameBuffer": "Policy",
            "RuleId": "RuleId",
            "RuleNameBuffer": "RuleName",
            "RuleSddlBuffer": "RuleSddl",
@@ -639,8 +639,8 @@ applocker = {  # Microsoft-Windows-AppLocker/EXE and DLL
 }
 
 bits = {  # Microsoft-Windows-Bits-Client/Operational
-    # 59: BITS started the transfer job
-    59: {"transferId": "TransferId",
+    59: {"Descr": "BITS started the <Name> transfer job that is associated with the <URL>",
+         "transferId": "TransferId",
          "name": "Name",
          "Id": "JobId",
          "url": "URL",
@@ -648,8 +648,8 @@ bits = {  # Microsoft-Windows-Bits-Client/Operational
          "fileTime": "FileTime",
          "fileLength": "FileSize"},
 
-    # 60: BITS stopped transferring
-    60: {"transferId": "TransferId",
+    60: {"Descr": "BITS stopped transferring the <Name> transfer job that is associated with the <URL>",
+         "transferId": "TransferId",
          "name": "Name",
          "Id": "JobId",
          "url": "URL",
@@ -662,23 +662,23 @@ bits = {  # Microsoft-Windows-Bits-Client/Operational
 }
 
 diag = {  # Microsoft-Windows-Diagnostics-Performance/Operational
-    # 100: Windows has started up
-    100: {"BootStartTime": "BootStartTime",
+    100: {"Descr": "Windows has started up",
+          "BootStartTime": "BootStartTime",
           "BootEndTime": "BootEndTime",
           "SystemBootInstance": "SystemBootInstance",
           "UserBootInstance": "UserBootInstance",
           "BootTime": "BootTime",  # in milliseconds
           "UserLogonWaitDuration": "UserLogonWaitDuration"},
 
-    # 200: Windows has shutdown
-    200: {"ShutdownStartTime": "ShutdownStartTime",
+    200: {"Descr": "Windows has shutdown",
+          "ShutdownStartTime": "ShutdownStartTime",
           "ShutdownEndTime": "ShutdownEndTime",
           "ShutdownTime": "ShutdownTime"}  # in milliseconds
 }
 
-dns = {  # Microsoft-Windows-DNSServer/Analytical
-    # 256: Query received
-    256: {"TCP": "TCP",
+dns = {  # Microsoft-Windows-DNSServer/Analytical (Windows Server 2016+)
+    256: {"Descr": "Query received",
+          "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Source": "Source",
           "RD": "RD",
@@ -690,8 +690,8 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "PacketData": "PacketData",
           "AdditionalInfo": "AdditionalInfo"},
 
-    # 257: Response success
-    257: {"TCP": "TCP",
+    257: {"Descr": "Response success",
+          "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Destination": "Destination",
           "AA": "AA",
@@ -709,8 +709,8 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "PacketData": "PacketData",
           "AdditionalInfo": "AdditionalInfo"},
 
-    # 258: Response failure
-    258: {"TCP": "TCP",
+    258: {"Descr": "Response failure",
+          "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Reason": "Reason",
           "Destination": "Destination",
@@ -725,8 +725,8 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "PacketData": "PacketData",
           "AdditionalInfo": "AdditionalInfo"},
 
-    # 259: Ignored query
-    259: {"TCP": "TCP",
+    259: {"Descr": "Ignored query",
+          "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Source": "Source",
           "Reason": "Reason",
@@ -737,8 +737,8 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "PolicyName": "Policy",
           "AdditionalInfo": "AdditionalInfo"},
 
-    # 260: Recurse query out
-    260: {"TCP": "TCP",
+    260: {"Descr": "Recurse query out",
+          "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Destination": "Destination",
           "RD": "RD",
@@ -753,8 +753,8 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "PacketData": "PacketData",
           "AdditionalInfo": "AdditionalInfo"},
 
-    # 261: Recurse response in
-    261: {"TCP": "TCP",
+    261: {"Descr": "Recurse response in",
+          "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Source": "Source",
           "AA": "AA",
@@ -769,8 +769,8 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "PacketData": "PacketData",
           "AdditionalInfo": "AdditionalInfo"},
 
-    # 262: Recurse query timeout
-    262: {"TCP": "TCP",
+    262: {"Descr": "Recurse query timeout",
+          "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Destination": "Destination",
           "QNAME": "QueryName",
@@ -780,12 +780,12 @@ dns = {  # Microsoft-Windows-DNSServer/Analytical
           "Flags": "Flags",
           "RecursionScope": "RecursionScope",
           "CacheScope": "CacheScope",
-          "AdditionalInfo": "AdditionalInfo"},
+          "AdditionalInfo": "AdditionalInfo"}
 }
 
 fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-    # 2004: A rule has been added to the Windows Firewall exception list
-    2004: {"RuleId": "RuleId",
+    2004: {"Descr": "A rule has been added to the Windows Firewall exception list",
+           "RuleId": "RuleId",
            "RuleName": "RuleName",
            "Origin": "Origin",  # to convert
            "ApplicationPath": "ApplicationPath",
@@ -802,8 +802,8 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "ModifyingUser": "SID",
            "ModifyingApplication": "ProcessPath"},
 
-    # 2005: A rule has been modified in the Windows Firewall exception list
-    2005: {"RuleId": "RuleId",
+    2005: {"Descr": "A rule has been modified in the Windows Firewall exception list",
+           "RuleId": "RuleId",
            "RuleName": "RuleName",
            "Origin": "Origin",  # to convert
            "ApplicationPath": "ApplicationPath",
@@ -820,202 +820,199 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "ModifyingUser": "SID",
            "ModifyingApplication": "ProcessPath"},
 
-    # 2006: A rule has been deleted in the Windows Firewall exception list
-    2006: {"RuleId": "RuleId",
+    2006: {"Descr": "A rule has been deleted in the Windows Firewall exception list",
+           "RuleId": "RuleId",
            "RuleName": "RuleName",
            "ModifyingUser": "SID",
-           "ModifyingApplication": "ProcessPath"},
+           "ModifyingApplication": "ProcessPath"}
 }
 
 offlinef = {  # Microsoft-Windows-OfflineFiles/Operational
-    # 7: User logon detected: <Username> <Session>
-    7: {"Account": "TargetUsername",
+    7: {"Descr": "User logon detected: <Username> <Session>",
+        "Account": "TargetUsername",
         "Session": "TargetSessionId"},
 
-    # 8: User logoff detected: <Username> <Session>
-    8: {"Account": "TargetUsername",
-        "Session": "TargetSessionId"},
+    8: {"Descr": "User logoff detected: <Username> <Session>",
+        "Account": "TargetUsername",
+        "Session": "TargetSessionId"}
 }
 
 lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
-    # 21: Remote Desktop Services: Session logon succeeded
-    21: {"User": "TargetUsername",
+    21: {"Descr": "Remote Desktop Services: Session logon succeeded",
+         "User": "TargetUsername",
          "SessionID": "TargetSessionId",
          "Address": "IP"},
 
-    # 22: Remote Desktop Services: Shell start notification received
-    22: {"User": "TargetUsername",
+    22: {"Descr": "Remote Desktop Services: Shell start notification received",
+         "User": "TargetUsername",
          "SessionID": "TargetSessionId",
          "Address": "IP"},
 
-    # 23: Remote Desktop Services: Session logoff succeeded
-    23: {"User": "TargetUsername",
+    23: {"Descr": "Remote Desktop Services: Session logoff succeeded",
+         "User": "TargetUsername",
          "SessionID": "TargetSessionId"},
 
-    # 24: Remote Desktop Services: Session has been disconnected
-    24: {"User": "TargetUsername",
+    24: {"Descr": "Remote Desktop Services: Session has been disconnected",
+         "User": "TargetUsername",
          "SessionID": "TargetSessionId",
          "Address": "IP"},
 
-    # 24: Remote Desktop Services: Session reconnection succeeded
-    25: {"User": "TargetUsername",
+    25: {"Descr": "Remote Desktop Services: Session reconnection succeeded",
+         "User": "TargetUsername",
          "SessionID": "TargetSessionId",
          "Address": "IP"},
 
-    # 39: Session <X> has been disconnected by session <Y>
-    39: {"TargetSession": "TargetSessionId",
+    39: {"Descr": "<TargetSessionId> has been disconnected by session <SessionId>",
+         "TargetSession": "TargetSessionId",
          "Source": "SessionId"},
 
-    # 40: Session <X> has been disconnected, reason code <Z>
-    40: {"Session": "TargetSessionId",
+    40: {"Descr": "<TargetSessionId> has been disconnected, <Reason>",
+         "Session": "TargetSessionId",
          "Reason": "Reason"},  # to convert
 
-    # 41: Begin session arbitration (Win10+ ?)
-    41: {"User": "TargetUsername",
+    41: {"Descr": "Begin session arbitration",  # Win8.1+
+         "User": "TargetUsername",
          "SessionID": "TargetSessionId"}
 }
 
 pshell1 = {  # Windows PowerShell
-    400: {},
+    400: {"Descr": "Engine state is changed from <PreviousEngineState> to <NewEngineState>"},  # start of session
 
-    403: {},
+    403: {"Descr": "Engine state is changed from <PreviousEngineState> to <NewEngineState>"},  # end of session
 
-    800: {}
+    500: {"Descr": "Command <CommandName> is <NewCommandState>"},  # start of execution
+
+    501: {"Descr": "Command <CommandName> is <NewCommandState>"},  # end of execution
+
+    800: {"Descr": "Pipeline execution details for command line: <CommandLine>"}
 }
 
 pshell2 = {  # Microsoft-Windows-PowerShell/Operational
-    # 4103: Module logging
-    4103: {"MessageNumber": "MessageNumber",
+    4103: {"Descr": "<Payload> Context: <ContextInfo>",  # Module logging
+           "UserData": "UserData",
+           "Payload": "Payload"},
+
+    4104: {"Descr": "Creating Scriptblock text (<MessageNumber> of <MessageTotal>)",  # Scriptblock module logging
+           "MessageNumber": "MessageNumber",
            "MessageTotal": "MessageTotal",
            "ScriptBlockText": "ScriptBlockText",
            "ScriptBlockId": "ScriptBlockId",
            "Path": "Path"},
 
-    # 4104: Scriptblock module loading
-    4104: {"MessageNumber": "MessageNumber",
-           "MessageTotal": "MessageTotal",
-           "ScriptBlockText": "ScriptBlockText",
-           "ScriptBlockId": "ScriptBlockId",
-           "Path": "Path"},
+    8193: {"Descr": "Creating Runspace object",  # Session created
+           "param1": "InstanceId"},
 
-    # 8193: Creating Runspace object (Session created)
-    8193: {"param1": "InstanceId"},
-
-    # 8194: Creating RunspacePool object (Session created)
-    8194: {"InstanceId": "InstanceId",
+    8194: {"Descr": "Creating RunspacePool object",  # Session created
+           "InstanceId": "InstanceId",
            "MaxRunspaces": "MaxRunspaces",
            "MinRunspaces": "MinRunspaces"},
 
-    # 8197: Status of session
-    8197: {"param1": "Status"},
+    8197: {"Descr": "Runspace state changed to <Status>",  # Session status
+           "param1": "Status"},
 
-    # 40961: PowerShell console is starting up
-    40961: {},  # empty
+    40961: {"Descr": "PowerShell console is starting up"},  # empty
 
-    # 40962: PowerShell console is ready for user input
-    40962: {},  # empty
+    40962: {"Descr": "PowerShell console is ready for user input"},  # empty
 
-    # 53504: Windows PowerShell has started an IPC listening thread on <ProcessPath> in <AppDomain>
-    53504: {"param1": "ProcessPath",
+    53504: {"Descr": "Windows PowerShell has started an IPC listening thread on <ProcessPath> in <AppDomain>",
+            "param1": "ProcessPath",
             "param2": "AppDomain"}
 }
 
 rcm = {  # Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational
-    # 1149: An RDP session has been successfully established
-    1149: {"Param1": "TargetUsername",
+    1149: {"Descr": "Remote Desktop Services: User authentication established",
+           "Param1": "TargetUsername",
            "Param2": "TargetDomain",
            "Param3": "IP"}
 }
 
 rdpclient = {  # Microsoft-Windows-TerminalServices-RDPClient/Operational
-    # 1024: RDP ClientActiveX is trying to connect to the server (<X>)
-    1024: {"Value": "TargetHostname"},
+    1024: {"Descr": "RDP ClientActiveX is trying to connect to <TargetHost>",
+           "Value": "TargetHost"},
 
-    # 1026: RDP ClientActiveX has been disconnected (Reason= <X>)
-    1026: {"Value": "Reason"},
+    1026: {"Descr": "RDP ClientActiveX has been disconnected: <Reason>",
+           "Value": "Reason"},
 
-    # 1027: Connected to domain (<X>) with session <Y>
-    1027: {"DomainName": "TargetDomain",
+    1027: {"Descr": "Connected to <TargetDomain> with <TargetSessionId>",
+           "DomainName": "TargetDomain",
            "SessionID": "TargetSessionId"},
 
-    # 1029: Base64(SHA256(UserName)) is = <X>
-    1029: {"TraceMessage": "TargetUsername"},
+    1029: {"Descr": "This event is raised during the connection process: Base64(SHA256(<TargetUsername))",
+           "TraceMessage": "TargetUsername"},
 
-    # Destination IP
-    1102: {"Value": "TargetIP"}
+    1102: {"Descr": "This event is raised during the connection process",
+           "Value": "TargetIP"}
 }
 
 rdpcorets = {  # Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational
-    # 131: The server accepted a new <X> connection from client <Y>
-    131: {"ConnType": "Protocol",
-          "ClientIP": "IPPort"},
+    98: {"Descr": "A TCP connection has been successfully established"},
 
-    # 98: A TCP connection has been successfully established
-    98: {}
+    131: {"Descr": "The server accepted a new <Protocol> connection from <IPPort>",
+          "ConnType": "Protocol",
+          "ClientIP": "IPPort"}
 }
 
 sch = {  # Microsoft-Windows-TaskScheduler/Operational
-    # 106: A new job was scheduled
-    106: {"TaskName": "TaskName",
+    106: {"Descr": "<Username> registered Task Scheduler <TaskName>",
+          "TaskName": "TaskName",
           "UserContext": "Username"},
 
-    # 118: Task triggered by computer startup
-    118: {"TaskName": "TaskName",
+    118: {"Descr": "Task Scheduler launched <TaskInstanceId> of <TaskName> due to system startup",
+          "TaskName": "TaskName",
           "InstanceId": "TaskInstanceId"},
 
-    # 119: Task triggered on logon
-    119: {"TaskName": "TaskName",
+    119: {"Descr": "Task Scheduler launched <TaskInstanceId of <TaskName> due to <Username> logon",
+          "TaskName": "TaskName",
           "UserName": "Username",
           "InstanceId": "TaskInstanceId"},
 
-    # 140: Scheduled task updated
-    140: {"TaskName": "TaskName",
+    140: {"Descr": "<Username> updated Task Scheduler <TaskName>",
+          "TaskName": "TaskName",
           "UserName": "Username"},
 
-    # 141: Scheduled task deleted
-    141: {"TaskName": "TaskName",
+    141: {"Descr": "<Username> deleted Task Scheduler <TaskName>",
+          "TaskName": "TaskName",
           "UserName": "Username"},
 
-    # 200: Scheduled task started
-    200: {"TaskName": "TaskName",
+    200: {"Descr": "Task Scheduler launched <ActionName> in <TaskInstanceId of <TaskName>",
+          "TaskName": "TaskName",
           "ActionName": "ApplicationPath",
           "TaskInstanceId": "TaskInstanceId"},
 
-    # 201: Scheduled task completed
-    201: {"TaskName": "TaskName",
+    201: {"Descr": "Task Scheduler successfully completed <TaskName>, <TaskInstanceId>, <ApplicationPath>",
+          "TaskName": "TaskName",
           "ActionName": "ApplicationPath",
           "TaskInstanceId": "TaskInstanceId",
           "ResultCode": "ResultCode"},
 }
 
 shell = {  # Microsoft-Windows-Shell-Core/Operational
-    # 9707: Started execution of <Command> from Run/RunOnce
-    9707: {"Command": "Command"},
+    9707: {"Descr": "Started execution of <Command>",  # from Run/RunOnce?
+           "Command": "Command"},
 
-    # 9708: Finished execution of <Command> (PID <ProcessPid>) from Run/RunOnce
-    9708: {"Command": "Command",
+    9708: {"Descr": "Finished execution of <Command> (PID <ProcessPid>)",  # from Run/RunOnce
+           "Command": "Command",
            "PID": "ProcessId"}
 }
 
 smbclient = {  # Microsoft-Windows-SmbClient/Security
-    # 31001: Failed logon to destination
-    31001: {"Reason": "Reason",
+    31001: {"Descr": "Failed logon to <ServerName>",
+            "Reason": "Reason",
             "Status": "Status",
             "SecurityStatus": "SecurityStatus",
             "TargetLogonId": "TargetLogonId",
             "UserName": "TargetUsername",
-            "ServerName": "ServerName",
-            "PrincipalName": "PrincipalName"}
+            "ServerName": "ServerName",  # TODO - change to TargetHost?
+            "PrincipalName": "PrincipalName"}  # TODO - change to SPN?
 }
 
 symantec = {  # Symantec Endpoint Protection Client
-    # 51: Detection Finish
-    51: {}
+    51: {"Descr": "Detection Finish"}  # TODO
 }
 
 wdef = {  # Microsoft-Windows-Windows Defender/Operational
-    # 1006: <ProductName> has detected malware or other potentially unwanted software
-    1006: {"Product Name": "ProductName",
+    1006: {"Descr": "<ProductName> has detected malware or other potentially unwanted software",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
            "Detection Source": "Source",
@@ -1035,8 +1032,9 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"},
 
-    # 1007: <ProductName> has taken action to protect this machine from malware or other potentially unwanted software
-    1007: {"Product Name": "ProductName",
+    1007: {"Descr": "<ProductName> has taken action to protect this machine from malware or "
+                    "other potentially unwanted software",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
            "Status Description": "Status",
@@ -1053,8 +1051,9 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"},
 
-    # 1008: <ProductName> has encountered an error when taking action on malware or other potentially unwanted software
-    1008: {"Product Name": "ProductName",
+    1008: {"Descr": "<ProductName> has encountered an error when taking action on malware or "
+                    "other potentially unwanted software",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
            "Status Description": "Status",
@@ -1072,8 +1071,8 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"},
 
-    # 1009: <ProductName> has restored an item from quarantine
-    1009: {"Product Name": "ProductName",
+    1009: {"Descr": "<ProductName> has restored an item from quarantine",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Domain": "Domain",
            "User": "Username",
@@ -1087,40 +1086,8 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"},
 
-    # 1010: <ProductName> has encountered an error trying to restore an item from quarantine
-    1010: {"Product Name": "ProductName",
-           "Product Version": "ProductVersion",
-           "Error Code": "ErrorCode",
-           "Error Description": "Error",
-           "Domain": "Domain",
-           "User": "Username",
-           "SID": "SID",
-           "Threat ID": "ThreatId",
-           "Threat Name": "Threat",
-           "Severity Name": "Severity",
-           "Category Name": "Category",
-           "FWLink": "Link",
-           "Path": "Path",
-           "Signature Version": "SignatureVersion",
-           "Engine Version": "EngineVersion"},
-
-    # 1011: <ProductName> has deleted an item from quarantine
-    1011: {"Product Name": "ProductName",
-           "Product Version": "ProductVersion",
-           "Domain": "Domain",
-           "User": "Username",
-           "SID": "SID",
-           "Threat ID": "ThreatId",
-           "Threat Name": "Threat",
-           "Severity Name": "Severity",
-           "Category Name": "Category",
-           "FWLink": "Link",
-           "Path": "Path",
-           "Signature Version": "SignatureVersion",
-           "Engine Version": "EngineVersion"},
-
-    # 1012: <ProductName> has encountered an error trying to restore an item from quarantine
-    1012: {"Product Name": "ProductName",
+    1010: {"Descr": "<ProductName> has encountered an error trying to restore an item from quarantine",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Error Code": "ErrorCode",
            "Error Description": "Error",
@@ -1136,8 +1103,40 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"},
 
-    # 1015: <ProductName> has detected a suspicious behavior
-    1015: {"Product Name": "ProductName",
+    1011: {"Descr": "<ProductName> has deleted an item from quarantine",
+           "Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Domain": "Domain",
+           "User": "Username",
+           "SID": "SID",
+           "Threat ID": "ThreatId",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Path": "Path",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    1012: {"Descr": "<ProductName> has encountered an error trying to restore an item from quarantine",
+           "Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Error Code": "ErrorCode",
+           "Error Description": "Error",
+           "Domain": "Domain",
+           "User": "Username",
+           "SID": "SID",
+           "Threat ID": "ThreatId",
+           "Threat Name": "Threat",
+           "Severity Name": "Severity",
+           "Category Name": "Category",
+           "FWLink": "Link",
+           "Path": "Path",
+           "Signature Version": "SignatureVersion",
+           "Engine Version": "EngineVersion"},
+
+    1015: {"Descr": "<ProductName> has detected a suspicious behavior",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
            "Detection Source": "Source",
@@ -1164,8 +1163,8 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "TargetFileName": "TargetFileName",
            "TargetFileHash": "TargetFileHash"},
 
-    # 1116: <ProductName> has detected malware or other potentially unwanted software
-    1116: {"Product Name": "ProductName",
+    1116: {"Descr": "<ProductName> has detected malware or other potentially unwanted software",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
            "Detection Time": "DetectionTime",
@@ -1190,8 +1189,9 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"},
 
-    # 1117: <ProductName> has taken action to protect this machine from malware or other potentially unwanted software
-    1117: {"Product Name": "ProductName",
+    1117: {"Descr": "<ProductName> has taken action to protect this machine from malware or "
+                    "other potentially unwanted software",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
            "Detection Time": "DetectionTime",
@@ -1216,9 +1216,9 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"},
 
-    # 1118: <ProductName> has encountered a non-critical error when taking action on malware or
-    # other potentially unwanted software
-    1118: {"Product Name": "ProductName",
+    1118: {"Descr": "<ProductName> has encountered a non-critical error when taking action on malware or "
+                    "other potentially unwanted software",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
            "Detection Time": "DetectionTime",
@@ -1243,9 +1243,9 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"},
 
-    # 1119: <ProductName> has encountered a critical error when taking action on malware or
-    # other potentially unwanted software
-    1119: {"Product Name": "ProductName",
+    1119: {"Descr": "<ProductName> has encountered a critical error when taking action on malware or "
+                    "other potentially unwanted software",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
            "Detection Time": "DetectionTime",
@@ -1270,8 +1270,8 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"},
 
-    # 1160: <ProductName has detected potentially unwanted application (PUA)
-    1160: {"Product Name": "ProductName",
+    1160: {"Descr": "<ProductName has detected potentially unwanted application (PUA)",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
            "Detection Time": "DetectionTime",
@@ -1296,14 +1296,14 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Signature Version": "SignatureVersion",
            "Engine Version": "EngineVersion"},
 
-    # 2050: <ProductName> has uploaded a file for further analysis
-    2050: {"Product Name": "ProductName",
+    2050: {"Descr": "<ProductName> has uploaded a file for further analysis",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Filename": "FileName",
            "Sha256": "FileHash"},
 
-    # 2051: <ProductName> has encountered an error trying to upload a suspicious file for further analysis
-    2051: {"Product Name": "ProductName",
+    2051: {"Descr": "<ProductName> has encountered an error trying to upload a suspicious file for further analysis",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Filename": "FileName",
            "Sha256": "FileHash",
@@ -1311,94 +1311,92 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Engine Version": "EngineVersion",
            "Error Code": "ErrorCode"},
 
-    # 5000: <ProductName> Real-time Protection scanning for malware and other potentially unwanted software was enabled
-    5000: {"Product Name": "ProductName",
+    5000: {"Descr": "<ProductName> Real-time Protection scanning for malware and "
+                    "other potentially unwanted software was enabled",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion"},
 
-    # 5001: <ProductName> Real-time Protection scanning for malware and other potentially unwanted software was disabled
-    5001: {"Product Name": "ProductName",
+    5001: {"Descr": "<ProductName> Real-time Protection scanning for malware and "
+                    "other potentially unwanted software was disabled",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion"},
 
-    # 5004: <ProductName> Real-time Protection feature configuration has changed
-    5004: {"Product Name": "ProductName",
+    5004: {"Descr": "<ProductName> Real-time Protection feature configuration has changed",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Feature Name": "Feature",
            "Feature ID": "FeatureId"},
 
-    # 5007: <ProductName> Configuration has changed.
-    # If this is an unexpected event you should review the settings as this may be the result of malware
-    5007: {"Product Name": "ProductName",
+    5007: {"Descr": "<ProductName> Configuration has changed. "
+                    "If this is unexpected, you should review the settings as this may be the result of malware",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Old Value": "OldValue",
            "New Value": "NewValue"},
 
-    # 5008: <ProductName> engine has been terminated due to an unexpected error
-    5008: {"Product Name": "ProductName",
+    5008: {"Descr": "<ProductName> engine has been terminated due to an unexpected error",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Resource": "Resource",
            "Failure Type": "FailureType",
            "Exception Code": "ExceptionCode"},
 
-    # 5009: <ProductName> scanning for spyware and other potentially unwanted software has been enabled
-    5009: {"Product Name": "ProductName",
+    5009: {"Descr": "<ProductName> scanning for spyware and other potentially unwanted software has been enabled",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion"},
 
-    # 5010: <ProductName> scanning for spyware and other potentially unwanted software is disabled
-    5010: {"Product Name": "ProductName",
+    5010: {"Descr": "<ProductName> scanning for spyware and other potentially unwanted software is disabled",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion"},
 
-    # 5011: <ProductName> scanning for viruses has been enabled
-    5011: {"Product Name": "ProductName",
+    5011: {"Descr": "<ProductName> scanning for viruses has been enabled",
+           "Product Name": "ProductName",
            "Product Version": "ProductVersion"},
 
-    # 5012: <ProductName> scanning for viruses is disabled
-    5012: {"Product Name": "ProductName",
-           "Product Version": "ProductVersion"},
+    5012: {"Descr": "<ProductName> scanning for viruses is disabled",
+           "Product Name": "ProductName",
+           "Product Version": "ProductVersion"}
 }
 
 winrm = {  # Microsoft-Windows-WinRM/Operational
-    # 6: Creating WSMan session. The connection string is <Connection>
-    6: {"connection": "Connection"},
+    6: {"Descr": "Creating WSMan session. The connection string is <Connection>",
+        "connection": "Connection"},
 
-    # 8: Closing WSMan session
-    8: {},  # empty
+    8: {"Descr": "Closing WSMan session"},  # empty
 
-    # 15: Closing WSMan command
-    15: {},  # empty
+    15: {"Descr": "Closing WSMan command"},  # empty
 
-    # 16: Closing WSMan shell
-    16: {},  # empty
+    16: {"Descr": "Closing WSMan shell"},  # empty
 
-    # 33: Closing WSMan session completed successfully
-    33: {},  # empty
+    33: {"Descr": "Closing WSMan session completed successfully"},  # empty
 
-    # 91: Creating WSMan shell on server with <ResourceUri>
-    91: {"resourceUri": "ResourceUri",
+    91: {"Descr": "Creating WSMan shell on server with <ResourceUri>",
+         "resourceUri": "ResourceUri",
          "shellId": "ShellId"},
 
-    # 169: User <X> authenticated successfully using <Y> authentication (Windows 7 only?)
-    169: {"username": "TargetUsername",
-          "authenticationMechanism": "AuthenticationMechanism"}
+    169: {"Descr": "<TargetUsername> authenticated successfully using <AuthMechanism>",  # Win7 only?
+          "username": "TargetUsername",
+          "authenticationMechanism": "AuthMechanism"}
 }
 
-wmi = {  # Microsoft-Windows-WMI-Activity/Operational
-    # 5857: wmiprvse execution
-    5857: {"ProviderName": "ProviderName",
+wmi = {  # Microsoft-Windows-WMI-Activity/Operational (Win8+)
+    5857: {"Descr": "<ProviderName> started with <ResultCode>",  # wmiprvse execution
+           "ProviderName": "ProviderName",
            "Code": "ResultCode",
            "HostProcess": "ProcessName",
            "ProcessID": "ProcessID",
            "ProviderPath": "ProviderPath"},
 
-    # Registration of temporary event consumer
-    5860: {"NamespaceName": "Namespace",
+    5860: {"Descr": "Registration of temporary event consumer",  # Win10 v1511+
+           "NamespaceName": "Namespace",
            "Query": "Query",
            "User": "Username",
-           "Processid": "ProcessId",
-           "ClientMachine": "Hostname",
+           "processid": "ProcessId",
+           "MachineName": "Hostname",
            "PossibleCause": "PossibleCause"},
 
-    # Registration of permanent event consumer
-    5861: {"Namespace": "Namespace",
+    5861: {"Descr": "Registration of permanent event consumer",  # Win10 v1607+
+           "Namespace": "Namespace",
            "ESS": "ESS",
            "CONSUMER": "Consumer",
            "PossibleCause": "PossibleCause"}

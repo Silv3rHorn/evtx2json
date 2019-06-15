@@ -57,18 +57,20 @@ def _map_to_message(string):
     return ', '.join(mapped_messages)
 
 
-def _parse_event(node, channel, supported_events):
+def _parse_event(node, channel, supported_events, options):
     event = dict()
-    event['*RecordID'] = int(node.xpath("/Event/System/EventRecordID")[0].text)
+    event['*Channel'] = channel
     event['*EventID'] = int(node.xpath("/Event/System/EventID")[0].text)
+    event['*RecordID'] = int(node.xpath("/Event/System/EventRecordID")[0].text)
     event['*Timestamp'] = node.xpath("/Event/System/TimeCreated")[0].get("SystemTime")
     event['*Hostname'] = node.xpath("/Event/System/Computer")[0].text
     event['*SID'] = node.xpath("/Event/System/Security")[0].get("UserID")
-    event['*Channel'] = channel
+    event_data = node.xpath("/Event/EventData/Data")
 
     fields = supported_events[event['*EventID']]
     se_keys = list(fields.keys())
-    event_data = node.xpath("/Event/EventData/Data")
+    if not options.nodescr:
+        event['*Descr'] = fields["Descr"]
 
     if len(event_data) > 0:
         for data in event_data:
@@ -164,7 +166,7 @@ def run(options, output_path):
                 if event_id not in supported_events:
                     continue  # skip record
 
-                parsed_record = _parse_event(node, channel, supported_events)
+                parsed_record = _parse_event(node, channel, supported_events, options)
                 if parsed_record:
                     if options.dedup:
                         if not _isdup(parsed_record, channel):
