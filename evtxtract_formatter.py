@@ -22,10 +22,7 @@ def _list_to_generator(list_to_convert):
 
 
 def to_lxml(record_xml):
-    rep_xml = record_xml.replace("xmlns=\"http://schemas.microsoft.com/win/2004/08/events/event\"", "")
-    rep_xml = rep_xml.replace("xmlns=\"http://manifests.microsoft.com/win/2004/08/windows/eventlog\"", "")
-    rep_xml = rep_xml.replace("xmlns=\"http://manifests.microsoft.com/win/2006/windows/WMI\"", "")
-    rep_xml = rep_xml.replace("xmlns=\"Event_NS\"", "")
+    rep_xml = re.sub(r' xmlns(:auto.*)?=\".+?\"', '', record_xml)  # xmlns="*" or xmlns:auto*="*"
     set_xml = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>%s" % rep_xml
     fin_xml = set_xml.encode("utf-8")
     return etree.fromstring(fin_xml)

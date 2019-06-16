@@ -98,7 +98,8 @@ def _parse_event(node, channel, supported_events, options):
             except KeyError:
                 event[value] = node.xpath(path)[0].text
             except IndexError:
-                logging.error("Index Error: {0}, {1}, {2}".format(event['*Channel'], event['*EventID'], key))
+                if key != "Descr":
+                    logging.error("Index Error: {0}, {1}, {2}".format(event['*Channel'], event['*EventID'], key))
 
     return json.dumps(event)
 
