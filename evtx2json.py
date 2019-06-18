@@ -8,6 +8,7 @@ import logging
 import mmh3
 import os
 import re
+import sqlite3
 import sys
 
 import events
@@ -78,13 +79,34 @@ def _parse_event(node, channel, supported_events, options):
             if data.get("Name") is None:
                 event['Data'] = data.text
             elif data.get("Name") in se_keys:
-                try:
-                    if data.text and '%%' in data.text:
-                        event[fields[data.get("Name")]] = _map_to_message(data.text)
-                    else:
-                        event[fields[data.get("Name")]] = data.text
-                except KeyError:
-                    event[fields[data.get("Name")]] = data.text
+                field_value = fields[data.get("Name")]
+                if field_value[0] == '+':  # '+' is and indicator to convert value with database
+                    field_value = field_value[1:]
+                    query = ''
+                    try:
+                        conn = sqlite3.connect('evtx2json.db')
+                        cur = conn.cursor()
+                        query = "SELECT decode.decoded FROM decode LEFT JOIN eventid ON decode.eventid = eventid.id " \
+                                "LEFT JOIN channel ON eventid.channel = channel.id WHERE channel.channel = '" + \
+                                channel + "'" + " AND eventid.eventid LIKE '%" + str(event['*EventID']) + "%'" + \
+                                " AND decode.fieldname = '" + data.get("Name") + "'" + \
+                                " AND decode.value = '" + data.text + "'"
+                        cur.execute(query)
+                        rows = cur.fetchall()
+                        event[field_value] = rows[0][0]
+                        conn.close()
+                    except (sqlite3.Error, IndexError):
+                        event[field_value] = data.text
+                        if data.text != '0' and data.text != '0x00000000':
+                            logging.error("SQLite/Index Error: {0}".format(query))
+                elif data.text and '%%' in data.text:
+                    try:
+                        event[field_value] = _map_to_message(data.text)
+                    except KeyError:
+                        event[field_value] = data.text
+
+                else:
+                    event[field_value] = data.text
     else:
         parent = "/Event/UserData/*/"
 

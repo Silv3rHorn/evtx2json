@@ -24,7 +24,7 @@ sec = {  # Security
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
            "TargetLogonId": "TargetLogonId",
-           "LogonType": "LogonType",  # to convert
+           "LogonType": "+LogonType",
            "WorkstationName": "WorkstationName",
            "LogonGuid": "LogonGUID",
            "TransmittedServices": "TransmittedServices",
@@ -43,12 +43,12 @@ sec = {  # Security
            "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
-           "LogonType": "LogonType",  # to convert
+           "LogonType": "+LogonType",
            "WorkstationName": "WorkstationName",
            "IpAddress": "IP",
            "IpPort": "Port",
            "LogonProcessName": "LogonProcessName",
-           "Status": "Status",  # to convert
+           "Status": "+Status",
            "FailureReason": "FailureReason",  # %% format
            "SubStatus": "SubStatus",
            "ProcessId": "ProcessId",
@@ -70,7 +70,7 @@ sec = {  # Security
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
            "TargetLogonId": "TargetLogonId",
-           "LogonType": "LogonType"},  # to convert
+           "LogonType": "+LogonType"},
 
     4647: {"Descr": "User initiated logoff",
            "TargetUserSid": "TargetSID",
@@ -186,7 +186,7 @@ sec = {  # Security
            "ProcessId": "ProcessId",
            # Win 10+
            "ParentProcessName": "ProcessPath",
-           "MandatoryLabel": "MandatoryLabel",  # to convert
+           "MandatoryLabel": "+MandatoryLabel",
            "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
@@ -199,8 +199,8 @@ sec = {  # Security
            "SubjectLogonId": "LogonId",
            "ServiceName": "ServiceName",
            "ServiceFileName": "ServicePath",
-           "ServiceType": "ServiceType",  # to convert
-           "ServiceStartType": "ServiceStartType",  # to convert
+           "ServiceType": "+ServiceType",
+           "ServiceStartType": "+ServiceStartType",
            "ServiceAccount": "Username"},
 
     4698: {"Descr": "A scheduled task was created",
@@ -277,7 +277,7 @@ sec = {  # Security
            "OldUacValue": "OldUacValue",
            "SidHistory": "SIDHistory",
            "LogonHours": "LogonHours",
-           "UserAccountControl": "UserAccountControl"},  # to convert (%% joined with ' ')
+           "UserAccountControl": "UserAccountControl"},  # %% format (multiple, joined with ' ')
 
     4726: {"Descr": "A user account was deleted",
            "SubjectUserSid": "SID",
@@ -361,7 +361,7 @@ sec = {  # Security
            "AccountExpires": "AccountExpires",
            "PrimaryGroupId": "PrimaryGroupId",
            "AllowedToDelegateTo": "AllowedToDelegateTo",
-           "OldUacValue": "OldUacValue",
+           "OldUacValue": "OldUacValue",  # to convert
            "NewUacValue": "NewUacValue",  # to convert
            "UserParameters": "UserParameters",
            "SidHistory": "SIDHistory",
@@ -376,10 +376,10 @@ sec = {  # Security
            "TargetDomainName": "TargetDomain",
            "ServiceSid": "ServiceSID",
            "ServiceName": "ServiceName",
-           "TicketOptions": "TicketOptions",  # to convert, bitflag
-           "Status": "ResultCode",  # to convert
-           "TicketEncryptionType": "TicketEncryptionType",  # to convert
-           "PreAuthType": "PreAuthType",  # to convert
+           "TicketOptions": "+TicketOptions",
+           "Status": "+ResultCode",
+           "TicketEncryptionType": "+TicketEncryptionType",
+           "PreAuthType": "+PreAuthType",
            "IpAddress": "IP",
            "IpPort": "Port",
            "CertIssuerName": "CertIssuer",
@@ -391,10 +391,10 @@ sec = {  # Security
            "TargetDomainName": "TargetDomain",
            "ServiceSid": "ServiceSID",
            "ServiceName": "ServiceName",
-           "TicketOptions": "TicketOptions",  # to convert
-           "Status": "ResultCode",  # to convert
-           "TicketEncryptionType": "TicketEncryptionType",  # to convert
-           "PreAuthType": "PreAuthType",  # to convert
+           "TicketOptions": "+TicketOptions",
+           "Status": "+ResultCode",
+           "TicketEncryptionType": "+TicketEncryptionType",
+           "PreAuthType": "+PreAuthType",
            "IpAddress": "IP",
            "IpPort": "Port",
            "LogonGuid": "LogonGUID",
@@ -404,16 +404,16 @@ sec = {  # Security
            "TargetUserName": "TargetUsername",
            "TargetSid": "TargetSID",
            "ServiceName": "ServiceName",
-           "TicketOptions": "TicketOptions",  # to convert
-           "Status": "ResultCode",  # to convert
-           "PreAuthType": "PreAuthType",  # to convert
+           "TicketOptions": "+TicketOptions",
+           "Status": "+ResultCode",
+           "PreAuthType": "+PreAuthType",
            "IpAddress": "IP",
            "IpPort": "Port"},
 
     4776: {"Descr": "The computer attempted to validate the credentials for an account",
            "TargetUserName": "TargetUsername",
            "Workstation": "WorkstationName",
-           "Status": "ResultCode"},  # to convert
+           "Status": "+ResultCode"},
 
     4778: {"Descr": "A session was reconnected to a Window Station",
            "AccountName": "TargetUsername",
@@ -511,7 +511,7 @@ sec = {  # Security
            "SourcePort": "Port",
            "DestAddress": "TargetIP",
            "DestPort": "TargetPort",
-           "Protocol": "Protocol"},  # to convert
+           "Protocol": "+Protocol"},
 
     5156: {"Descr": "The Windows Filtering Platform has permitted a connection",
            "ProcessId": "ProcessId",
@@ -521,7 +521,7 @@ sec = {  # Security
            "IpPort": "Port",
            "DestAddress": "TargetIP",
            "DestPort": "TargetPort",
-           "Protocol": "Protocol",  # to convert
+           "Protocol": "+Protocol",
            "RemoteUserID": "TargetSID",
            "RemoteMachineID": "TargetMachineSID"},
 
@@ -531,7 +531,7 @@ sec = {  # Security
            "Direction": "Direction",  # %% format
            "SourceAddress": "IP",
            "SourcePort": "Port",
-           "Protocol": "Protocol"}  # to convert
+           "Protocol": "+Protocol"}
 }
 
 sys = {  # System
@@ -787,36 +787,36 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
     2004: {"Descr": "A rule has been added to the Windows Firewall exception list",
            "RuleId": "RuleId",
            "RuleName": "RuleName",
-           "Origin": "Origin",  # to convert
+           "Origin": "+Origin",
            "ApplicationPath": "ApplicationPath",
            "ServiceName": "ServiceName",
-           "Direction": "Direction",  # to convert
-           "Protocol": "Protocol",  # to convert
+           "Direction": "+Direction",
+           "Protocol": "+Protocol",
            "LocalPorts": "TargetPort",
            "RemotePorts": "RemotePorts",
-           "Action": "Action",  # to convert
-           "Profiles": "Profiles",  # to convert
+           "Action": "+Action",
+           "Profiles": "+Profiles",
            "LocalAddresses": "TargetIP",
            "EmbeddedContext": "EmbeddedContext",
-           "Active": "Active",  # to convert
+           "Active": "+Active",
            "ModifyingUser": "SID",
            "ModifyingApplication": "ProcessPath"},
 
     2005: {"Descr": "A rule has been modified in the Windows Firewall exception list",
            "RuleId": "RuleId",
            "RuleName": "RuleName",
-           "Origin": "Origin",  # to convert
+           "Origin": "+Origin",
            "ApplicationPath": "ApplicationPath",
            "ServiceName": "ServiceName",
-           "Direction": "Direction",  # to convert
-           "Protocol": "Protocol",  # to convert
+           "Direction": "+Direction",
+           "Protocol": "+Protocol",
            "LocalPorts": "TargetPort",
            "RemotePorts": "RemotePorts",
-           "Action": "Action",  # to convert
-           "Profiles": "Profiles",  # to convert
+           "Action": "+Action",
+           "Profiles": "+Profiles",
            "LocalAddresses": "TargetIP",
            "EmbeddedContext": "EmbeddedContext",
-           "Active": "Active",  # to convert
+           "Active": "+Active",
            "ModifyingUser": "SID",
            "ModifyingApplication": "ProcessPath"},
 
@@ -868,7 +868,7 @@ lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
 
     40: {"Descr": "<TargetSessionId> has been disconnected, <Reason>",
          "Session": "TargetSessionId",
-         "Reason": "Reason"},  # to convert
+         "Reason": "+Reason"},
 
     41: {"Descr": "Begin session arbitration",  # Win8.1+
          "User": "TargetUsername",
@@ -1391,8 +1391,10 @@ wmi = {  # Microsoft-Windows-WMI-Activity/Operational (Win8+)
            "NamespaceName": "Namespace",
            "Query": "Query",
            "User": "Username",
-           "processid": "ProcessId",
-           "MachineName": "Hostname",
+           "processid": "ProcessId",  # < Win10 v1803
+           "Processid": "ProcessId",  # Win10 v1803+
+           "MachineName": "Hostname",  # < Win10 v1803
+           "ClientMachine": "Hostname",  # Win10 v1803+
            "PossibleCause": "PossibleCause"},
 
     5861: {"Descr": "Registration of permanent event consumer",  # Win10 v1607+
