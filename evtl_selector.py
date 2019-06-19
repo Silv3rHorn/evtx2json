@@ -132,7 +132,7 @@ def get_selection():
     argument_parser.add_argument('-o', '--output', default=os.getcwd(), help=(
         "path to the directory to store the output."))
     argument_parser.add_argument('--evtxtract', action='store_true', help="file(s) to process is evtxtract output")
-    argument_parser.add_argument('--dedup', action='store_true', help="de-duplicate events.")
+    argument_parser.add_argument('--nodedup', action='store_true', help="skip de-duplication of events.")
     argument_parser.add_argument('--nodescr', action='store_true', help="excludes event description for faster "
                                                                         "and smaller output.")
 

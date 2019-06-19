@@ -192,7 +192,7 @@ def run(output_path):
 
                 parsed_record = _parse_event(node, channel, supported_events)
                 if parsed_record:
-                    if OPTIONS.dedup:
+                    if not OPTIONS.nodedup:
                         if not _isdup(parsed_record, channel):
                             outfile.write(parsed_record)
                             outfile.write('\r')
