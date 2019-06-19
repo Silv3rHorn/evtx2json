@@ -23,6 +23,7 @@ from Evtx.Views import evtx_file_xml_view
 from lxml import etree
 
 LOG_FILE = ''
+OPTIONS = None
 PARSED_RECORDS = {}
 
 
@@ -58,7 +59,7 @@ def _map_to_message(string):
     return ', '.join(mapped_messages)
 
 
-def _parse_event(node, channel, supported_events, options):
+def _parse_event(node, channel, supported_events):
     event = dict()
     event['*Channel'] = channel
     event['*EventID'] = int(node.xpath("/Event/System/EventID")[0].text)
@@ -70,7 +71,7 @@ def _parse_event(node, channel, supported_events, options):
 
     fields = supported_events[event['*EventID']]
     se_keys = list(fields.keys())
-    if not options.nodescr:
+    if not OPTIONS.nodescr:
         event['*Descr'] = fields["Descr"]
 
     if len(event_data) > 0:
@@ -135,7 +136,7 @@ def _isdup(parsed_output, channel):
         return False
 
 
-def run(options, output_path):
+def run(output_path):
     with open(output_path, 'a') as outfile:
         for log in es.LOGS:
             print("\rInput file: {}".format(log))
@@ -146,7 +147,7 @@ def run(options, output_path):
             supported_events = []
             count = 0
 
-            if options.evtxtract:
+            if OPTIONS.evtxtract:
                 nodes = ef.get_log(log)
             else:
                 nodes = xml_records(log)
@@ -155,15 +156,15 @@ def run(options, output_path):
                 if err is not None:
                     continue  # skip record
 
-                if options.evtxtract:
+                if OPTIONS.evtxtract:
                     channel = None
                     event_id = None
 
                 if channel is None:  # for xml, channel can vary for each record in log
                     for _ in node.xpath("/Event/System/Channel"):  # get channel
                         channel = node.xpath("/Event/System/Channel")[0].text
-                    if channel not in options.cat:  # if event log not selected by user
-                        if options.evtxtract:
+                    if channel not in OPTIONS.cat:  # if event log not selected by user
+                        if OPTIONS.evtxtract:
                             continue
                         else:
                             print("\r{}\n".format("Not selected by user!"))
@@ -175,7 +176,7 @@ def run(options, output_path):
                     sys.stdout.write("\r[*] %i records processed." % count)
                     sys.stdout.flush()
 
-                if options.evtxtract or len(supported_events) == 0:  # get supported events of event log
+                if OPTIONS.evtxtract or len(supported_events) == 0:  # get supported events of event log
                     evtl_name = list(es.CHANNEL_NAMES.keys())[list(es.CHANNEL_NAMES.values()).index(channel)]
                     supported_events = getattr(events, evtl_name)
 
@@ -189,9 +190,9 @@ def run(options, output_path):
                 if event_id not in supported_events:
                     continue  # skip record
 
-                parsed_record = _parse_event(node, channel, supported_events, options)
+                parsed_record = _parse_event(node, channel, supported_events)
                 if parsed_record:
-                    if options.dedup:
+                    if OPTIONS.dedup:
                         if not _isdup(parsed_record, channel):
                             outfile.write(parsed_record)
                             outfile.write('\r')
@@ -202,37 +203,38 @@ def run(options, output_path):
             outfile.flush()
             os.fsync(outfile)
 
-            if options.evtxtract or channel in options.cat:
+            if OPTIONS.evtxtract or channel in OPTIONS.cat:
                 print("\r[*] {} records processed!\n".format(count))
                 logging.info("{} records processed!\n".format(count))
-            if not options.evtxtract and channel is None and count == 0:
+            if not OPTIONS.evtxtract and channel is None and count == 0:
                 print("\rNo records in log!\n")
                 logging.info("No records in log!\n")
 
 
 def main():
+    global OPTIONS, LOG_FILE
+
     start_time = dt.now()
 
-    options = es.get_selection()
-    if not options:
+    OPTIONS = es.get_selection()
+    if not OPTIONS:
         return False
 
-    global LOG_FILE
     timestamp = dt.now().strftime("%Y-%m-%d@%H%M%S")
-    LOG_FILE = os.path.join(options.output, "_evtx2json_log.{}.txt".format(timestamp))
+    LOG_FILE = os.path.join(OPTIONS.output, "_evtx2json_log.{}.txt".format(timestamp))
     logging.basicConfig(filename=LOG_FILE, level=logging.INFO, format=u'[%(levelname)s] %(message)s')
 
     # log all argument values
-    for arg in dir(options):
-        if not arg.startswith('__') and not callable(getattr(options, arg)):
-            logging.info("{0}:\t{1}".format(arg, getattr(options, arg)))
+    for arg in dir(OPTIONS):
+        if not arg.startswith('__') and not callable(getattr(OPTIONS, arg)):
+            logging.info("{0}:\t{1}".format(arg, getattr(OPTIONS, arg)))
 
     global PARSED_RECORDS
-    for selected in options.cat:
+    for selected in OPTIONS.cat:
         PARSED_RECORDS[selected] = set()
 
-    output_path = os.path.join(options.output, "evtx2json_{}.txt".format(timestamp))
-    run(options, output_path)
+    output_path = os.path.join(OPTIONS.output, "evtx2json_{}.txt".format(timestamp))
+    run(output_path)
 
     print("\rTime Taken: {}".format(dt.now() - start_time))
     logging.info("Time Taken: {}".format(dt.now() - start_time))
