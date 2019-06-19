@@ -50,6 +50,20 @@ def get_child(node, tag, ns="{http://schemas.microsoft.com/win/2004/08/events/ev
     return node.find("%s%s" % (ns, tag))
 
 
+def _query_db(query):
+    try:
+        conn = sqlite3.connect('evtx2json.db')
+        cur = conn.cursor()
+        cur.execute(query)
+        rows = cur.fetchall()
+        conn.close()
+    except (sqlite3.Error, IndexError):
+        rows = None
+        logging.error("SQLite: {0}".format(query))
+
+    return rows
+
+
 def _map_to_message(string):
     mapped_messages = []
     messages = re.findall(r"[\d']+", string)
@@ -83,29 +97,23 @@ def _parse_event(node, channel, supported_events):
                 field_value = fields[data.get("Name")]
                 if field_value[0] == '+':  # '+' is and indicator to convert value with database
                     field_value = field_value[1:]
-                    query = ''
+                    query = "SELECT decode.decoded FROM decode LEFT JOIN eventid ON decode.eventid = eventid.id " \
+                            "LEFT JOIN channel ON eventid.channel = channel.id WHERE channel.channel = '" + \
+                            channel + "'" + " AND eventid.eventid LIKE '%" + str(event['*EventID']) + "%'" + \
+                            " AND decode.fieldname = '" + data.get("Name") + "'" + \
+                            " AND decode.value = '" + data.text + "'"
+                    rows = _query_db(query)
                     try:
-                        conn = sqlite3.connect('evtx2json.db')
-                        cur = conn.cursor()
-                        query = "SELECT decode.decoded FROM decode LEFT JOIN eventid ON decode.eventid = eventid.id " \
-                                "LEFT JOIN channel ON eventid.channel = channel.id WHERE channel.channel = '" + \
-                                channel + "'" + " AND eventid.eventid LIKE '%" + str(event['*EventID']) + "%'" + \
-                                " AND decode.fieldname = '" + data.get("Name") + "'" + \
-                                " AND decode.value = '" + data.text + "'"
-                        cur.execute(query)
-                        rows = cur.fetchall()
                         event[field_value] = rows[0][0]
-                        conn.close()
-                    except (sqlite3.Error, IndexError):
+                    except IndexError:
                         event[field_value] = data.text
                         if data.text != '0' and data.text != '0x00000000':
-                            logging.error("SQLite/Index Error: {0}".format(query))
+                            logging.error("Index Error: {0}".format(query))
                 elif data.text and '%%' in data.text:
                     try:
                         event[field_value] = _map_to_message(data.text)
                     except KeyError:
                         event[field_value] = data.text
-
                 else:
                     event[field_value] = data.text
     else:
