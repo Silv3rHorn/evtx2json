@@ -11,16 +11,19 @@ import re
 import sqlite3
 import sys
 
-import events
 import evtl_selector as es
 import evtxtract_formatter as ef
-import message_table
 
+from resources import events, message_table
 from datetime import datetime as dt
+from evtx import PyEvtxParser
 from Evtx import BinaryParser
 from Evtx.Evtx import Evtx
 from Evtx.Views import evtx_file_xml_view
 from lxml import etree
+
+IS_FROZEN = getattr(sys, 'frozen', False)
+FROZEN_TEMP_PATH = getattr(sys, '_MEIPASS', '')
 
 LOG_FILE = ''
 OPTIONS = None
@@ -51,8 +54,13 @@ def get_child(node, tag, ns="{http://schemas.microsoft.com/win/2004/08/events/ev
 
 
 def _query_db(query):
+    if IS_FROZEN:
+        db_path = os.path.join(FROZEN_TEMP_PATH, "resources", "evtx2json.db")
+    else:
+        db_path = os.path.abspath("resources\\evtx2json.db")
+
     try:
-        conn = sqlite3.connect('evtx2json.db')
+        conn = sqlite3.connect(db_path)
         cur = conn.cursor()
         cur.execute(query)
         rows = cur.fetchall()
@@ -90,7 +98,6 @@ def _parse_event(node, channel, supported_events):
 
     if len(event_data) > 0:
         for data in event_data:
-            # TODO: check if data is empty
             if data.get("Name") is None:
                 event['Data'] = data.text
             elif data.get("Name") in se_keys:
@@ -109,6 +116,8 @@ def _parse_event(node, channel, supported_events):
                         event[field_value] = data.text
                         if data.text != '0' and data.text != '0x00000000':
                             logging.error("Index Error: {0}".format(query))
+                    except TypeError:  # rows = None (SQLite query failed)
+                        event[field_value] = data.text
                 elif data.text and '%%' in data.text:
                     try:
                         event[field_value] = _map_to_message(data.text)
