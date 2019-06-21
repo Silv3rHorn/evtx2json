@@ -22,6 +22,7 @@ def _list_to_generator(list_to_convert):
 
 
 def to_lxml(record_xml):
+    record_xml = record_xml.replace("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n", '', 1)
     rep_xml = re.sub(r' xmlns(:auto.*)?=\".+?\"', '', record_xml)  # xmlns="*" or xmlns:auto*="*"
     set_xml = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>%s" % rep_xml
     fin_xml = set_xml.encode("utf-8")

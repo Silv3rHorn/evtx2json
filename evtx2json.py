@@ -31,20 +31,32 @@ PARSED_RECORDS = {}
 
 
 def xml_records(filename):
-    with Evtx(filename) as evtx:
+    if OPTIONS.thorough:
+        with Evtx(filename) as evtx:
+            try:
+                for xml, record in evtx_file_xml_view(evtx.get_file_header()):
+                    try:
+                        yield ef.to_lxml(xml), None
+                    except etree.XMLSyntaxError as e:
+                        yield xml, e
+            except BinaryParser.OverrunBufferException as e:
+                logging.error("Overrun Buffer Exception!")
+                yield None, e
+            except BinaryParser.ParseException as e:
+                logging.error("Parse Exception!")
+                yield None, e
+            except Exception as e:  # UnicodeDecodeError, AttributeError
+                logging.error(e)
+                yield None, e
+    else:
+        parser = PyEvtxParser(filename)
         try:
-            for xml, record in evtx_file_xml_view(evtx.get_file_header()):
+            for record in parser.records():
                 try:
-                    yield ef.to_lxml(xml), None
+                    yield ef.to_lxml(record['data']), None
                 except etree.XMLSyntaxError as e:
-                    yield xml, e
-        except BinaryParser.OverrunBufferException as e:
-            logging.error("Overrun Buffer Exception!")
-            yield None, e
-        except BinaryParser.ParseException as e:
-            logging.error("Parse Exception!")
-            yield None, e
-        except Exception as e:  # UnicodeDecodeError, AttributeError
+                    yield record['data'], e
+        except Exception as e:  # UnicodeDecodeError, AttributeError, RuntimeError
             logging.error(e)
             yield None, e
 
