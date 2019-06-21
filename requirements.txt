@@ -1,3 +1,4 @@
 python_evtx >= 0.6.1
 lxml >= 4.1.1
 mmh3 >= 2.5.1
+evtx >= 0.4.0
