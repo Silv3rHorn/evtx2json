@@ -32,8 +32,13 @@ sec = {  # Security
            "IpPort": "Port",
            "ProcessId": "ProcessId",
            "ProcessName": "ProcessPath",
+           "AuthenticationPackageName": "AuthenticationPackage",
+           "LogonProcessName": "LogonProcess",
+           "KeyLength": "KeyLength",
            "RestrictedAdminMode": "RestrictedAdminMode",  # Win 10+
-           "ElevatedToken": "ElevatedToken"},  # Win 10+
+           "ElevatedToken": "ElevatedToken",  # Win 10+
+           "TargetOutboundUserName": "TargetOutboundUsername",
+           "TargetOutboundDomainName": "TargetOutboundDomain"},
 
     4625: {"Descr": "An account failed to log on",
            "SubjectUserSid": "SID",
@@ -62,7 +67,7 @@ sec = {  # Security
            "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
-           "LogonType": "LogonType",
+           "LogonType": "+LogonType",
            "GroupMembership": "GroupMembership"},  # to convert
 
     4634: {"Descr": "An account was logged off",
@@ -157,10 +162,10 @@ sec = {  # Security
            "ResourceAttributes": "ResourceAttributes"},
 
     4672: {"Descr": "Special privileges assigned to new logon",
-           "SubjectUserSid": "SID",
-           "SubjectUserName": "Username",
-           "SubjectDomainName": "Domain",
-           "SubjectLogonId": "LogonId",
+           "SubjectUserSid": "TargetSID",
+           "SubjectUserName": "TargetUsername",
+           "SubjectDomainName": "TargetDomain",
+           "SubjectLogonId": "TargetLogonId",
            "PrivilegeList": "PrivilegeList"},
 
     4673: {"Descr": "A privileged service was called",
@@ -413,6 +418,7 @@ sec = {  # Security
     4776: {"Descr": "The computer attempted to validate the credentials for an account",
            "TargetUserName": "TargetUsername",
            "Workstation": "WorkstationName",
+           "PackageName": "AuthenticationPackage",
            "Status": "+ResultCode"},
 
     4778: {"Descr": "A session was reconnected to a Window Station",
@@ -421,7 +427,8 @@ sec = {  # Security
            "LogonID": "TargetLogonId",
            "SessionName": "SessionName",
            "ClientName": "WorkstationName",
-           "ClientAddress": "IP"},
+           "ClientAddress": "IP",
+           "PackageName": "AuthenticationPackage"},
 
     4779: {"Descr": "A session was disconnected from a Window Station",
            "AccountName": "TargetUsername",
@@ -915,7 +922,7 @@ pshell2 = {  # Microsoft-Windows-PowerShell/Operational
     40962: {"Descr": "PowerShell console is ready for user input"},  # empty
 
     53504: {"Descr": "Windows PowerShell has started an IPC listening thread on <ProcessPath> in <AppDomain>",
-            "param1": "ProcessPath",
+            "param1": "ProcessId",
             "param2": "AppDomain"}
 }
 
@@ -974,7 +981,7 @@ sch = {  # Microsoft-Windows-TaskScheduler/Operational
           "TaskName": "TaskName",
           "UserName": "Username"},
 
-    200: {"Descr": "Task Scheduler launched <ActionName> in <TaskInstanceId of <TaskName>",
+    200: {"Descr": "Task Scheduler launched <ApplicationPath> in <TaskInstanceId> of <TaskName>",
           "TaskName": "TaskName",
           "ActionName": "ApplicationPath",
           "TaskInstanceId": "TaskInstanceId"},
