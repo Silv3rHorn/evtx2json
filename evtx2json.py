@@ -85,6 +85,7 @@ def _query_db(query):
     return rows
 
 
+# map values to message in message_table.py
 def _map_to_message(string):
     mapped_messages = []
     messages = re.findall(r"[\d']+", string)
@@ -140,6 +141,7 @@ def _parse_event(node, channel, supported_events):
                 field_value = fields[data.get("Name")]
                 if field_value[0] == '+':  # '+' is and indicator to convert value with database
                     field_value = field_value[1:]
+                    field_value_new = field_value + '+'
                     query = "SELECT decode.decoded FROM decode LEFT JOIN eventid ON decode.eventid = eventid.id " \
                             "LEFT JOIN channel ON eventid.channel = channel.id WHERE channel.channel = '" + \
                             channel + "'" + " AND eventid.eventid LIKE '%" + str(event['*EventID']) + "%'" + \
@@ -147,14 +149,15 @@ def _parse_event(node, channel, supported_events):
                             " AND decode.value = '" + data.text + "'"
                     rows = _query_db(query)
                     try:
-                        event[field_value] = rows[0][0]
+                        event[field_value_new] = rows[0][0]
                     except IndexError:
-                        event[field_value] = data.text
+                        event[field_value_new] = data.text
                         if data.text != '0' and data.text != '0x00000000':
                             logging.error("Index Error: {0}".format(query))
                     except TypeError:  # rows = None (SQLite query failed)
-                        event[field_value] = data.text
-                elif data.text and '%%' in data.text:
+                        event[field_value_new] = data.text
+
+                if data.text and '%%' in data.text:
                     try:
                         event[field_value] = _map_to_message(data.text)
                     except KeyError:
@@ -164,15 +167,29 @@ def _parse_event(node, channel, supported_events):
     else:
         parent = "/Event/UserData/*/"
 
-        for key, value in fields.items():
+        for key, field_value in fields.items():
             path = parent + key
             try:
+                if field_value[0] == '+':
+                    field_value = field_value[1:]
+                    field_value_new = field_value + '+'
+                    query = "SELECT decode.decoded FROM decode LEFT JOIN eventid ON decode.eventid = eventid.id " \
+                            "LEFT JOIN channel ON eventid.channel = channel.id WHERE channel.channel = '" + \
+                            channel + "'" + " AND eventid.eventid LIKE '%" + str(event['*EventID']) + "%'" + \
+                            " AND decode.fieldname = '" + key + "'" + \
+                            " AND decode.value = '" + node.xpath(path)[0].text + "'"
+                    rows = _query_db(query)
+                    try:
+                        event[field_value_new] = rows[0][0]
+                    except TypeError:  # rows = None (SQLite query failed)
+                        event[field_value_new] = node.xpath(path)[0].text
+
                 if node.xpath(path)[0].text and '%%' in node.xpath(path)[0].text:
-                    event[value] = _map_to_message(node.xpath(path)[0].text)
+                    event[field_value] = _map_to_message(node.xpath(path)[0].text)
                 else:
-                    event[value] = node.xpath(path)[0].text
+                    event[field_value] = node.xpath(path)[0].text
             except KeyError:
-                event[value] = node.xpath(path)[0].text
+                event[field_value] = node.xpath(path)[0].text
             except IndexError:
                 if key != "Descr":
                     logging.error("Index Error: {0}, {1}, {2}".format(event['*Channel'], event['*EventID'], key))
