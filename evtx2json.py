@@ -10,6 +10,7 @@ import os
 import re
 import sqlite3
 import sys
+import types
 
 import evtl_selector as es
 import evtxtract_formatter as ef
@@ -26,7 +27,7 @@ IS_FROZEN = getattr(sys, 'frozen', False)
 FROZEN_TEMP_PATH = getattr(sys, '_MEIPASS', '')
 
 LOG_FILE = ''
-OPTIONS = None
+OPTIONS = types.SimpleNamespace()
 PARSED_RECORDS = {}
 
 
@@ -97,10 +98,33 @@ def _parse_event(node, channel, supported_events):
     event = dict()
     event['**Timestamp'] = node.xpath("/Event/System/TimeCreated")[0].get("SystemTime").replace(' UTC', 'Z')
     event['*Channel'] = channel
+    event['*Provider'] = node.xpath("/Event/System/Provider")[0].get("Name")
     event['*Hostname'] = node.xpath("/Event/System/Computer")[0].text
     event['*SID'] = node.xpath("/Event/System/Security")[0].get("UserID")
     event['*EventID'] = int(node.xpath("/Event/System/EventID")[0].text)
     event['*RecordID'] = int(node.xpath("/Event/System/EventRecordID")[0].text)
+
+    level = int(node.xpath("/Event/System/Level")[0].text)
+    keywords = node.xpath("/Event/System/Keywords")[0].text
+    # mapping level values to String
+    if level == 0:
+        if keywords[4] == 1:
+            event['*Level'] = "Audit Failure"
+        elif keywords[4] == 2:
+            event['*Level'] = "Audit Success"
+        else:
+            event['*Level'] = '0'
+    elif level == 1:
+        event['*Level'] = "Audit Failure"
+    elif level == 2:
+        event['*Level'] = 'Error'
+    elif level == 3:
+        event['*Level'] = 'Warning'
+    elif level == 4:
+        event['*Level'] = 'Information'
+    elif level == 5:
+        event['*Level'] = 'Verbose'
+
     event_data = node.xpath("/Event/EventData/Data")
 
     fields = supported_events[event['*EventID']]
