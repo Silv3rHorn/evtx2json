@@ -1078,16 +1078,6 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "ModifyingApplication": "ProcessPath"}
 }
 
-offlinef = {  # Microsoft-Windows-OfflineFiles/Operational
-    7: {"Descr": "User logon detected: <Username> <Session>",
-        "Account": "TargetUsername",
-        "Session": "TargetSessionId"},
-
-    8: {"Descr": "User logoff detected: <Username> <Session>",
-        "Account": "TargetUsername",
-        "Session": "TargetSessionId"}
-}
-
 kernelpnp = {  # Microsoft-Windows-Kernel-PnP/Configuration
     400: {"Descr": "<DeviceInstanceId> was configured",
           "DeviceInstanceId": "DeviceInstanceId",
@@ -1116,22 +1106,6 @@ kernelpnp = {  # Microsoft-Windows-Kernel-PnP/Configuration
 
     430: {"Descr": "<DeviceInstanceId> requires further installation",
           "DeviceInstanceId": "DeviceInstanceId"}
-}
-
-ntfs = {
-    # Provider: Microsoft-Windows-Ntfs
-    142: {"Descr": "Summary of disk space usage, since last event",
-          "VolumeGuid": "VolumeGuid",
-          "VolumeName": "VolumeName",
-          "LowestFreeSpaceInBytes": "LowestFreeSpaceInBytes",
-          "HighestFreeSpaceInBytes": "HighestFreeSpaceInBytes",
-          "IsBootVolume": "IsBootVolume"},
-
-    # Provider: Microsoft-Windows-Ntfs
-    145: {"Descr": "IO latency summary common data for volume",
-          "VolumeCorrelationId": "VolumeGuid",
-          "VolumeName": "VolumeName",
-          "IsBootVolume": "IsBootVolume"}
 }
 
 lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
@@ -1172,7 +1146,33 @@ lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
          "SessionID": "TargetSessionId"}
 }
 
-partitiond = {  # Microsoft-Windows-Partition/Diagnostic; Win10 v1709+
+ntfs = {  # Microsoft-Windows-Ntfs/Operational
+    # Provider: Microsoft-Windows-Ntfs
+    142: {"Descr": "Summary of disk space usage, since last event",
+          "VolumeGuid": "VolumeGuid",
+          "VolumeName": "VolumeName",
+          "LowestFreeSpaceInBytes": "LowestFreeSpaceInBytes",
+          "HighestFreeSpaceInBytes": "HighestFreeSpaceInBytes",
+          "IsBootVolume": "IsBootVolume"},
+
+    # Provider: Microsoft-Windows-Ntfs
+    145: {"Descr": "IO latency summary common data for volume",
+          "VolumeCorrelationId": "VolumeGuid",
+          "VolumeName": "VolumeName",
+          "IsBootVolume": "IsBootVolume"}
+}
+
+offlinef = {  # Microsoft-Windows-OfflineFiles/Operational
+    7: {"Descr": "User logon detected: <Username> <Session>",
+        "Account": "TargetUsername",
+        "Session": "TargetSessionId"},
+
+    8: {"Descr": "User logoff detected: <Username> <Session>",
+        "Account": "TargetUsername",
+        "Session": "TargetSessionId"}
+}
+
+partition = {  # Microsoft-Windows-Partition/Diagnostic; Win10 v1709+
     1006: {"Descr": "A device is connected or disconnected from the system",
            "Version": "Version",
            "DiskNumber": "DiskNumber",
