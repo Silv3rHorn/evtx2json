@@ -665,7 +665,7 @@ sys = {  # System
             "DriverFileName": "DriverPath",
             "DeviceInstanceID": "DeviceInstanceID",
             "PrimaryService": "IsPrimaryService",
-            "IsUpdateService": "IsUpdateService",
+            "UpdateService": "IsUpdateService",
             "AddServiceStatus": "AddServiceStatus"}
 }
 
@@ -1514,7 +1514,7 @@ smbserver5 = {  # Microsoft-Windows-SMBServer/Security
     1009: {"Descr": "The share denied anonymous access to the client",
            "ClientAddress": "ClientAddress",
            "ClientName": "ClientName",
-           "SessionId": "SessionId",
+           "SessionID": "SessionId",
            "SessionGUID": "SessionGuid",
            "ConnectionGUID": "ConnectionGuid"},
 
