@@ -6,25 +6,39 @@ from argparse import RawTextHelpFormatter
 
 EVTX_HEADER = b"\x45\x6C\x66\x46\x69\x6C\x65\x00"
 LOGS = []
-CHANNEL_NAMES = {'appexp1': "Microsoft-Windows-Application-Experience/Program-Inventory",
+CHANNEL_NAMES = {'app': "Application", 'appexp1': "Microsoft-Windows-Application-Experience/Program-Inventory",
                  'appexp2': "Microsoft-Windows-Application-Experience/Program-Telemetry",
                  'applocker': "Microsoft-Windows-AppLocker/EXE and DLL",
                  'bits': "Microsoft-Windows-Bits-Client/Operational",
+                 'codeinteg': "Microsoft-Windows-CodeIntegrity/Operational",
                  'diag': "Microsoft-Windows-Diagnostics-Performance/Operational",
-                 'dns': "Microsoft-Windows-DNSServer/Analytical",
+                 'dnsclient': "Microsoft-Windows-DNS-Client/Operational",
+                 'dnsserver': "Microsoft-Windows-DNSServer/Analytical",
+                 'driverfw': "Microsoft-Windows-DriverFrameworks-UserMode/Operational",
                  'fwall': "Microsoft-Windows-Windows Firewall With Advanced Security/Firewall",
+                 'kernelpnp': "Microsoft-Windows-Kernel-PnP/Configuration",
                  'lsm': "Microsoft-Windows-TerminalServices-LocalSessionManager/Operational",
-                 'offlinef': "Microsoft-Windows-OfflineFiles/Operational",
+                 'ntfs': "Microsoft-Windows-Ntfs/Operational", 'offlinef': "Microsoft-Windows-OfflineFiles/Operational",
+                 'partition': "Microsoft-Windows-Partition/Diagnostic",
+                 'printsvc': "Microsoft-Windows-PrintService/Operational",
                  'pshell1': "Windows PowerShell", 'pshell2': "Microsoft-Windows-PowerShell/Operational",
                  'rcm': "Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational",
                  'rdpclient': "Microsoft-Windows-TerminalServices-RDPClient/Operational",
                  'rdpcorets': "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational",
+                 "scpnp": "Microsoft-Windows-Storage-ClassPnP/Operational",
                  'sch': "Microsoft-Windows-TaskScheduler/Operational", 'sec': "Security", 'sys': "System",
                  'shell': "Microsoft-Windows-Shell-Core/Operational",
                  'smbclient': "Microsoft-Windows-SmbClient/Security",
+                 'smbserver1': "Microsoft-Windows-SMBServer/Analytic",
+                 'smbserver2': "Microsoft-Windows-SMBServer/Audit",
+                 'smbserver3': "Microsoft-Windows-SMBServer/Connectivity",
+                 'smbserver4': "Microsoft-Windows-SMBServer/Operational",
+                 'smbserver5': "Microsoft-Windows-SMBServer/Security",
+                 'storsvc': "Microsoft-Windows-Storsvc/Diagnostic",
                  'symantec': "Symantec Endpoint Protection Client",
                  'wdef': "Microsoft-Windows-Windows Defender/Operational",
                  'winrm': "Microsoft-Windows-WinRM/Operational",
+                 'wlan': "Microsoft-Windows-WLAN-AutoConfig/Operational",
                  'wmi': "Microsoft-Windows-WMI-Activity/Operational"}
 
 
@@ -100,17 +114,32 @@ def get_selection():
         '\t all below                                                               all \n'
         '\t Security                                                                sec \n'
         '\t System                                                                  sys \n'
+        '\t Application                                                             app \n'
         '\t Microsoft-Windows-Application-Experience/Program-Inventory              appexp1 \n'
         '\t Microsoft-Windows-Application-Experience/Program-Telemetry              appexp2 \n'
         '\t Microsoft-Windows-AppLocker/EXE and DLL                                 applocker \n'
         '\t Microsoft-Windows-Bits-Client/Operational                               bits \n'
+        '\t Microsoft-Windows-CodeIntegrity/Operational                             codeinteg \n'
         '\t Microsoft-Windows-Diagnostics-Performance/Operational                   diag \n'
-        '\t Microsoft-Windows-DNSServer/Analytical                                  dns \n'
+        '\t Microsoft-Windows-DNS-Client/Operational                                dnsclient \n'
+        '\t Microsoft-Windows-DNSServer/Analytical                                  dnsserver \n'
+        '\t Microsoft-Windows-DriverFrameworks-UserMode/Operational                 driverfw \n'
+        '\t Microsoft-Windows-Kernel-PnP/Configuration                              kernelpnp \n'
+        '\t Microsoft-Windows-Ntfs/Operational                                      ntfs \n'
         '\t Microsoft-Windows-OfflineFiles/Operational                              offlinef \n'
+        '\t Microsoft-Windows-Partition/Diagnostic                                  partition \n'     
         '\t Microsoft-Windows-PowerShell/Operational                                pshell2 \n'
+        '\t Microsoft-Windows-PrintService/Operational                              printsvc \n'
         '\t Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational           rdpcorets \n'
         '\t Microsoft-Windows-Shell-Core/Operational                                shell \n'
         '\t Microsoft-Windows-SmbClient/Security                                    smbclient \n'
+        '\t Microsoft-Windows-SMBServer/Analytic                                    smbserver1 \n'
+        '\t Microsoft-Windows-SMBServer/Audit                                       smbserver2 \n'
+        '\t Microsoft-Windows-SMBServer/Connectivity                                smbserver3 \n'
+        '\t Microsoft-Windows-SMBServer/Operational                                 smbserver4 \n'
+        '\t Microsoft-Windows-SMBServer/Security                                    smbserver5 \n'
+        '\t Microsoft-Windows-Storage-ClassPnP/Operational                          scpnp \n'
+        '\t Microsoft-Windows-Storsvc/Diagnostic                                    storsvc \n'
         '\t Microsoft-Windows-TaskScheduler/Operational                             sch \n'
         '\t Microsoft-Windows-TerminalServices-LocalSessionManager/Operational      lsm \n'
         '\t Microsoft-Windows-TerminalServices-RDPClient/Operational                rdpclient \n'
@@ -118,6 +147,7 @@ def get_selection():
         '\t Microsoft-Windows-Windows Defender/Operational                          wdef \n'
         '\t Microsoft-Windows-Windows Firewall With Advanced Security/Firewall      fwall \n'
         '\t Microsoft-Windows-WinRM/Operational                                     winrm \n'
+        '\t Microsoft-Windows-WLAN-AutoConfig/Operational                           wlan \n'
         '\t Microsoft-Windows-WMI-Activity/Operational                              wmi \n'
         '\t Symantec Endpoint Protection Client                                     symantec \n'
         '\t Windows PowerShell                                                      pshell1 \n'
