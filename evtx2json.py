@@ -95,12 +95,12 @@ def _map_to_message(string):
 
 def _parse_event(node, channel, supported_events):
     event = dict()
+    event['**Timestamp'] = node.xpath("/Event/System/TimeCreated")[0].get("SystemTime").replace(' UTC', 'Z')
     event['*Channel'] = channel
-    event['*EventID'] = int(node.xpath("/Event/System/EventID")[0].text)
-    event['*RecordID'] = int(node.xpath("/Event/System/EventRecordID")[0].text)
-    event['*Timestamp'] = node.xpath("/Event/System/TimeCreated")[0].get("SystemTime")
     event['*Hostname'] = node.xpath("/Event/System/Computer")[0].text
     event['*SID'] = node.xpath("/Event/System/Security")[0].get("UserID")
+    event['*EventID'] = int(node.xpath("/Event/System/EventID")[0].text)
+    event['*RecordID'] = int(node.xpath("/Event/System/EventRecordID")[0].text)
     event_data = node.xpath("/Event/EventData/Data")
 
     fields = supported_events[event['*EventID']]
