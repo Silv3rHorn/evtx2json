@@ -1,11 +1,13 @@
 sec = {  # Security
     1102: {"Descr": "The audit log was cleared",
+           "Provider": "Microsoft-Windows-Eventlog",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId"},
 
     4616: {"Descr": "The system time was changed",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -16,6 +18,7 @@ sec = {  # Security
            "ProcessName": "ProcessPath"},  # Win 7+
 
     4624: {"Descr": "An account was successfully logged on",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -41,6 +44,7 @@ sec = {  # Security
            "TargetOutboundDomainName": "TargetOutboundDomain"},
 
     4625: {"Descr": "An account failed to log on",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -60,6 +64,7 @@ sec = {  # Security
            "ProcessName": "ProcessPath"},
 
     4627: {"Descr": "Group membership information",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -71,6 +76,7 @@ sec = {  # Security
            "GroupMembership": "GroupMembership"},  # to convert
 
     4634: {"Descr": "An account was logged off",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
@@ -78,12 +84,14 @@ sec = {  # Security
            "LogonType": "+LogonType"},
 
     4647: {"Descr": "User initiated logoff",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
            "TargetLogonId": "TargetLogonId"},
 
     4648: {"Descr": "A logon was attempted using explicit credentials",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -100,6 +108,7 @@ sec = {  # Security
            "ProcessName": "ProcessPath"},
 
     4657: {"Descr": "A registry value was modified",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -115,6 +124,7 @@ sec = {  # Security
            "ProcessName": "ProcessPath"},
 
     4661: {"Descr": "A handle to an object was requested",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -133,6 +143,7 @@ sec = {  # Security
            "ProcessName": "ProcessPath"},
 
     4662: {"Descr": "An operation was performed on an object",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -147,6 +158,7 @@ sec = {  # Security
            "Properties": "Properties"},
 
     4663: {"Descr": "An attempt was made to access an object",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -162,6 +174,7 @@ sec = {  # Security
            "ResourceAttributes": "ResourceAttributes"},
 
     4672: {"Descr": "Special privileges assigned to new logon",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "TargetSID",
            "SubjectUserName": "TargetUsername",
            "SubjectDomainName": "TargetDomain",
@@ -169,6 +182,7 @@ sec = {  # Security
            "PrivilegeList": "PrivilegeList"},
 
     4673: {"Descr": "A privileged service was called",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -180,6 +194,7 @@ sec = {  # Security
            "ProcessName": "ProcessPath"},
 
     4688: {"Descr": "A new process has been created",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -198,6 +213,7 @@ sec = {  # Security
            "TargetLogonId": "TargetLogonId"},
 
     4697: {"Descr": "A service was installed in the system",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -209,6 +225,7 @@ sec = {  # Security
            "ServiceAccount": "Username"},
 
     4698: {"Descr": "A scheduled task was created",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -217,6 +234,7 @@ sec = {  # Security
            "TaskContent": "TaskContent"},
 
     4699: {"Descr": "A scheduled task was deleted",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -225,6 +243,7 @@ sec = {  # Security
            "TaskContent": "TaskContent"},
 
     4700: {"Descr": "A scheduled task was enabled",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -233,6 +252,7 @@ sec = {  # Security
            "TaskContent": "TaskContent"},
 
     4701: {"Descr": "A scheduled task was disabled",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -241,6 +261,7 @@ sec = {  # Security
            "TaskContent": "TaskContent"},
 
     4702: {"Descr": "A scheduled task was updated",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -249,6 +270,7 @@ sec = {  # Security
            "TaskContentNew": "TaskContent"},
 
     4719: {"Descr": "System audit policy was changed",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -259,6 +281,7 @@ sec = {  # Security
            "AuditPolicyChanges": "AuditPolicyChanges"},  # %% format (multiple, joined with ', ')
 
     4720: {"Descr": "A user account was created",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -285,6 +308,7 @@ sec = {  # Security
            "UserAccountControl": "UserAccountControl"},  # %% format (multiple, joined with ' ')
 
     4726: {"Descr": "A user account was deleted",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -294,6 +318,7 @@ sec = {  # Security
            "TargetDomainName": "TargetDomain"},
 
     4728: {"Descr": "A member was added to a security-enabled global group",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -306,6 +331,7 @@ sec = {  # Security
            "PrivilegeList": "PrivilegeList"},
 
     4732: {"Descr": "A member was added to a security-enabled local group",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -318,6 +344,7 @@ sec = {  # Security
            "PrivilegeList": "PrivilegeList"},
 
     4738: {"Descr": "A user account was changed",  # non-changed values are -
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -346,6 +373,7 @@ sec = {  # Security
            "UserAccountControl": "UserAccountControl"},  # %% format
 
     4740: {"Descr": "A user account was locked out",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -355,6 +383,7 @@ sec = {  # Security
            "TargetDomainName": "TargetDomain"},
 
     4741: {"Descr": "A computer account was created",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -385,6 +414,7 @@ sec = {  # Security
            "ServicePrincipalNames": "SPNs"},
 
     4768: {"Descr": "A Kerberos authentication ticket (TGT) was requested",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "TargetUserSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
@@ -401,6 +431,7 @@ sec = {  # Security
            "CertThumbprint": "CertThumbprint"},
 
     4769: {"Descr": "A Kerberos service ticket was requested",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain",
            "ServiceSid": "ServiceSID",
@@ -415,6 +446,7 @@ sec = {  # Security
            "TransmittedServices": "TransmittedServices"},
 
     4771: {"Descr": "Kerberos pre-authentication failed",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "TargetUserName": "TargetUsername",
            "TargetSid": "TargetSID",
            "ServiceName": "ServiceName",
@@ -425,12 +457,14 @@ sec = {  # Security
            "IpPort": "Port"},
 
     4776: {"Descr": "The computer attempted to validate the credentials for an account",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "TargetUserName": "TargetUsername",
            "Workstation": "WorkstationName",
            "PackageName": "AuthenticationPackage",
            "Status": "+ResultCode"},
 
     4778: {"Descr": "A session was reconnected to a Window Station",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "AccountName": "TargetUsername",
            "AccountDomain": "TargetDomain",
            "LogonID": "TargetLogonId",
@@ -440,6 +474,7 @@ sec = {  # Security
            "PackageName": "AuthenticationPackage"},
 
     4779: {"Descr": "A session was disconnected from a Window Station",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "AccountName": "TargetUsername",
            "AccountDomain": "TargetDomain",
            "LogonID": "TargetLogonId",
@@ -448,6 +483,7 @@ sec = {  # Security
            "ClientAddress": "IP"},
 
     4798: {"Descr": "A user's local group membership was enumerated",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -459,6 +495,7 @@ sec = {  # Security
            "CallerProcessName": "ProcessPath"},
 
     4799: {"Descr": "A security-enabled local group membership was enumerated",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -471,12 +508,14 @@ sec = {  # Security
 
     4825: {"Descr": "A user was denied the access to Remote Desktop. By default, users are allowed to connect only "
                     "if they are members of the Remote Desktop Users group or Administrators group",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "AccountName": "TargetUsername",
            "AccountDomain": "TargetDomain",
            "LogonID": "TargetLogonId",
            "ClientAddress": "IP"},
 
     5059: {"Descr": "Key migration operation",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -489,6 +528,7 @@ sec = {  # Security
            "ReturnCode": "ResultCode"},
 
     5140: {"Descr": "A network share object was accessed",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -501,6 +541,7 @@ sec = {  # Security
            "AccessList": "AccessList"},  # %% format
 
     5142: {"Descr": "A network share object was added",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -509,6 +550,7 @@ sec = {  # Security
            "ShareLocalPath": "ShareLocalPath"},
 
     5144: {"Descr": "A network share object was deleted",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -517,6 +559,7 @@ sec = {  # Security
            "ShareLocalPath": "ShareLocalPath"},
 
     5145: {"Descr": "A network share object was checked to see whether client can be granted desired access",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -532,6 +575,7 @@ sec = {  # Security
            "AccessReason": "AccessReason"},
 
     5152: {"Descr": "The Windows Filtering Platform has blocked a packet",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "ProcessId": "ProcessId",
            "Application": "ProcessPath",
            "Direction": "Direction",  # %% format
@@ -542,6 +586,7 @@ sec = {  # Security
            "Protocol": "+Protocol"},
 
     5156: {"Descr": "The Windows Filtering Platform has permitted a connection",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "ProcessId": "ProcessId",
            "Application": "ProcessPath",
            "Direction": "Direction",  # %% format
@@ -554,6 +599,7 @@ sec = {  # Security
            "RemoteMachineID": "TargetMachineSID"},
 
     5158: {"Descr": "The Windows Filtering Platform has permitted a bind to a local port",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "ProcessId": "ProcessId",
            "Application": "ProcessPath",
            "Direction": "Direction",  # %% format
@@ -562,6 +608,7 @@ sec = {  # Security
            "Protocol": "+Protocol"},
 
     6416: {"Descr": "A new external device was recognized by the System",
+           "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
@@ -576,45 +623,52 @@ sec = {  # Security
 }
 
 sys = {  # System
-    # Provider: Microsoft-Windows-Audit-CVE
     2: {"Descr": "Possible detection of CVE: <CVEId>. This event is raised by a kernel mode driver",
+        "Provider": "Microsoft-Windows-Audit-CVE",
         "CVEID": "CVEID",
         "AdditionalDetails": "AdditionalDetails"},
 
     104: {"Descr": "The <EventLogName> log file was cleared",
+          "Provider": "Microsoft-Windows-Eventlog",
           "SubjectUserName": "Username",
           "SubjectDomainName": "Domain",
           "Channel": "EventLogName",
           "BackupPath": "BackupPath"},
 
     1014: {"Descr": "Name resolution for the <QueryName> timed out after none of the configured DNS servers responded",
+           "Provider": "Microsoft-Windows-DNS-Client",
            "QueryName": "QueryName",
            "Address": "Address"},
 
-    # Provider: Microsoft-Windows-Diagnostics-Networking
     6100: {"Descr": "Details about Networking <HelperClassName> diagnosis:",
+           "Provider": "Microsoft-Windows-Diagnostics-Networking",
            "HelperClassName": "HelperClassName",
            "EventDescription": "EventDescr",
            "EventVerbosity": "EventVerbosity"},
 
     7034: {"Descr": "The <ServiceName> terminated unexpectedly. It has done this <Count> time(s)",
+           "Provider": "Service Control Manager",
            "param1": "ServiceName",
            "param2": "Count"},
 
     7035: {"Descr": "The <ServiceName> was successfully sent a <Control>",
+           "Provider": "Service Control Manager",
            "param1": "ServiceName",
            "param2": "Control"},
 
     7036: {"Descr": "The <ServiceName> entered the <StatusAfter> state",
+           "Provider": "Service Control Manager",
            "param1": "ServiceName",
            "param2": "StatusAfter"},
 
     7040: {"Descr": "The start type of <ServiceName> was changed from <StatusBefore> to <StatusAfter>",
+           "Provider": "Service Control Manager",
            "param1": "ServiceName",
            "param2": "StatusBefore",
            "param3": "StatusAfter"},
 
     7045: {"Descr": "A service was installed on the system",
+           "Provider": "Service Control Manager",
            "ServiceName": "ServiceName",
            "ImagePath": "ServicePath",
            "ServiceType": "ServiceType",
@@ -624,15 +678,15 @@ sys = {  # System
     9009: {"Descr": "The Desktop Window Manager has exited with code <ExitCode>",  # classic event, incorrect channel?
            "Param1": "ExitCode"},
 
-    # Provider: Microsoft-Windows-DriverFrameworks-UserMode
     10000: {"Descr": "A driver package which uses user-mode driver framework version <FrameworkVersion> is being "
                      "installed on device <DeviceId>",
+            "Provider": "Microsoft-Windows-DriverFrameworks-UserMode",
             "DeviceId": "DeviceId",
             "FrameworkVersion": "FrameworkVersion"},
 
-    # Provider: Microsoft-Windows-UserPnp
     20001: {"Descr": "Driver Management concluded the process to install <DriverName> for <DeviceInstanceId> "
                      "with <Status>",
+            "Provider": "Microsoft-Windows-UserPnp",
             "DriverName": "DriverName",
             "DriverVersion": "DriverVersion",
             "DriverProvider": "DriverProvider",
@@ -644,9 +698,9 @@ sys = {  # System
             "IsDriverOEM": "IsDriverOEM",
             "InstallStatus": "Status"},
 
-    # Provider: Microsoft-Windows-UserPnp
     20002: {"Descr": "Driver Management concluded the process to remove <DriverName> from <DeviceInstanceId> "
                      "with <Status>",
+            "Provider": "Microsoft-Windows-UserPnp",
             "DriverName": "DriverName",
             "DriverVersion": "DriverVersion",
             "DriverProvider": "DriverProvider",
@@ -658,9 +712,9 @@ sys = {  # System
             "IsDriverOEM": "IsDriverOEM",
             "InstallStatus": "Status"},
 
-    # Provider: Microsoft-Windows-UserPnp
     20003: {"Descr": "Driver Management has concluded the process to add <ServiceName>> for <DeviceInstanceID> "
                      "with <Status>",
+            "Provider": "Microsoft-Windows-UserPnp",
             "ServiceName": "DriverName",
             "DriverFileName": "DriverPath",
             "DeviceInstanceID": "DeviceInstanceID",
@@ -670,29 +724,30 @@ sys = {  # System
 }
 
 app = {  # Application
-    # Provider: Microsoft-Windows-Audit-CVE
     1: {"Descr": "Possible detection of CVE: <CVEId>. This event is raised by a User mode process",
+        "Provider": "Microsoft-Windows-Audit-CVE",
         "CVEID": "CVEID",
         "AdditionalDetails": "AdditionalDetails"},
 
-    # Provider: ESENT
-    216: {"Descr": "%1 (%2) %3 A database location change was detected from %4 to %5"},
+    216: {"Descr": "%1 (%2) %3 A database location change was detected from %4 to %5",
+          "Provider": "ESENT"},
 
-    # Provider: ESENT
-    325: {"Descr": "%1 (%2) %3 The database engine created a new database (%4, %5). (Time=%6 seconds)"},
+    325: {"Descr": "%1 (%2) %3 The database engine created a new database (%4, %5). (Time=%6 seconds)",
+          "Provider": "ESENT"},
 
-    # Provider: ESENT
-    326: {"Descr": "%1 (%2) %3 The database engine attached a database (%4, %5). (Time=%6 seconds)"},
+    326: {"Descr": "%1 (%2) %3 The database engine attached a database (%4, %5). (Time=%6 seconds)",
+          "Provider": "ESENT"},
 
-    # Provider: ESENT
-    327: {"Descr": "%1 (%2) %3 The database engine detached a database (%4, %5). (Time=%6 seconds)"},
+    327: {"Descr": "%1 (%2) %3 The database engine detached a database (%4, %5). (Time=%6 seconds)",
+          "Provider": "ESENT"},
 
-    # Provider: Windows Error Reporting
-    1001: {"Descr": "Process Error"}
+    1001: {"Descr": "Process Error",
+           "Provider": "Windows Error Reporting"}
 }
 
 appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
     800: {"Descr": "An instance of Program Data Updater (PDU) ran with the following information...",  # Win7 - 8.1
+          "Provider": "Microsoft-Windows-Application-Experience",
           "StartTime": "StartTime",
           "StopTime": "StopTime",
           "ExitCode": "ExitCode",
@@ -710,6 +765,7 @@ appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
 
 appexp2 = {  # Microsoft-Windows-Application-Experience/Program-Telemetry
     500: {"Descr": "Compatibility fix applied to <ProcessPath>.  Fix information: <FixName>, <FixId>, <Flags>",
+          "Provider": "Microsoft-Windows-Application-Experience",
           "ProcessId": "ProcessId",
           "ExePath": "ProcessPath",
           "StartTime": "StartTime",
@@ -718,6 +774,7 @@ appexp2 = {  # Microsoft-Windows-Application-Experience/Program-Telemetry
           "Flags": "Flags"},
 
     501: {"Descr": "Compatibility fix applied to <ProcessPath>.  Fix information: <FixName>, <FixId>, <Flags>",
+          "Provider": "Microsoft-Windows-Application-Experience",
           "ProcessId": "ProcessId",
           "ExePath": "ProcessPath",
           "StartTime": "StartTime",
@@ -726,6 +783,7 @@ appexp2 = {  # Microsoft-Windows-Application-Experience/Program-Telemetry
           "Flags": "Flags"},
 
     502: {"Descr": "Compatibility fix applied to <MsiPath>.  Fix information: <FixName>, <FixId>, <Flags>",
+          "Provider": "Microsoft-Windows-Application-Experience",
           "ClientProcessId": "ProcessId",
           "ClientStartTime": "StartTime",
           "FixID": "FixId",
@@ -736,6 +794,7 @@ appexp2 = {  # Microsoft-Windows-Application-Experience/Program-Telemetry
           "MsiPath": "MsiPath"},
 
     503: {"Descr": "Compatibility fix applied to <MsiPath>.  Fix information: <FixName>, <FixId>, <Flags>",
+          "Provider": "Microsoft-Windows-Application-Experience",
           "ClientProcessId": "ProcessId",
           "ClientStartTime": "StartTime",
           "FixID": "FixId",
@@ -748,6 +807,7 @@ appexp2 = {  # Microsoft-Windows-Application-Experience/Program-Telemetry
 
 applocker = {  # Microsoft-Windows-AppLocker/EXE and DLL
     8004: {"Descr": "<FilePath> was prevented from running",
+           "Provider": "Microsoft-Windows-AppLocker",
            "PolicyNameBuffer": "Policy",
            "RuleId": "RuleId",
            "RuleNameBuffer": "RuleName",
@@ -761,8 +821,8 @@ applocker = {  # Microsoft-Windows-AppLocker/EXE and DLL
 }
 
 bits = {  # Microsoft-Windows-Bits-Client/Operational
-    # Provider: Microsoft-Windows-Bits-Client
     4: {"Descr": "The transfer job is complete",
+        "Provider": "Microsoft-Windows-Bits-Client",
         "User": "Username",
         "jobTitle": "JobTitle",
         "jobId": "JobId",
@@ -770,6 +830,7 @@ bits = {  # Microsoft-Windows-Bits-Client/Operational
         "fileCount": "FileCount"},
 
     59: {"Descr": "BITS started the <Name> transfer job that is associated with the <URL>",
+         "Provider": "Microsoft-Windows-Bits-Client",
          "transferId": "TransferId",
          "name": "Name",
          "Id": "JobId",
@@ -779,6 +840,7 @@ bits = {  # Microsoft-Windows-Bits-Client/Operational
          "fileLength": "FileSize"},
 
     60: {"Descr": "BITS stopped transferring the <Name> transfer job that is associated with the <URL>",
+         "Provider": "Microsoft-Windows-Bits-Client",
          "transferId": "TransferId",
          "name": "Name",
          "Id": "JobId",
@@ -792,13 +854,14 @@ bits = {  # Microsoft-Windows-Bits-Client/Operational
 }
 
 codeinteg = {  # Microsoft-Windows-CodeIntegrity/Operational
-    # Provider: Microsoft-Windows-CodeIntegrity
     3001: {"Descr": "Code Integrity determined an unsigned kernel module <FileName> is loaded into the system",
+           "Provider": "Microsoft-Windows-CodeIntegrity",
            "FileNameBuffer": "FileName"}
 }
 
 diag = {  # Microsoft-Windows-Diagnostics-Performance/Operational
     100: {"Descr": "Windows has started up",
+          "Provider": "Microsoft-Windows-Diagnostics-Performance",
           "BootStartTime": "BootStartTime",
           "BootEndTime": "BootEndTime",
           "SystemBootInstance": "SystemBootInstance",
@@ -807,20 +870,21 @@ diag = {  # Microsoft-Windows-Diagnostics-Performance/Operational
           "UserLogonWaitDuration": "UserLogonWaitDuration"},
 
     200: {"Descr": "Windows has shutdown",
+          "Provider": "Microsoft-Windows-Diagnostics-Performance",
           "ShutdownStartTime": "ShutdownStartTime",
           "ShutdownEndTime": "ShutdownEndTime",
           "ShutdownTime": "ShutdownTime"}  # in milliseconds
 }
 
 dnsclient = {  # Microsoft-Windows-DNS-Client/Operational (disabled by default)
-    # Provider: Microsoft-Windows-DNS-Client
     1014: {"Descr": "Name resolution for the <QueryName> timed out after none of the configured "
                     "DNS servers responded",
+           "Provider": "Microsoft-Windows-DNS-Client",
            "QueryName": "QueryName",
            "Address": "Address"},
 
-    # Provider: Microsoft-Windows-DNS-Client
     3006: {"Descr": "DNS query is called for the <QueryName>, <QueryType>",
+           "Provider": "Microsoft-Windows-DNS-Client",
            "QueryName": "QueryName",
            "QueryType": "+QueryType",
            "QueryOptions": "QueryOptions",
@@ -830,45 +894,45 @@ dnsclient = {  # Microsoft-Windows-DNS-Client/Operational (disabled by default)
            "InterfaceIndex": "InterfaceIndex",
            "IsAsyncQuery": "IsAsyncQuery"},
 
-    # Provider: Microsoft-Windows-DNS-Client
     3008: {"Descr": "DNS query is completed for the <QueryName>, <QueryType> with <ResponseCode> <QueryResults>",
+           "Provider": "Microsoft-Windows-DNS-Client",
            "QueryName": "QueryName",
            "QueryType": "+QueryType",
            "QueryOptions": "QueryOptions",
            "QueryStatus": "ResponseCode",
            "QueryResults": "QueryResults"},
 
-    # Provider: Microsoft-Windows-DNS-Client
     3011: {"Descr": "Received response from <DnsServerIP> for <QueryName> and <QueryType> with <ResponseCode>",
+           "Provider": "Microsoft-Windows-DNS-Client",
            "QueryName": "QueryName",
            "QueryType": "+QueryType",
            "DnsServerIpAddress": "DnsServerIP",
            "ResponseStatus": "Status"},
 
-    # Provider: Microsoft-Windows-DNS-Client
     3016: {"Descr": "Cache lookup called for <QueryName>, <QueryType>",
+           "Provider": "Microsoft-Windows-DNS-Client",
            "QueryName": "QueryName",
            "QueryType": "+QueryType",
            "QueryOptions": "QueryOptions",
            "InterfaceIndex": "InterfaceIndex"},
 
-    # Provider: Microsoft-Windows-DNS-Client
     3018: {"Descr": "Cache lookup for <QueryName>, <QueryType> returned <ResponseCode> with <QueryResults>",
+           "Provider": "Microsoft-Windows-DNS-Client",
            "QueryName": "QueryName",
            "QueryType": "+QueryType",
            "QueryOptions": "QueryOptions",
            "Status": "ResponseCode",
            "QueryResults": "QueryResults"},
 
-    # Provider: Microsoft-Windows-DNS-Client
     3019: {"Descr": "Query wire called for name <QueryName>, <QueryType>",
+           "Provider": "Microsoft-Windows-DNS-Client",
            "QueryName": "QueryName",
            "QueryType": "+QueryType",
            "NetworkIndex": "NetworkIndex",
            "InterfaceIndex": "InterfaceIndex"},
 
-    # Provider: Microsoft-Windows-DNS-Client
     3020: {"Descr": "Query response for name <QueryName>, <QueryType> returned <ResponseCode> with <QueryResults>",
+           "Provider": "Microsoft-Windows-DNS-Client",
            "QueryName": "QueryName",
            "QueryType": "+QueryType",
            "NetworkIndex": "NetworkIndex",
@@ -879,6 +943,7 @@ dnsclient = {  # Microsoft-Windows-DNS-Client/Operational (disabled by default)
 
 dnsserver = {  # Microsoft-Windows-DNSServer/Analytical (Windows Server 2016+)
     256: {"Descr": "Query received",
+          "Provider": "Microsoft-Windows-DNSServer",
           "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Source": "Source",
@@ -892,6 +957,7 @@ dnsserver = {  # Microsoft-Windows-DNSServer/Analytical (Windows Server 2016+)
           "AdditionalInfo": "AdditionalInfo"},
 
     257: {"Descr": "Response success",
+          "Provider": "Microsoft-Windows-DNSServer",
           "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Destination": "Destination",
@@ -911,6 +977,7 @@ dnsserver = {  # Microsoft-Windows-DNSServer/Analytical (Windows Server 2016+)
           "AdditionalInfo": "AdditionalInfo"},
 
     258: {"Descr": "Response failure",
+          "Provider": "Microsoft-Windows-DNSServer",
           "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Reason": "Reason",
@@ -927,6 +994,7 @@ dnsserver = {  # Microsoft-Windows-DNSServer/Analytical (Windows Server 2016+)
           "AdditionalInfo": "AdditionalInfo"},
 
     259: {"Descr": "Ignored query",
+          "Provider": "Microsoft-Windows-DNSServer",
           "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Source": "Source",
@@ -939,6 +1007,7 @@ dnsserver = {  # Microsoft-Windows-DNSServer/Analytical (Windows Server 2016+)
           "AdditionalInfo": "AdditionalInfo"},
 
     260: {"Descr": "Recurse query out",
+          "Provider": "Microsoft-Windows-DNSServer",
           "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Destination": "Destination",
@@ -955,6 +1024,7 @@ dnsserver = {  # Microsoft-Windows-DNSServer/Analytical (Windows Server 2016+)
           "AdditionalInfo": "AdditionalInfo"},
 
     261: {"Descr": "Recurse response in",
+          "Provider": "Microsoft-Windows-DNSServer",
           "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Source": "Source",
@@ -971,6 +1041,7 @@ dnsserver = {  # Microsoft-Windows-DNSServer/Analytical (Windows Server 2016+)
           "AdditionalInfo": "AdditionalInfo"},
 
     262: {"Descr": "Recurse query timeout",
+          "Provider": "Microsoft-Windows-DNSServer",
           "TCP": "TCP",
           "InterfaceIP": "InterfaceIP",
           "Destination": "Destination",
@@ -986,10 +1057,12 @@ dnsserver = {  # Microsoft-Windows-DNSServer/Analytical (Windows Server 2016+)
 
 driverfw = {  # Microsoft-Windows-DriverFrameworks-UserMode/Operational
     2003: {"Descr": "The UMDF Host Process (<HostProcessId>) has been asked to load drivers for device <DeviceId>",
+           "Provider": "Microsoft-Windows-DriverFrameworks-UserMode",
            "LifetimeId": "HostProcessId",
            "InstanceId": "DeviceId"},
 
     2004: {"Descr": "The UMDF Host is loading <Driver> at <Level> for device <DeviceId>",
+           "Provider": "Microsoft-Windows-DriverFrameworks-UserMode",
            "LifetimeId": "HostProcessId",
            "InstanceId": "DeviceId",
            "Level": "Level",
@@ -998,6 +1071,7 @@ driverfw = {  # Microsoft-Windows-DriverFrameworks-UserMode/Operational
 
     2005: {"Descr": "The UMDF Host Process (<HostProcessId>) has loaded <ModulePath> while loading drivers for device "
                     "<DeviceId>",
+           "Provider": "Microsoft-Windows-DriverFrameworks-UserMode",
            "LifetimeId": "HostProcessId",
            "InstanceId": "DeviceId",
            "ModulePath": "ModulePath",
@@ -1006,11 +1080,13 @@ driverfw = {  # Microsoft-Windows-DriverFrameworks-UserMode/Operational
            "FileVersion": "FileVersion"},
 
     2010: {"Descr": "The UMDF Host Process (<HostProcessId>) has successfully loaded drivers for device <DeviceId>",
+           "Provider": "Microsoft-Windows-DriverFrameworks-UserMode",
            "LifetimeId": "HostProcessId",
            "InstanceId": "DeviceId",
            "FinalStatus": "FinalStatus"},
 
     2100: {"Descr": "Received a Pnp or Power operation (<MajorCode>, <MinorCode>) for device <DeviceId>",
+           "Provider": "Microsoft-Windows-DriverFrameworks-UserMode",
            "LifetimeId": "HostProcessId",
            "InstanceId": "DeviceId",
            "MajorCode": "MajorCode",
@@ -1019,6 +1095,7 @@ driverfw = {  # Microsoft-Windows-DriverFrameworks-UserMode/Operational
 
     2102: {"Descr": "Forwarded a finished Pnp or Power operation (<MajorCode>, <MinorCode>) to the lower driver "
                     "for device <DeviceId> with <Status>",
+           "Provider": "Microsoft-Windows-DriverFrameworks-UserMode",
            "LifetimeId": "HostProcessId",
            "InstanceId": "DeviceId",
            "MajorCode": "MajorCode",
@@ -1027,6 +1104,7 @@ driverfw = {  # Microsoft-Windows-DriverFrameworks-UserMode/Operational
 
     2105: {"Descr": "Forwarded a Pnp or Power operation (<MajorCode>, <MinorCode>) for device <DeviceId> to the "
                     "lower driver with <Status>",
+           "Provider": "Microsoft-Windows-DriverFrameworks-UserMode",
            "LifetimeId": "HostProcessId",
            "InstanceId": "DeviceId",
            "MajorCode": "MajorCode",
@@ -1036,6 +1114,7 @@ driverfw = {  # Microsoft-Windows-DriverFrameworks-UserMode/Operational
 
 fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
     2004: {"Descr": "A rule has been added to the Windows Firewall exception list",
+           "Provider": "Microsoft-Windows-Windows Firewall With Advanced Security",
            "RuleId": "RuleId",
            "RuleName": "RuleName",
            "Origin": "+Origin",
@@ -1054,6 +1133,7 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "ModifyingApplication": "ProcessPath"},
 
     2005: {"Descr": "A rule has been modified in the Windows Firewall exception list",
+           "Provider": "Microsoft-Windows-Windows Firewall With Advanced Security",
            "RuleId": "RuleId",
            "RuleName": "RuleName",
            "Origin": "+Origin",
@@ -1072,6 +1152,7 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "ModifyingApplication": "ProcessPath"},
 
     2006: {"Descr": "A rule has been deleted in the Windows Firewall exception list",
+           "Provider": "Microsoft-Windows-Windows Firewall With Advanced Security",
            "RuleId": "RuleId",
            "RuleName": "RuleName",
            "ModifyingUser": "SID",
@@ -1080,6 +1161,7 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
 
 kernelpnp = {  # Microsoft-Windows-Kernel-PnP/Configuration
     400: {"Descr": "<DeviceInstanceId> was configured",
+          "Provider": "Microsoft-Windows-Kernel-PnP",
           "DeviceInstanceId": "DeviceInstanceId",
           "DriverName": "DriverName",
           "ClassGuid": "+ClassGuid",
@@ -1095,6 +1177,7 @@ kernelpnp = {  # Microsoft-Windows-Kernel-PnP/Configuration
           "ParentDeviceInstanceId": "ParentDeviceInstanceId"},
 
     410: {"Descr": "<DeviceInstanceId> was started",
+          "Provider": "Microsoft-Windows-Kernel-PnP",
           "DeviceInstanceId": "DeviceInstanceId",
           "DriverName": "DriverName",
           "ClassGuid": "+ClassGuid",
@@ -1105,58 +1188,67 @@ kernelpnp = {  # Microsoft-Windows-Kernel-PnP/Configuration
           "Status": "Status"},
 
     430: {"Descr": "<DeviceInstanceId> requires further installation",
+          "Provider": "Microsoft-Windows-Kernel-PnP",
           "DeviceInstanceId": "DeviceInstanceId"}
 }
 
 lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
     21: {"Descr": "Remote Desktop Services: Session logon succeeded",
+         "Provider": "Microsoft-Windows-TerminalServices-LocalSessionManager",
          "User": "TargetUsername",
          "SessionID": "TargetSessionId",
          "Address": "IP"},
 
     22: {"Descr": "Remote Desktop Services: Shell start notification received",
+         "Provider": "Microsoft-Windows-TerminalServices-LocalSessionManager",
          "User": "TargetUsername",
          "SessionID": "TargetSessionId",
          "Address": "IP"},
 
     23: {"Descr": "Remote Desktop Services: Session logoff succeeded",
+         "Provider": "Microsoft-Windows-TerminalServices-LocalSessionManager",
          "User": "TargetUsername",
          "SessionID": "TargetSessionId"},
 
     24: {"Descr": "Remote Desktop Services: Session has been disconnected",
+         "Provider": "Microsoft-Windows-TerminalServices-LocalSessionManager",
          "User": "TargetUsername",
          "SessionID": "TargetSessionId",
          "Address": "IP"},
 
     25: {"Descr": "Remote Desktop Services: Session reconnection succeeded",
+         "Provider": "Microsoft-Windows-TerminalServices-LocalSessionManager",
          "User": "TargetUsername",
          "SessionID": "TargetSessionId",
          "Address": "IP"},
 
     39: {"Descr": "<TargetSessionId> has been disconnected by session <SessionId>",
+         "Provider": "Microsoft-Windows-TerminalServices-LocalSessionManager",
          "TargetSession": "TargetSessionId",
          "Source": "SessionId"},
 
     40: {"Descr": "<TargetSessionId> has been disconnected, <Reason>",
+         "Provider": "Microsoft-Windows-TerminalServices-LocalSessionManager",
          "Session": "TargetSessionId",
          "Reason": "+Reason"},
 
     41: {"Descr": "Begin session arbitration",  # Win8.1+
+         "Provider": "Microsoft-Windows-TerminalServices-LocalSessionManager",
          "User": "TargetUsername",
          "SessionID": "TargetSessionId"}
 }
 
 ntfs = {  # Microsoft-Windows-Ntfs/Operational
-    # Provider: Microsoft-Windows-Ntfs
     142: {"Descr": "Summary of disk space usage, since last event",
+          "Provider": "Microsoft-Windows-Ntfs",
           "VolumeGuid": "VolumeGuid",
           "VolumeName": "VolumeName",
           "LowestFreeSpaceInBytes": "LowestFreeSpaceInBytes",
           "HighestFreeSpaceInBytes": "HighestFreeSpaceInBytes",
           "IsBootVolume": "IsBootVolume"},
 
-    # Provider: Microsoft-Windows-Ntfs
     145: {"Descr": "IO latency summary common data for volume",
+          "Provider": "Microsoft-Windows-Ntfs",
           "VolumeCorrelationId": "VolumeGuid",
           "VolumeName": "VolumeName",
           "IsBootVolume": "IsBootVolume"}
@@ -1164,16 +1256,19 @@ ntfs = {  # Microsoft-Windows-Ntfs/Operational
 
 offlinef = {  # Microsoft-Windows-OfflineFiles/Operational
     7: {"Descr": "User logon detected: <Username> <Session>",
+        "Provider": "Microsoft-Windows-OfflineFiles",
         "Account": "TargetUsername",
         "Session": "TargetSessionId"},
 
     8: {"Descr": "User logoff detected: <Username> <Session>",
+        "Provider": "Microsoft-Windows-OfflineFiles",
         "Account": "TargetUsername",
         "Session": "TargetSessionId"}
 }
 
 partition = {  # Microsoft-Windows-Partition/Diagnostic; Win10 v1709+
     1006: {"Descr": "A device is connected or disconnected from the system",
+           "Provider": "Microsoft-Windows-Partition",
            "Version": "Version",
            "DiskNumber": "DiskNumber",
            "Flags": "Flags",
@@ -1214,8 +1309,8 @@ partition = {  # Microsoft-Windows-Partition/Diagnostic; Win10 v1709+
 }
 
 printsvc = {  # Microsoft-Windows-PrintService/Operational
-    # Provider: Microsoft-Windows-PrintService
     307: {"Descr": "Spooler operation succeeded",
+          "Provider": "Microsoft-Windows-PrintService",
           "param1": "JobId",
           "param2": "JobName",
           "param3": "DocumentOwner",
@@ -1242,10 +1337,12 @@ pshell1 = {  # Windows PowerShell
 
 pshell2 = {  # Microsoft-Windows-PowerShell/Operational
     4103: {"Descr": "<Payload> Context: <ContextInfo>",  # Module logging
+           "Provider": "Microsoft-Windows-PowerShell",
            "UserData": "UserData",
            "Payload": "Payload"},
 
     4104: {"Descr": "Creating Scriptblock text (<MessageNumber> of <MessageTotal>)",  # Scriptblock module logging
+           "Provider": "Microsoft-Windows-PowerShell",
            "MessageNumber": "MessageNumber",
            "MessageTotal": "MessageTotal",
            "ScriptBlockText": "ScriptBlockText",
@@ -1253,27 +1350,34 @@ pshell2 = {  # Microsoft-Windows-PowerShell/Operational
            "Path": "Path"},
 
     8193: {"Descr": "Creating Runspace object",  # Session created
+           "Provider": "Microsoft-Windows-PowerShell",
            "param1": "InstanceId"},
 
     8194: {"Descr": "Creating RunspacePool object",  # Session created
+           "Provider": "Microsoft-Windows-PowerShell",
            "InstanceId": "InstanceId",
            "MaxRunspaces": "MaxRunspaces",
            "MinRunspaces": "MinRunspaces"},
 
     8197: {"Descr": "Runspace state changed to <Status>",  # Session status
+           "Provider": "Microsoft-Windows-PowerShell",
            "param1": "Status"},
 
-    40961: {"Descr": "PowerShell console is starting up"},  # empty
+    40961: {"Descr": "PowerShell console is starting up",
+            "Provider": "Microsoft-Windows-PowerShell"},  # empty
 
-    40962: {"Descr": "PowerShell console is ready for user input"},  # empty
+    40962: {"Descr": "PowerShell console is ready for user input",
+            "Provider": "Microsoft-Windows-PowerShell"},  # empty
 
     53504: {"Descr": "Windows PowerShell has started an IPC listening thread on <ProcessPath> in <AppDomain>",
+            "Provider": "Microsoft-Windows-PowerShell",
             "param1": "ProcessId",
             "param2": "AppDomain"}
 }
 
 rcm = {  # Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational
     1149: {"Descr": "Remote Desktop Services: User authentication established",
+           "Provider": "Microsoft-Windows-TerminalServices-RemoteConnectionManager",
            "Param1": "TargetUsername",
            "Param2": "TargetDomain",
            "Param3": "IP"}
@@ -1281,38 +1385,45 @@ rcm = {  # Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operationa
 
 rdpclient = {  # Microsoft-Windows-TerminalServices-RDPClient/Operational
     1024: {"Descr": "RDP ClientActiveX is trying to connect to <TargetHost>",
+           "Provider": "Microsoft-Windows-TerminalServices-ClientActiveXCore",
            "Value": "TargetHost"},
 
     1026: {"Descr": "RDP ClientActiveX has been disconnected: <Reason>",
+           "Provider": "Microsoft-Windows-TerminalServices-ClientActiveXCore",
            "Value": "Reason"},
 
     1027: {"Descr": "Connected to <TargetDomain> with <TargetSessionId>",
+           "Provider": "Microsoft-Windows-TerminalServices-ClientActiveXCore",
            "DomainName": "TargetDomain",
            "SessionID": "TargetSessionId"},
 
     1029: {"Descr": "This event is raised during the connection process: Base64(SHA256(<TargetUsername))",
+           "Provider": "Microsoft-Windows-TerminalServices-ClientActiveXCore",
            "TraceMessage": "TargetUsername"},
 
     1102: {"Descr": "This event is raised during the connection process",
+           "Provider": "Microsoft-Windows-TerminalServices-ClientActiveXCore",
            "Value": "TargetIP"}
 }
 
 rdpcorets = {  # Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational
-    98: {"Descr": "A TCP connection has been successfully established"},
+    98: {"Descr": "A TCP connection has been successfully established",
+         "Provider": "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS"},
 
     131: {"Descr": "The server accepted a new <Protocol> connection from <IPPort>",
+          "Provider": "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS",
           "ConnType": "Protocol",
           "ClientIP": "IPPort"},
 
-    # Provider: Microsoft-Windows-RemoteDesktopServices-RdpCoreTS
-    148: {"Desc": "<ChannelName> has been closed between the server and the client on transport tunnel <TunnelID>",
+    148: {"Descr": "<ChannelName> has been closed between the server and the client on transport tunnel <TunnelID>",
+          "Provider": "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS",
           "ChannelName": "ChannelName",
           "TunnelID": "TunnelID"}
 }
 
 scpnp = {  # Microsoft-Windows-Storage-ClassPnP/Operational
-    # Provider: Microsoft-Windows-StorDiag
     507: {"Descr": "Completing a failed non-ReadWrite SCSI SRB request",
+          "Provider": "Microsoft-Windows-StorDiag",
           "DeviceGUID": "DeviceGuid",
           "DeviceNumber": "DeviceNumber",
           "Vendor": "Vendor",
@@ -1323,32 +1434,39 @@ scpnp = {  # Microsoft-Windows-Storage-ClassPnP/Operational
 
 sch = {  # Microsoft-Windows-TaskScheduler/Operational
     106: {"Descr": "<Username> registered Task Scheduler <TaskName>",
+          "Provider": "Microsoft-Windows-TaskScheduler",
           "TaskName": "TaskName",
           "UserContext": "Username"},
 
     118: {"Descr": "Task Scheduler launched <TaskInstanceId> of <TaskName> due to system startup",
+          "Provider": "Microsoft-Windows-TaskScheduler",
           "TaskName": "TaskName",
           "InstanceId": "TaskInstanceId"},
 
     119: {"Descr": "Task Scheduler launched <TaskInstanceId of <TaskName> due to <Username> logon",
+          "Provider": "Microsoft-Windows-TaskScheduler",
           "TaskName": "TaskName",
           "UserName": "Username",
           "InstanceId": "TaskInstanceId"},
 
     140: {"Descr": "<Username> updated Task Scheduler <TaskName>",
+          "Provider": "Microsoft-Windows-TaskScheduler",
           "TaskName": "TaskName",
           "UserName": "Username"},
 
     141: {"Descr": "<Username> deleted Task Scheduler <TaskName>",
+          "Provider": "Microsoft-Windows-TaskScheduler",
           "TaskName": "TaskName",
           "UserName": "Username"},
 
     200: {"Descr": "Task Scheduler launched <ApplicationPath> in <TaskInstanceId> of <TaskName>",
+          "Provider": "Microsoft-Windows-TaskScheduler",
           "TaskName": "TaskName",
           "ActionName": "ApplicationPath",
           "TaskInstanceId": "TaskInstanceId"},
 
     201: {"Descr": "Task Scheduler successfully completed <TaskName>, <TaskInstanceId>, <ApplicationPath>",
+          "Provider": "Microsoft-Windows-TaskScheduler",
           "TaskName": "TaskName",
           "ActionName": "ApplicationPath",
           "TaskInstanceId": "TaskInstanceId",
@@ -1356,25 +1474,29 @@ sch = {  # Microsoft-Windows-TaskScheduler/Operational
 }
 
 shell = {  # Microsoft-Windows-Shell-Core/Operational
-    9707: {"Descr": "Started execution of <Command>",  # from Run/RunOnce?
+    9707: {"Descr": "Started execution of <Command>",  # from Run/RunOnce
+           "Provider": "Microsoft-Windows-Shell-Core",
            "Command": "Command"},
 
     9708: {"Descr": "Finished execution of <Command> (PID <ProcessPid>)",  # from Run/RunOnce
+           "Provider": "Microsoft-Windows-Shell-Core",
            "Command": "Command",
            "PID": "ProcessId"}
 }
 
 smbclient = {  # Microsoft-Windows-SmbClient/Security
     31001: {"Descr": "Failed logon to <ServerName>",
+            "Provider": "Microsoft-Windows-SmbClient",
             "Reason": "Reason",
             "Status": "Status",
             "SecurityStatus": "SecurityStatus",
             "TargetLogonId": "TargetLogonId",
             "UserName": "TargetUsername",
-            "ServerName": "ServerName",  # TODO - change to TargetHost?
+            "ServerName": "TargetHost",
             "PrincipalName": "PrincipalName"},  # TODO - change to SPN?
 
     31010: {"Descr": "The SMB client failed to connect to the share.",
+            "Provider": "Microsoft-Windows-SmbClient",
             "Reason": "Reason",
             "Status": "Status",
             "ShareName": "ShareName",
@@ -1382,32 +1504,32 @@ smbclient = {  # Microsoft-Windows-SmbClient/Security
 }
 
 smbserver1 = {  # Microsoft-Windows-SMBServer/Analytic
-    # Provider: Microsoft-Windows-SMBServer
     551: {"Descr": "Smb Session Authentication Failure",
+          "Provider": "Microsoft-Windows-SMBServer",
           "SessionGUID": "SessionGuid",
           "ConnectionGUID": "ConnectionGuid",
           "Status": "Status"},
 
-    # Provider: Microsoft-Windows-SMBServer
     552: {"Descr": "SMB2 Session Authentication Success",
+          "Provider": "Microsoft-Windows-SMBServer",
           "SessionGUID": "SessionGuid",
           "ConnectionGUID": "ConnectionGuid",
           "UserName": "TargetUsername",
           "DomainName": "TargetDomain"},
 
-    # Provider: Microsoft-Windows-SMBServer
     553: {"Descr": "SMB2 Session Bound to Connection",
+          "Provider": "Microsoft-Windows-SMBServer",
           "SessionGUID": "SessionGuid",
           "ConnectionGUID": "ConnectionGuid",
           "BindingSessionGUID": "BindingSessionGuid"},
 
-    # Provider: Microsoft-Windows-SMBServer
     554: {"Descr": "Session Terminated",
+          "Provider": "Microsoft-Windows-SMBServer",
           "SessionGUID": "SessionGuid",
           "Reason": "Reason"},
 
-    # Provider: Microsoft-Windows-SMBServer
     600: {"Descr": "SMB2 TreeConnect Allocated",
+          "Provider": "Microsoft-Windows-SMBServer",
           "TreeConnectGUID": "TreeConnectGuid",
           "SessionGUID": "SessionGuid",
           "ConnectionGUID": "ConnectionGuid",
@@ -1416,19 +1538,19 @@ smbserver1 = {  # Microsoft-Windows-SMBServer/Analytic
           "ScopeName": "ScopeName",
           "ShareProperties": "ShareProperties"},
 
-    # Provider: Microsoft-Windows-SMBServer
     601: {"Descr": "SMB2 TreeConnect Disconnected",
+          "Provider": "Microsoft-Windows-SMBServer",
           "TreeConnectGUID": "TreeConnectGuid",
           "SessionGUID": "SessionGuid",
           "ConnectionGUID": "ConnectionGuid"},
 
-    # Provider: Microsoft-Windows-SMBServer
     602: {"Descr": "SMB2 TreeConnect Terminated",
+          "Provider": "Microsoft-Windows-SMBServer",
           "TreeConnectGUID": "TreeConnectGuid",
           "SessionGUID": "SessionGuid"},
 
-    # Provider: Microsoft-Windows-SMBServer
     700: {"Descr": "SMB2 Share Added",
+          "Provider": "Microsoft-Windows-SMBServer",
           "ShareName": "ShareName",
           "ServerName": "ServerName",
           "PathName": "PathName",
@@ -1438,8 +1560,8 @@ smbserver1 = {  # Microsoft-Windows-SMBServer/Analytic
           "CaTimeOut": "CaTimeOut",
           "ShareState": "ShareState"},
 
-    # Provider: Microsoft-Windows-SMBServer
     701: {"Descr": "SMB2 Share Modified",
+          "Provider": "Microsoft-Windows-SMBServer",
           "ShareName": "ShareName",
           "ServerName": "ServerName",
           "PathName": "PathName",
@@ -1449,37 +1571,37 @@ smbserver1 = {  # Microsoft-Windows-SMBServer/Analytic
           "CaTimeOut": "CaTimeOut",
           "ShareState": "ShareState"},
 
-    # Provider: Microsoft-Windows-SMBServer
     702: {"Descr": "SMB2 Share Deleted",
+          "Provider": "Microsoft-Windows-SMBServer",
           "ShareName": "ShareName",
           "ServerName": "ServerName"}
 }
 
-smbserver2 = {  # Microsoft-Windows-SMBServer/Audit
-    # Provider: Microsoft-Windows-SMBServer
+smbserver2 = {  # Microsoft-Windows-SMBServer/Auditr
     3000: {"Descr": "SMB1 access",
+           "Provider": "Microsoft-Windows-SMBServer",
            "ClientName": "ClientName"}
 }
 
 smbserver3 = {  # Microsoft-Windows-SMBServer/Connectivity
-    # Provider: Microsoft-Windows-SMBServer
-    1022: {"Descr": "File and printer sharing firewall rule enabled"}
+    1022: {"Descr": "File and printer sharing firewall rule enabled",
+           "Provider": "Microsoft-Windows-SMBServer"}
 }
 
 smbserver4 = {  # Microsoft-Windows-SMBServer/Operational
-    # Provider: Microsoft-Windows-SMBServer
-    1023: {"Descr": "One or more shares present on this server have access based enumeration enabled"},
+    1023: {"Descr": "One or more shares present on this server have access based enumeration enabled",
+           "Provider": "Microsoft-Windows-SMBServer"},
 
-    # Provider: Microsoft-Windows-SMBServer
-    1024: {"Descr": "SMB2 and SMB3 have been disabled on this server"},
+    1024: {"Descr": "SMB2 and SMB3 have been disabled on this server",
+           "Provider": "Microsoft-Windows-SMBServer"},
 
-    # Provider: Microsoft-Windows-SMBServer
-    1025: {"Descr": "One or more named pipes or shares have been marked for access by anonymous users"}
+    1025: {"Descr": "One or more named pipes or shares have been marked for access by anonymous users",
+           "Provider": "Microsoft-Windows-SMBServer"}
 }
 
 smbserver5 = {  # Microsoft-Windows-SMBServer/Security
-    # Provider: Microsoft-Windows-SMBServer
     551: {"Descr": "SMB session authentication failure",
+          "Provider": "Microsoft-Windows-SMBServer",
           "SessionGUID": "SessionGuid",
           "ConnectionGUID": "ConnectionGuid",
           "Status": "Status",
@@ -1489,8 +1611,8 @@ smbserver5 = {  # Microsoft-Windows-SMBServer/Security
           "UserName": "Username",
           "ClientName": "ClientName"},
 
-    # Provider: Microsoft-Windows-SMBServer
     1006: {"Descr": "The share denied access to the client",
+           "Provider": "Microsoft-Windows-SMBServer",
            "ShareName": "ShareName",
            "SharePath": "SharePath",
            "ClientAddress": "ClientAddress",
@@ -1503,30 +1625,30 @@ smbserver5 = {  # Microsoft-Windows-SMBServer/Security
            "TranslatedStatus": "TranslatedStatus",
            "SessionID": "SessionID"},
 
-    # Provider: Microsoft-Windows-SMBServer
     1007: {"Descr": "The share denied anonymous access to the client",
+           "Provider": "Microsoft-Windows-SMBServer",
            "ShareName": "ShareName",
            "SharePath": "SharePath",
            "ClientAddress": "ClientAddress",
            "ClientName": "ClientName"},
 
-    # Provider: Microsoft-Windows-SMBServer
     1009: {"Descr": "The share denied anonymous access to the client",
+           "Provider": "Microsoft-Windows-SMBServer",
            "ClientAddress": "ClientAddress",
            "ClientName": "ClientName",
            "SessionID": "SessionId",
            "SessionGUID": "SessionGuid",
            "ConnectionGUID": "ConnectionGuid"},
 
-    # Provider: Microsoft-Windows-SMBServer
     1021: {"Descr": "LmCompatibilityLevel value is different from the default",
+           "Provider": "Microsoft-Windows-SMBServer",
            "ConfiguredLmCompatibilityLevel": "+ConfiguredLmCompatibilityLevel",
            "DefaultLmCompatibilityLevel": "+DefaultLmCompatibilityLevel"}
 }
 
 storsvc = {  # Microsoft-Windows-Storsvc/Diagnostic
-    # Provider: Microsoft-Windows-Storsvc
     1001: {"Descr": "NIL",
+           "Provider": "Microsoft-Windows-Storsvc",
            "Version": "Version",
            "DiskNumber": "DiskNumber",
            "VendorId": "Vendor",
@@ -1542,6 +1664,7 @@ storsvc = {  # Microsoft-Windows-Storsvc/Diagnostic
 
     # Provider: Microsoft-Windows-Storsvc
     1002: {"Descr": "NIL",
+           "Provider": "Microsoft-Windows-Storsvc",
            "Version": "Version",
            "Epoch": "Epoch",
            "DiskIndex": "DiskIndex",
@@ -1566,6 +1689,7 @@ symantec = {  # Symantec Endpoint Protection Client
 
 wdef = {  # Microsoft-Windows-Windows Defender/Operational
     1006: {"Descr": "<ProductName> has detected malware or other potentially unwanted software",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
@@ -1588,6 +1712,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
 
     1007: {"Descr": "<ProductName> has taken action to protect this machine from malware or "
                     "other potentially unwanted software",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
@@ -1607,6 +1732,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
 
     1008: {"Descr": "<ProductName> has encountered an error when taking action on malware or "
                     "other potentially unwanted software",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
@@ -1626,6 +1752,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Engine Version": "EngineVersion"},
 
     1009: {"Descr": "<ProductName> has restored an item from quarantine",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Domain": "Domain",
@@ -1641,6 +1768,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Engine Version": "EngineVersion"},
 
     1010: {"Descr": "<ProductName> has encountered an error trying to restore an item from quarantine",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Error Code": "ErrorCode",
@@ -1658,6 +1786,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Engine Version": "EngineVersion"},
 
     1011: {"Descr": "<ProductName> has deleted an item from quarantine",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Domain": "Domain",
@@ -1673,6 +1802,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Engine Version": "EngineVersion"},
 
     1012: {"Descr": "<ProductName> has encountered an error trying to restore an item from quarantine",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Error Code": "ErrorCode",
@@ -1690,6 +1820,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Engine Version": "EngineVersion"},
 
     1015: {"Descr": "<ProductName> has detected a suspicious behavior",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
@@ -1718,6 +1849,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "TargetFileHash": "TargetFileHash"},
 
     1116: {"Descr": "<ProductName> has detected malware or other potentially unwanted software",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
@@ -1745,6 +1877,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
 
     1117: {"Descr": "<ProductName> has taken action to protect this machine from malware or "
                     "other potentially unwanted software",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
@@ -1772,6 +1905,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
 
     1118: {"Descr": "<ProductName> has encountered a non-critical error when taking action on malware or "
                     "other potentially unwanted software",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
@@ -1799,6 +1933,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
 
     1119: {"Descr": "<ProductName> has encountered a critical error when taking action on malware or "
                     "other potentially unwanted software",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
@@ -1825,6 +1960,7 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Engine Version": "EngineVersion"},
 
     1160: {"Descr": "<ProductName has detected potentially unwanted application (PUA)",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Detection ID": "DetectionId",
@@ -1851,12 +1987,14 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Engine Version": "EngineVersion"},
 
     2050: {"Descr": "<ProductName> has uploaded a file for further analysis",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Filename": "FileName",
            "Sha256": "FileHash"},
 
     2051: {"Descr": "<ProductName> has encountered an error trying to upload a suspicious file for further analysis",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Filename": "FileName",
@@ -1867,15 +2005,18 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
 
     5000: {"Descr": "<ProductName> Real-time Protection scanning for malware and "
                     "other potentially unwanted software was enabled",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion"},
 
     5001: {"Descr": "<ProductName> Real-time Protection scanning for malware and "
                     "other potentially unwanted software was disabled",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion"},
 
     5004: {"Descr": "<ProductName> Real-time Protection feature configuration has changed",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Feature Name": "Feature",
@@ -1883,12 +2024,14 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
 
     5007: {"Descr": "<ProductName> Configuration has changed. "
                     "If this is unexpected, you should review the settings as this may be the result of malware",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Old Value": "OldValue",
            "New Value": "NewValue"},
 
     5008: {"Descr": "<ProductName> engine has been terminated due to an unexpected error",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion",
            "Resource": "Resource",
@@ -1896,46 +2039,57 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Exception Code": "ExceptionCode"},
 
     5009: {"Descr": "<ProductName> scanning for spyware and other potentially unwanted software has been enabled",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion"},
 
     5010: {"Descr": "<ProductName> scanning for spyware and other potentially unwanted software is disabled",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion"},
 
     5011: {"Descr": "<ProductName> scanning for viruses has been enabled",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion"},
 
     5012: {"Descr": "<ProductName> scanning for viruses is disabled",
+           "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
            "Product Version": "ProductVersion"}
 }
 
 winrm = {  # Microsoft-Windows-WinRM/Operational
     6: {"Descr": "Creating WSMan session. The connection string is <Connection>",
+        "Provider": "Microsoft-Windows-WinRM",
         "connection": "Connection"},
 
-    8: {"Descr": "Closing WSMan session"},  # empty
+    8: {"Descr": "Closing WSMan session",
+        "Provider": "Microsoft-Windows-WinRM"},  # empty
 
-    15: {"Descr": "Closing WSMan command"},  # empty
+    15: {"Descr": "Closing WSMan command",
+         "Provider": "Microsoft-Windows-WinRM"},  # empty
 
-    16: {"Descr": "Closing WSMan shell"},  # empty
+    16: {"Descr": "Closing WSMan shell",
+         "Provider": "Microsoft-Windows-WinRM"},  # empty
 
-    33: {"Descr": "Closing WSMan session completed successfully"},  # empty
+    33: {"Descr": "Closing WSMan session completed successfully",
+         "Provider": "Microsoft-Windows-WinRM"},  # empty
 
     91: {"Descr": "Creating WSMan shell on server with <ResourceUri>",
+         "Provider": "Microsoft-Windows-WinRM",
          "resourceUri": "ResourceUri",
          "shellId": "ShellId"},
 
     169: {"Descr": "<TargetUsername> authenticated successfully using <AuthMechanism>",  # Win7 only?
+          "Provider": "Microsoft-Windows-WinRM",
           "username": "TargetUsername",
           "authenticationMechanism": "AuthMechanism"}
 }
 
 wlan = {  # Microsoft-Windows-WLAN-AutoConfig/Operational
-    # Provider: Microsoft-Windows-WLAN-AutoConfig
     8001: {"Descr": "WLAN AutoConfig service has successfully connected to a wireless network",
+           "Provider": "Microsoft-Windows-WLAN-AutoConfig",
            "InterfaceGuid": "InterfaceGuid",
            "InterfaceDescription": "InterfaceDescr",
            "ConnectionMode": "ConnectionMode",
@@ -1949,8 +2103,8 @@ wlan = {  # Microsoft-Windows-WLAN-AutoConfig/Operational
            "ConnectionId": "ConnectionId",
            "NonBroadcast": "IsNonBroadcast"},
 
-    # Provider: Microsoft-Windows-WLAN-AutoConfig
     8002: {"Descr": "WLAN AutoConfig service failed to connect to a wireless network",
+           "Provider": "Microsoft-Windows-WLAN-AutoConfig",
            "InterfaceGuid": "InterfaceGuid",
            "InterfaceDescription": "InterfaceDescr",
            "ConnectionMode": "ConnectionMode",
@@ -1962,8 +2116,8 @@ wlan = {  # Microsoft-Windows-WLAN-AutoConfig/Operational
            "ConnectionId": "ConnectionId",
            "RSSI": "RSSI"},
 
-    # Provider: Microsoft-Windows-WLAN-AutoConfig
     8003: {"Descr": "WLAN AutoConfig service has successfully disconnected from a wireless network",
+           "Provider": "Microsoft-Windows-WLAN-AutoConfig",
            "InterfaceGuid": "InterfaceGuid",
            "InterfaceDescription": "InterfaceDescr",
            "ConnectionMode": "ConnectionMode",
@@ -1974,8 +2128,8 @@ wlan = {  # Microsoft-Windows-WLAN-AutoConfig/Operational
            "ConnectionId": "ConnectionId",
            "ReasonCode": "ReasonCode"},
 
-    # Provider: Microsoft-Windows-WLAN-AutoConfig
     11000: {"Descr": "Wireless network association started",
+            "Provider": "Microsoft-Windows-WLAN-AutoConfig",
             "DeviceGuid": "InterfaceGuid",
             "Adapter": "InterfaceDescr",
             "LocalMac": "LocalMac",
@@ -1997,6 +2151,7 @@ wmi = {  # Microsoft-Windows-WMI-Activity/Operational (Win8+)
            "ProviderPath": "ProviderPath"},
 
     5860: {"Descr": "Registration of temporary event consumer",  # Win10 v1511+
+           "Provider": "Microsoft-Windows-WMI-Activity",
            "NamespaceName": "Namespace",
            "Query": "Query",
            "User": "Username",
@@ -2007,6 +2162,7 @@ wmi = {  # Microsoft-Windows-WMI-Activity/Operational (Win8+)
            "PossibleCause": "PossibleCause"},
 
     5861: {"Descr": "Registration of permanent event consumer",  # Win10 v1607+
+           "Provider": "Microsoft-Windows-WMI-Activity",
            "Namespace": "Namespace",
            "ESS": "ESS",
            "CONSUMER": "Consumer",

@@ -129,9 +129,18 @@ def _parse_event(node, channel, supported_events):
     event_data = node.xpath("/Event/EventData/Data")
 
     fields = supported_events[event['*EventID']]
+    try:
+        if fields["Provider"] != event['*Provider']:
+            return None
+        if not OPTIONS.nodescr:
+            event['*Descr'] = fields["Descr"]
+    except KeyError as e:
+        if 'Provider' not in str(e):
+            logging.error("Key Error: {0}, {1}, {2}".format(event['*Channel'], event['*EventID'], str(e)))
+        else:
+            pass
     se_keys = list(fields.keys())
-    if not OPTIONS.nodescr:
-        event['*Descr'] = fields["Descr"]
+    se_keys = [key for key in se_keys if key not in ('Descr', 'Provider')]
 
     if len(event_data) > 0:
         for data in event_data:
@@ -168,6 +177,8 @@ def _parse_event(node, channel, supported_events):
         parent = "/Event/UserData/*/"
 
         for key, field_value in fields.items():
+            if key in ('Descr', 'Provider'):
+                continue
             path = parent + key
             try:
                 if field_value[0] == '+':
@@ -181,9 +192,8 @@ def _parse_event(node, channel, supported_events):
                     rows = _query_db(query)
                     try:
                         event[field_value_new] = rows[0][0]
-                    except TypeError:  # rows = None (SQLite query failed)
+                    except (TypeError, IndexError):  # SQLite query failed)
                         event[field_value_new] = node.xpath(path)[0].text
-
                 if node.xpath(path)[0].text and '%%' in node.xpath(path)[0].text:
                     event[field_value] = _map_to_message(node.xpath(path)[0].text)
                 else:
@@ -191,8 +201,7 @@ def _parse_event(node, channel, supported_events):
             except KeyError:
                 event[field_value] = node.xpath(path)[0].text
             except IndexError:
-                if key != "Descr":
-                    logging.error("Index Error: {0}, {1}, {2}".format(event['*Channel'], event['*EventID'], key))
+                logging.error("Index Error: {0}, {1}, {2}".format(event['*Channel'], event['*EventID'], key))
 
     return json.dumps(event)
 
