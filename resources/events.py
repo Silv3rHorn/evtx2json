@@ -269,6 +269,15 @@ sec = {  # Security
            "TaskName": "TaskName",
            "TaskContentNew": "TaskContent"},
 
+    4717: {"Descr": "System security access was granted to an account",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetSid": "TargetSid",
+           "AccessGranted": "AccessGranted"},
+
     4719: {"Descr": "System audit policy was changed",
            "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
@@ -302,10 +311,51 @@ sec = {  # Security
            "AccountExpires": "AccountExpires",
            "PrimaryGroupId": "PrimaryGroupId",
            "AllowedToDelegateTo": "AllowedToDelegateTo",
-           "OldUacValue": "OldUacValue",
+           "OldUacValue": "+OldUacFlags",
            "SidHistory": "SIDHistory",
            "LogonHours": "LogonHours",
            "UserAccountControl": "UserAccountControl"},  # %% format (multiple, joined with ' ')
+
+    4722: {"Descr": "A user account was enabled",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetSid": "TargetSID",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain"},
+
+    4723: {"Descr": "An attempt was made to change an account's password",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetSid": "TargetSID",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain",
+           "PrivilegeList": "PrivilegeList"},
+
+    4724: {"Descr": "An attempt to was made to reset an account's password",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetSid": "TargetSID",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain"},
+
+    4725: {"Descr": "A user account was disabled",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetSid": "TargetSID",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain"},
 
     4726: {"Descr": "A user account was deleted",
            "Provider": "Microsoft-Windows-Security-Auditing",
@@ -313,7 +363,7 @@ sec = {  # Security
            "SubjectUserName": "Username",
            "SubjectDomainName": "Domain",
            "SubjectLogonId": "LogonId",
-           "TargetUserSid": "TargetSID",
+           "TargetSid": "TargetSID",
            "TargetUserName": "TargetUsername",
            "TargetDomainName": "TargetDomain"},
 
@@ -365,8 +415,8 @@ sec = {  # Security
            "AccountExpires": "AccountExpires",
            "PrimaryGroupId": "PrimaryGroupId",
            "AllowedToDelegateTo": "AllowedToDelegateTo",
-           "OldUacValue": "OldUacValue",  # to convert
-           "NewUacValue": "NewUacValue",  # to convert
+           "OldUacValue": "+OldUacFlags",
+           "NewUacValue": "+NewUacFlags",
            "UserParameters": "UserParameters",
            "SidHistory": "SIDHistory",
            "LogonHours": "LogonHours",
@@ -404,14 +454,106 @@ sec = {  # Security
            "AccountExpires": "AccountExpires",
            "PrimaryGroupId": "PrimaryGroupId",
            "AllowedToDelegateTo": "AllowedToDelegateTo",
-           "OldUacValue": "OldUacValue",  # to convert
-           "NewUacValue": "NewUacValue",  # to convert
+           "OldUacValue": "+OldUacFlags",
+           "NewUacValue": "+NewUacFlags",
            "UserParameters": "UserParameters",
            "SidHistory": "SIDHistory",
            "LogonHours": "LogonHours",
            "UserAccountControl": "UserAccountControl",  # %% format
            "DnsHostName": "Hostname",
            "ServicePrincipalNames": "SPNs"},
+
+    4742: {"Descr": "A computer account was changed",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "ComputerAccountChange": "ComputerAccountChange",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetSid": "TargetSID",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain",
+           "PrivilegeList": "PrivilegeList",
+           "SamAccountName": "SamAccountName",
+           "DisplayName": "DisplayName",
+           "UserPrincipalName": "UserPrincipalName",
+           "HomeDirectory": "HomeDirectory",
+           "HomePath": "HomePath",
+           "ScriptPath": "ScriptPath",
+           "ProfilePath": "ProfilePath",
+           "UserWorkstations": "UserWorkstations",
+           "PasswordLastSet": "PasswordLastSet",
+           "AccountExpires": "AccountExpires",
+           "PrimaryGroupId": "PrimaryGroupId",
+           "AllowedToDelegateTo": "AllowedToDelegateTo",
+           "OldUacValue": "+OldUacFlags",
+           "NewUacValue": "+NewUacFlags",
+           "UserParameters": "UserParameters",
+           "SidHistory": "SIDHistory",
+           "LogonHours": "LogonHours",
+           "UserAccountControl": "UserAccountControl",  # %% format
+           "DnsHostName": "Hostname",
+           "ServicePrincipalNames": "SPNs"},
+
+    4743: {"Descr": "A computer account was deleted",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetSid": "TargetSID",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain",
+           "PrivilegeList": "PrivilegeList"},
+
+    4746: {"Descr": "A member was added to a security-disabled local group",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "MemberSid": "TargetSID",
+           "MemberName": "TargetUsername",
+           "TargetSid": "TargetGroupSID",
+           "TargetUserName": "TargetGroup",
+           "TargetDomainName": "TargetDomain",
+           "PrivilegeList": "PrivilegeList"},
+
+    4756: {"Descr": "A member was added to a security-enabled universal group",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "MemberSid": "TargetSID",
+           "MemberName": "TargetUsername",
+           "TargetSid": "TargetGroupSID",
+           "TargetUserName": "TargetGroup",
+           "TargetDomainName": "TargetDomain",
+           "PrivilegeList": "PrivilegeList"},
+
+    4761: {"Descr": "A member was added to a security-disabled universal group",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "MemberSid": "TargetSID",
+           "MemberName": "TargetUsername",
+           "TargetSid": "TargetGroupSID",
+           "TargetUserName": "TargetGroup",
+           "TargetDomainName": "TargetDomain",
+           "PrivilegeList": "PrivilegeList"},
+
+    4767: {"Descr": "A user account was unlocked",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetSid": "TargetGroupSID",
+           "TargetUserName": "TargetGroup",
+           "TargetDomainName": "TargetDomain"},
 
     4768: {"Descr": "A Kerberos authentication ticket (TGT) was requested",
            "Provider": "Microsoft-Windows-Security-Auditing",
@@ -482,6 +624,18 @@ sec = {  # Security
            "ClientName": "WorkstationName",
            "ClientAddress": "IP"},
 
+    4781: {"Descr": "The name of an account was changed",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "OldTargetUserName": "OldTargetUsername",
+           "NewTargetUserName": "NewTargetUsername",
+           "TargetDomainName": "TargetDomain",
+           "TargetSid": "TargetSID",
+           "PrivilegeList": "PrivilegeList"},
+
     4798: {"Descr": "A user's local group membership was enumerated",
            "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
@@ -513,6 +667,32 @@ sec = {  # Security
            "AccountDomain": "TargetDomain",
            "LogonID": "TargetLogonId",
            "ClientAddress": "IP"},
+
+    4912: {"Descr": "Per User Audit Policy was changed",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "TargetUserSid": "TargetSID",
+           "CategoryId": "CategoryId",  # %% format
+           "SubcategoryId": "SubcategoryId",  # %% format
+           "SubcategoryGuid": "SubcategoryGuid",  # %% format
+           "AuditPolicyChanges": "AuditPolicyChanges"},  # %% format (multiple, joined with ', ')
+
+    4964: {"Descr": "Special groups have been assigned to a new logon",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "SubjectLogonId": "LogonId",
+           "LogonGuid": "LogonGuid",
+           "TargetUserName": "TargetUsername",
+           "TargetDomainName": "TargetDomain",
+           "TargetUserSid": "TargetSID",
+           "TargetLogonId": "TargetLogonId",
+           "TargetLogonGuid": "TargetLogonGuid",
+           "SidList": "SidList"},
 
     5059: {"Descr": "Key migration operation",
            "Provider": "Microsoft-Windows-Security-Auditing",
@@ -607,6 +787,20 @@ sec = {  # Security
            "SourcePort": "Port",
            "Protocol": "+Protocol"},
 
+    6279: {"Descr": "Network Policy Server locked the user account due to repeated failed authentication attempts",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "FullyQualifiedSubjectUserName": "UsernameFQN"},
+
+    6280: {"Descr": "Network Policy Server unlocked the user account",
+           "Provider": "Microsoft-Windows-Security-Auditing",
+           "SubjectUserSid": "SID",
+           "SubjectUserName": "Username",
+           "SubjectDomainName": "Domain",
+           "FullyQualifiedSubjectUserName": "UsernameFQN"},
+
     6416: {"Descr": "A new external device was recognized by the System",
            "Provider": "Microsoft-Windows-Security-Auditing",
            "SubjectUserSid": "SID",
@@ -639,6 +833,39 @@ sys = {  # System
            "Provider": "Microsoft-Windows-DNS-Client",
            "QueryName": "QueryName",
            "Address": "Address"},
+
+    1074: {"Descr": "<ProcessPath> has initiated the <ShutdownType> of <Hostname> on behalf of <Username> for the "
+                    "following <Reason>",
+           "Provider": "User32",
+           "param1": "ProcessPath",
+           "param2": "Hostname",
+           "param3": "Reason",
+           "param4": "ReasonCode",
+           "param5": "ShutdownType",
+           "param6": "Comment",
+           "param7": "Username"},
+
+    1076: {"Desc": "The reason supplied by <Username> for the last unexpected shutdown of this computer is <Reason>",
+           "Provider": "User32",
+           "param1": "Reason",
+           "param2": "ReasonCode",
+           "param5": "Comment",
+           "param6": "Username"},
+
+    6005: {"Descr": "The Event Log service was started",
+           "Provider": "EventLog"},
+
+    6006: {"Descr": "The Event Log service was stopped",
+           "Provider": "EventLog"},
+
+    6008: {"Descr": "The previous system shutdown at %1 on %2 was unexpected",
+           "Provider": "EventLog"},
+
+    6009: {"Descr": "Microsoft (R) Windows (R) %1 %2 %3 %4",
+           "Provider": "EventLog"},
+
+    6013: {"Descr": "The system uptime is %5 seconds",
+           "Provider": "EventLog"},
 
     6100: {"Descr": "Details about Networking <HelperClassName> diagnosis:",
            "Provider": "Microsoft-Windows-Diagnostics-Networking",
@@ -741,8 +968,25 @@ app = {  # Application
     327: {"Descr": "%1 (%2) %3 The database engine detached a database (%4, %5). (Time=%6 seconds)",
           "Provider": "ESENT"},
 
-    1001: {"Descr": "Process Error",
-           "Provider": "Windows Error Reporting"}
+    1001: {"Descr": "Fault bucket: %1, Type: %2. Event Name: %3, Response: %4, Cab Id: %5. Problem signature: %rest",
+           "Provider": "Windows Error Reporting"},
+
+    1033: {"Descr": "Windows Installer installed the product. Product Name: %1. Product Version: %2. "
+                    "Product Language: %3. Manufacturer: %5. Installation success or error status: %4.",
+           "Provider": "MsiInstaller"},
+
+    1034: {"Descr": "Windows Installer removed the product. Product Name: %1. Product Version: %2. "
+                    "Product Language: %3. Manufacturer: %5. Removal success or error status: %4.",
+           "Provider": "MsiInstaller"},
+
+    11707: {"Descr": "Installation completed successfully",
+            "Provider": "MsiInstaller"},
+
+    11708: {"Descr": "Installation operation failed",
+            "Provider": "MsiInstaller"},
+
+    11724: {"Descr": "Application removal completed successfully",
+            "Provider": "MsiInstaller"},
 }
 
 appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
@@ -760,7 +1004,77 @@ appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
           "NumRemovedAddOns": "NumRemovedAddOns",
           "NumUpdatedAddOns": "NumUpdatedAddOns",
           "NumInstalledAddOns": "NumInstalledAddOns",
-          "NumNewInstallations": "NumNewInstallations"}
+          "NumNewInstallations": "NumNewInstallations"},
+
+    903: {"Desc": "A program was installed on the system",
+          "Provider": "Microsoft-Windows-Application-Experience",
+          "Name": "AppName",
+          "Version": "AppVersion",
+          "Publisher": "AppPublisher",
+          "Language": "Language",
+          "Source": "Source",
+          "ProgramID": "ProgramId",
+          "FileInstanceID": "FileInstanceId"},
+
+    904: {"Desc": "A program was installed on the system (MSI)",
+          "Provider": "Microsoft-Windows-Application-Experience",
+          "Name": "AppName",
+          "Version": "AppVersion",
+          "Publisher": "AppPublisher",
+          "Language": "Language",
+          "Source": "Source",
+          "ProgramID": "ProgramId",
+          "FileInstanceID": "FileInstanceId",
+          "MsiProductCode": "MsiProductCode",
+          "MsiPackageCode": "MsiPackageCode"},
+
+    905: {"Desc": "A program was updated on the system",
+          "Provider": "Microsoft-Windows-Application-Experience",
+          "Name": "AppName",
+          "Version": "AppVersion",
+          "Publisher": "AppPublisher",
+          "Language": "Language",
+          "Source": "Source",
+          "ProgramID": "ProgramId",
+          "FileInstanceID": "FileInstanceId",
+          "OldFileInstanceID": "OldFileInstanceId"},
+
+    906: {"Desc": "A program was updated on the system (MSI)",
+          "Provider": "Microsoft-Windows-Application-Experience",
+          "Name": "AppName",
+          "Version": "AppVersion",
+          "Publisher": "AppPublisher",
+          "Language": "Language",
+          "Source": "Source",
+          "ProgramID": "ProgramId",
+          "FileInstanceID": "FileInstanceId",
+          "OldFileInstanceID": "OldFileInstanceId",
+          "MsiProductCode": "MsiProductCode",
+          "OldMsiProductCode": "OldMsiProductCode",
+          "MsiPackageCode": "MsiPackageCode",
+          "OldMsiPackageCode": "OldMsiPackageCode"},
+
+    907: {"Desc": "A program was removed on the system",
+          "Provider": "Microsoft-Windows-Application-Experience",
+          "Name": "AppName",
+          "Version": "AppVersion",
+          "Publisher": "AppPublisher",
+          "Language": "Language",
+          "Source": "Source",
+          "ProgramID": "ProgramId",
+          "FileInstanceID": "FileInstanceId"},
+
+    908: {"Desc": "A program was removed on the system (MSI)",
+          "Provider": "Microsoft-Windows-Application-Experience",
+          "Name": "AppName",
+          "Version": "AppVersion",
+          "Publisher": "AppPublisher",
+          "Language": "Language",
+          "Source": "Source",
+          "ProgramID": "ProgramId",
+          "FileInstanceID": "FileInstanceId",
+          "MsiProductCode": "MsiProductCode",
+          "MsiPackageCode": "MsiPackageCode"}
 }
 
 appexp2 = {  # Microsoft-Windows-Application-Experience/Program-Telemetry
@@ -821,7 +1135,23 @@ applocker = {  # Microsoft-Windows-AppLocker/EXE and DLL
 }
 
 bits = {  # Microsoft-Windows-Bits-Client/Operational
+    3: {"Descr": "The BITS service created a new job",
+        "Provider": "Microsoft-Windows-Bits-Client",
+        "jobTitle": "JobTitle",
+        "jobId": "JobId",
+        "jobOwner": "JobOwner",
+        "processPath": "ProcessPath",
+        "processId": "ProcessId"},
+
     4: {"Descr": "The transfer job is complete",
+        "Provider": "Microsoft-Windows-Bits-Client",
+        "User": "Username",
+        "jobTitle": "JobTitle",
+        "jobId": "JobId",
+        "jobOwner": "JobOwner",
+        "fileCount": "FileCount"},
+
+    5: {"Descr": "Job cancelled",
         "Provider": "Microsoft-Windows-Bits-Client",
         "User": "Username",
         "jobTitle": "JobTitle",
@@ -1118,7 +1448,7 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "RuleId": "RuleId",
            "RuleName": "RuleName",
            "Origin": "+Origin",
-           "ApplicationPath": "ApplicationPath",
+           "ApplicationPath": "AppPath",
            "ServiceName": "ServiceName",
            "Direction": "+Direction",
            "Protocol": "+Protocol",
@@ -1137,7 +1467,7 @@ fwall = {  # Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
            "RuleId": "RuleId",
            "RuleName": "RuleName",
            "Origin": "+Origin",
-           "ApplicationPath": "ApplicationPath",
+           "ApplicationPath": "AppPath",
            "ServiceName": "ServiceName",
            "Direction": "+Direction",
            "Protocol": "+Protocol",
@@ -1238,6 +1568,33 @@ lsm = {  # Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
          "SessionID": "TargetSessionId"}
 }
 
+networkp = {  # Microsoft-Windows-NetworkProfile/Operational
+    10000: {"Descr": "Network connected",
+            "Provider": "Microsoft-Windows-NetworkProfile",
+            "Name": "ProfileName",
+            "Guid": "Guid",
+            "Type": "+Type",
+            "State": "State",
+            "Category": "Category"},
+
+    10001: {"Descr": "Network disconnected",
+            "Provider": "Microsoft-Windows-NetworkProfile",
+            "Name": "ProfileName",
+            "Guid": "Guid",
+            "Type": "+Type",
+            "State": "State",
+            "Category": "Category"},
+
+    10002: {"Descr": "Network category changed",
+            "Provider": "Microsoft-Windows-NetworkProfile",
+            "Name": "ProfileName",
+            "Guid": "Guid",
+            "Type": "+Type",
+            "State": "State",
+            "Category": "Category"},
+
+}
+
 ntfs = {  # Microsoft-Windows-Ntfs/Operational
     142: {"Descr": "Summary of disk space usage, since last event",
           "Provider": "Microsoft-Windows-Ntfs",
@@ -1336,8 +1693,15 @@ pshell1 = {  # Windows PowerShell
 }
 
 pshell2 = {  # Microsoft-Windows-PowerShell/Operational
+    4100: {"Descr": "<Payload> Context: <ContextInfo>",  # Error executing script
+           "Provider": "Microsoft-Windows-PowerShell",
+           "ContextInfo": "ContextInfo",
+           "UserData": "UserData",
+           "Payload": "Payload"},
+
     4103: {"Descr": "<Payload> Context: <ContextInfo>",  # Module logging
            "Provider": "Microsoft-Windows-PowerShell",
+           "ContextInfo": "ContextInfo",
            "UserData": "UserData",
            "Payload": "Payload"},
 
@@ -1362,6 +1726,14 @@ pshell2 = {  # Microsoft-Windows-PowerShell/Operational
     8197: {"Descr": "Runspace state changed to <Status>",  # Session status
            "Provider": "Microsoft-Windows-PowerShell",
            "param1": "Status"},
+
+    24577: {"Descr": "Windows PowerShell ISE has started to run script file %1",
+            "Provider": "Microsoft-Windows-PowerShell",
+            "FileName": "FileName"},
+
+    24578: {"Descr": "Windows PowerShell ISE has started to run a user-selected script from file %1",
+            "Provider": "Microsoft-Windows-PowerShell",
+            "FileName": "FileName"},
 
     40961: {"Descr": "PowerShell console is starting up",
             "Provider": "Microsoft-Windows-PowerShell"},  # empty
@@ -1433,6 +1805,24 @@ scpnp = {  # Microsoft-Windows-Storage-ClassPnP/Operational
 }
 
 sch = {  # Microsoft-Windows-TaskScheduler/Operational
+    100: {"Descr": "Task Scheduler started <TaskInstanceId> of the <TaskName> task for user <Username>",
+          "Provider": "Microsoft-Windows-TaskScheduler",
+          "TaskName": "TaskName",
+          "UserContext": "Username",
+          "InstanceId": "TaskInstanceId"},
+
+    101: {"Descr": "Task Scheduler failed to start <TaskName> task for user <Username>",
+          "Provider": "Microsoft-Windows-TaskScheduler",
+          "TaskName": "TaskName",
+          "UserContext": "Username",
+          "ResultCode": "ResultCode"},
+
+    102: {"Descr": "Task Scheduler successfully finished <TaskInstanceId> of the <TaskName> task for user <Username>",
+          "Provider": "Microsoft-Windows-TaskScheduler",
+          "TaskName": "TaskName",
+          "UserContext": "Username",
+          "InstanceId": "TaskInstanceId"},
+
     106: {"Descr": "<Username> registered Task Scheduler <TaskName>",
           "Provider": "Microsoft-Windows-TaskScheduler",
           "TaskName": "TaskName",
@@ -1449,6 +1839,13 @@ sch = {  # Microsoft-Windows-TaskScheduler/Operational
           "UserName": "Username",
           "InstanceId": "TaskInstanceId"},
 
+    129: {"Descr": "Task Scheduler launch task <TaskName>, instance <ProcessPath> with process ID <ProcessId>",
+          "Provider": "Microsoft-Windows-TaskScheduler",
+          "TaskName": "TaskName",
+          "Path": "ProcessPath",
+          "ProcessID": "ProcessId",
+          "Priority": "ProcessPriority"},
+
     140: {"Descr": "<Username> updated Task Scheduler <TaskName>",
           "Provider": "Microsoft-Windows-TaskScheduler",
           "TaskName": "TaskName",
@@ -1458,19 +1855,6 @@ sch = {  # Microsoft-Windows-TaskScheduler/Operational
           "Provider": "Microsoft-Windows-TaskScheduler",
           "TaskName": "TaskName",
           "UserName": "Username"},
-
-    200: {"Descr": "Task Scheduler launched <ApplicationPath> in <TaskInstanceId> of <TaskName>",
-          "Provider": "Microsoft-Windows-TaskScheduler",
-          "TaskName": "TaskName",
-          "ActionName": "ApplicationPath",
-          "TaskInstanceId": "TaskInstanceId"},
-
-    201: {"Descr": "Task Scheduler successfully completed <TaskName>, <TaskInstanceId>, <ApplicationPath>",
-          "Provider": "Microsoft-Windows-TaskScheduler",
-          "TaskName": "TaskName",
-          "ActionName": "ApplicationPath",
-          "TaskInstanceId": "TaskInstanceId",
-          "ResultCode": "ResultCode"},
 }
 
 shell = {  # Microsoft-Windows-Shell-Core/Operational
@@ -2003,6 +2387,24 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
            "Engine Version": "EngineVersion",
            "Error Code": "ErrorCode"},
 
+    3002: {"Descr": "<ProductName> Real-Time Protection feature has encountered an error and failed",
+           "Provider": "Microsoft-Windows-Windows Defender",
+           "Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Feature Name": "Feature",
+           "Reason": "Reason",
+           "Error Code": "ErrorCode",
+           "Error Description": "ErrorDescr",
+           "Feature ID": "FeatureId"},
+
+    3007: {"Descr": "<ProductName> Real-time Protection feature has restarted",
+           "Provider": "Microsoft-Windows-Windows Defender",
+           "Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Feature Name": "Feature",
+           "Reason": "Reason",
+           "Feature ID": "FeatureId"},
+
     5000: {"Descr": "<ProductName> Real-time Protection scanning for malware and "
                     "other potentially unwanted software was enabled",
            "Provider": "Microsoft-Windows-Windows Defender",
@@ -2149,6 +2551,16 @@ wmi = {  # Microsoft-Windows-WMI-Activity/Operational (Win8+)
            "HostProcess": "ProcessName",
            "ProcessID": "ProcessID",
            "ProviderPath": "ProviderPath"},
+
+    5858: {"Descr": "WMI execution error",
+           "Provider": "Microsoft-Windows-WMI-Activity",
+           "ClientMachine": "Hostname",
+           "User": "Username",
+           "ClientProcessId": "ProcessId",
+           "Component": "Component",
+           "Operation": "Operation",
+           "ResultCode": "ResultCode",
+           "PossibleCause": "PossibleCause"},
 
     5860: {"Descr": "Registration of temporary event consumer",  # Win10 v1511+
            "Provider": "Microsoft-Windows-WMI-Activity",
