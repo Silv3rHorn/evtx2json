@@ -224,7 +224,8 @@ def run(output_path):
             channel = None
             event_id = None
             supported_events = []
-            count = 0
+            count_found = 0
+            count_processed = 0
 
             if OPTIONS.evtxtract:
                 nodes = ef.get_log(log)
@@ -250,9 +251,9 @@ def run(output_path):
                             logging.info("{}\n".format("Not selected by user!"))
                             break
 
-                count += 1
-                if not count % 100:
-                    sys.stdout.write("\r[*] %i records processed." % count)
+                count_found += 1
+                if not count_found % 100:
+                    sys.stdout.write("\r[*] %i records found." % count_found)
                     sys.stdout.flush()
 
                 if OPTIONS.evtxtract or len(supported_events) == 0:  # get supported events of event log
@@ -271,6 +272,7 @@ def run(output_path):
 
                 parsed_record = _parse_event(node, channel, supported_events)
                 if parsed_record:
+                    count_processed += 1
                     if not OPTIONS.nodedup:
                         if not _isdup(parsed_record, channel):
                             outfile.write(parsed_record)
@@ -283,9 +285,9 @@ def run(output_path):
             os.fsync(outfile)
 
             if OPTIONS.evtxtract or channel in OPTIONS.cat:
-                print("\r[*] {} records processed!\n".format(count))
-                logging.info("{} records processed!\n".format(count))
-            if not OPTIONS.evtxtract and channel is None and count == 0:
+                print("\r[*] {0} records found, {1} records processed\n".format(count_found, count_processed))
+                logging.info("{0} records found, {1} records processed\n".format(count_found, count_processed))
+            if not OPTIONS.evtxtract and channel is None and count_found == 0:
                 print("\rNo records in log!\n")
                 logging.info("No records in log!\n")
 
