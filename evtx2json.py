@@ -130,7 +130,7 @@ def _parse_event(node, channel, supported_events):
 
     fields = supported_events[event['*EventID']]
     try:
-        if fields["Provider"] != event['*Provider']:
+        if fields["Provider"].lower() != event['*Provider'].lower():
             return None
         if not OPTIONS.nodescr:
             event['*Descr'] = fields["Descr"]
