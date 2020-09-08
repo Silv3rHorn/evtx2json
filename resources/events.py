@@ -957,16 +957,16 @@ app = {  # Application
         "AdditionalDetails": "AdditionalDetails"},
 
     216: {"Descr": "%1 (%2) %3 A database location change was detected from %4 to %5",
-          "Provider": "ESENT"},
+          "Provider": "ESENT"},  # removed in Win10 v2004
 
     325: {"Descr": "%1 (%2) %3 The database engine created a new database (%4, %5). (Time=%6 seconds)",
-          "Provider": "ESENT"},
+          "Provider": "ESENT"},  # removed in Win10 v2004
 
     326: {"Descr": "%1 (%2) %3 The database engine attached a database (%4, %5). (Time=%6 seconds)",
-          "Provider": "ESENT"},
+          "Provider": "ESENT"},  # removed in Win10 v2004
 
     327: {"Descr": "%1 (%2) %3 The database engine detached a database (%4, %5). (Time=%6 seconds)",
-          "Provider": "ESENT"},
+          "Provider": "ESENT"},  # removed in Win10 v2004
 
     1001: {"Descr": "Fault bucket: %1, Type: %2. Event Name: %3, Response: %4, Cab Id: %5. Problem signature: %rest",
            "Provider": "Windows Error Reporting"},
@@ -1608,7 +1608,29 @@ ntfs = {  # Microsoft-Windows-Ntfs/Operational
           "Provider": "Microsoft-Windows-Ntfs",
           "VolumeCorrelationId": "VolumeGuid",
           "VolumeName": "VolumeName",
-          "IsBootVolume": "IsBootVolume"}
+          "IsBootVolume": "IsBootVolume"},
+
+    151: {"Descr": "In the past <SecondsElapsed> seconds <TotalCountDeleteFile> files were deleted",  # Win10 v2004+
+          "Provider": "Microsoft-Windows-Ntfs",
+          "VolumeCorrelationId": "VolumeGuid",
+          "VolumeName": "VolumeName",
+          "IsBootVolume": "IsBootVolume",
+          "SecondsElapsed": "SecondsElapsed",
+          "TotalCountDeleteFile": "TotalCountDeleteFile",
+          "TotalCountDeleteFileLogged": "TotalCountDeleteFileLogged",
+          "ProcessName": "ProcessName",
+          "CountDeleteFile": "CountDeleteFile"},
+
+    158: {"Descr": "IO latency summary common data for volume",  # Win10 v2004+
+          "Provider": "Microsoft-Windows-Ntfs",
+          "VolumeCorrelationId": "VolumeGuid",
+          "VolumeName": "VolumeName",
+          "UserFileReads": "UserFileReads",
+          "UserFileReadBytes": "UserFileReadBytes",
+          "UserDiskReads": "UserDiskReads",
+          "UserFileWrites": "UserFileWrites",
+          "UserFileWriteBytes": "UserFileWriteBytes",
+          "UserDiskWrites": "UserDiskWrites"}
 }
 
 offlinef = {  # Microsoft-Windows-OfflineFiles/Operational
@@ -1626,7 +1648,7 @@ offlinef = {  # Microsoft-Windows-OfflineFiles/Operational
 partition = {  # Microsoft-Windows-Partition/Diagnostic; Win10 v1709+
     1006: {"Descr": "A device is connected or disconnected from the system",
            "Provider": "Microsoft-Windows-Partition",
-           "Version": "Version",
+           "Version": "Version",  # removed in Win 10 v2004
            "DiskNumber": "DiskNumber",
            "Flags": "Flags",
            "Characteristics": "Characteristics",
@@ -2030,12 +2052,24 @@ smbserver5 = {  # Microsoft-Windows-SMBServer/Security
            "DefaultLmCompatibilityLevel": "+DefaultLmCompatibilityLevel"}
 }
 
+storspaces = {  # Microsoft-Windows-StorageSpaces-Driver/Operational
+    207: {"Descr": "Physical disk <DriveId> arrived",  # Win 10 v2004+
+          "Provider": "Microsoft-Windows-StorageSpaces-Driver",
+          "DriveId": "DiskId",
+          "PoolId": "PoolId",
+          "DeviceNumber": "DiskNumber",
+          "DriveManufacturer": "Vendor",
+          "DriveModel": "Product",
+          "DriveSerial": "SerialNumber"}
+}
+
 storsvc = {  # Microsoft-Windows-Storsvc/Diagnostic
     1001: {"Descr": "NIL",
            "Provider": "Microsoft-Windows-Storsvc",
            "Version": "Version",
            "DiskNumber": "DiskNumber",
            "VendorId": "Vendor",
+           "ProductId": "Product",
            "ProductRevision": "ProductRevision",
            "SerialNumber": "SerialNumber",
            "ParentId": "ParentId",
@@ -2458,7 +2492,14 @@ wdef = {  # Microsoft-Windows-Windows Defender/Operational
     5012: {"Descr": "<ProductName> scanning for viruses is disabled",
            "Provider": "Microsoft-Windows-Windows Defender",
            "Product Name": "ProductName",
-           "Product Version": "ProductVersion"}
+           "Product Version": "ProductVersion"},
+
+    5013: {"Descr": "Tamper Protection <ChangedType> to <Value>",  # Win10 v2004+
+           "Provider": "Microsoft-Windows-Windows Defender",
+           "Product Name": "ProductName",
+           "Product Version": "ProductVersion",
+           "Changed Type": "ChangedType",
+           "Value": "Value"}
 }
 
 winrm = {  # Microsoft-Windows-WinRM/Operational

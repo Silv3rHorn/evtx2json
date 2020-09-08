@@ -18,6 +18,7 @@ CHANNEL_NAMES = {'app': "Application", 'appexp1': "Microsoft-Windows-Application
                  'fwall': "Microsoft-Windows-Windows Firewall With Advanced Security/Firewall",
                  'kernelpnp': "Microsoft-Windows-Kernel-PnP/Configuration",
                  'lsm': "Microsoft-Windows-TerminalServices-LocalSessionManager/Operational",
+                 'networkp': 'Microsoft-Windows-NetworkProfile/Operational',
                  'ntfs': "Microsoft-Windows-Ntfs/Operational", 'offlinef': "Microsoft-Windows-OfflineFiles/Operational",
                  'partition': "Microsoft-Windows-Partition/Diagnostic",
                  'printsvc': "Microsoft-Windows-PrintService/Operational",
@@ -34,6 +35,7 @@ CHANNEL_NAMES = {'app': "Application", 'appexp1': "Microsoft-Windows-Application
                  'smbserver3': "Microsoft-Windows-SMBServer/Connectivity",
                  'smbserver4': "Microsoft-Windows-SMBServer/Operational",
                  'smbserver5': "Microsoft-Windows-SMBServer/Security",
+                 'storspaces': "Microsoft-Windows-StorageSpaces-Driver/Operational",
                  'storsvc': "Microsoft-Windows-Storsvc/Diagnostic",
                  'symantec': "Symantec Endpoint Protection Client",
                  'wdef': "Microsoft-Windows-Windows Defender/Operational",
@@ -125,6 +127,7 @@ def get_selection():
         '\t Microsoft-Windows-DNSServer/Analytical                                  dnsserver \n'
         '\t Microsoft-Windows-DriverFrameworks-UserMode/Operational                 driverfw \n'
         '\t Microsoft-Windows-Kernel-PnP/Configuration                              kernelpnp \n'
+        '\t Microsoft-Windows-NetworkProfile/Operational                            networkp \n'
         '\t Microsoft-Windows-Ntfs/Operational                                      ntfs \n'
         '\t Microsoft-Windows-OfflineFiles/Operational                              offlinef \n'
         '\t Microsoft-Windows-Partition/Diagnostic                                  partition \n'     
@@ -139,6 +142,7 @@ def get_selection():
         '\t Microsoft-Windows-SMBServer/Operational                                 smbserver4 \n'
         '\t Microsoft-Windows-SMBServer/Security                                    smbserver5 \n'
         '\t Microsoft-Windows-Storage-ClassPnP/Operational                          scpnp \n'
+        '\t Microsoft-Windows-StorageSpaces-Driver/Operational                      storspaces \n'
         '\t Microsoft-Windows-Storsvc/Diagnostic                                    storsvc \n'
         '\t Microsoft-Windows-TaskScheduler/Operational                             sch \n'
         '\t Microsoft-Windows-TerminalServices-LocalSessionManager/Operational      lsm \n'
