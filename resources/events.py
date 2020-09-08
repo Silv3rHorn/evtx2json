@@ -845,7 +845,7 @@ sys = {  # System
            "param6": "Comment",
            "param7": "Username"},
 
-    1076: {"Desc": "The reason supplied by <Username> for the last unexpected shutdown of this computer is <Reason>",
+    1076: {"Descr": "The reason supplied by <Username> for the last unexpected shutdown of this computer is <Reason>",
            "Provider": "User32",
            "param1": "Reason",
            "param2": "ReasonCode",
@@ -1006,7 +1006,7 @@ appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
           "NumInstalledAddOns": "NumInstalledAddOns",
           "NumNewInstallations": "NumNewInstallations"},
 
-    903: {"Desc": "A program was installed on the system",
+    903: {"Descr": "A program was installed on the system",
           "Provider": "Microsoft-Windows-Application-Experience",
           "Name": "AppName",
           "Version": "AppVersion",
@@ -1016,7 +1016,7 @@ appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
           "ProgramID": "ProgramId",
           "FileInstanceID": "FileInstanceId"},
 
-    904: {"Desc": "A program was installed on the system (MSI)",
+    904: {"Descr": "A program was installed on the system (MSI)",
           "Provider": "Microsoft-Windows-Application-Experience",
           "Name": "AppName",
           "Version": "AppVersion",
@@ -1028,7 +1028,7 @@ appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
           "MsiProductCode": "MsiProductCode",
           "MsiPackageCode": "MsiPackageCode"},
 
-    905: {"Desc": "A program was updated on the system",
+    905: {"Descr": "A program was updated on the system",
           "Provider": "Microsoft-Windows-Application-Experience",
           "Name": "AppName",
           "Version": "AppVersion",
@@ -1039,7 +1039,7 @@ appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
           "FileInstanceID": "FileInstanceId",
           "OldFileInstanceID": "OldFileInstanceId"},
 
-    906: {"Desc": "A program was updated on the system (MSI)",
+    906: {"Descr": "A program was updated on the system (MSI)",
           "Provider": "Microsoft-Windows-Application-Experience",
           "Name": "AppName",
           "Version": "AppVersion",
@@ -1054,7 +1054,7 @@ appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
           "MsiPackageCode": "MsiPackageCode",
           "OldMsiPackageCode": "OldMsiPackageCode"},
 
-    907: {"Desc": "A program was removed on the system",
+    907: {"Descr": "A program was removed on the system",
           "Provider": "Microsoft-Windows-Application-Experience",
           "Name": "AppName",
           "Version": "AppVersion",
@@ -1064,7 +1064,7 @@ appexp1 = {  # Microsoft-Windows-Application-Experience/Program-Inventory
           "ProgramID": "ProgramId",
           "FileInstanceID": "FileInstanceId"},
 
-    908: {"Desc": "A program was removed on the system (MSI)",
+    908: {"Descr": "A program was removed on the system (MSI)",
           "Provider": "Microsoft-Windows-Application-Experience",
           "Name": "AppName",
           "Version": "AppVersion",
