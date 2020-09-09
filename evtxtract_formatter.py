@@ -42,4 +42,7 @@ def get_log(log):
     log = _sanitise_xml(log)
     tree = Et.parse(log)
     root = tree.getroot()
+    # xml_parser = etree.XMLParser(recover=True)
+    # xml = etree.parse(log, parser=xml_parser)
+    # root = xml.getroot()
     return _list_to_generator(_remove_namespace(root))
