@@ -32,7 +32,7 @@ PARSED_RECORDS = {}
 
 
 def xml_records(filename):
-    if OPTIONS.thorough:
+    if OPTIONS.alternate:
         with Evtx(filename) as evtx:
             try:
                 for xml, record in evtx_file_xml_view(evtx.get_file_header()):

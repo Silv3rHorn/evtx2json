@@ -1,14 +1,17 @@
 # evtx2json
 ![](https://img.shields.io/badge/python-3.7-blue.svg)
 
-evtx2json extracts **supported events** from event logs, **dedups** them, and exports them 
-to json.
+evtx2json extracts **supported events** from event logs, **standardizes** the fields across events, **dedups** them, 
+and exports them to json.
 
 Also includes event description for each exported event.
 
 ## Why was this created?
 To extract only events and fields **of interest** from multiple event logs, in
-a format that is compatible for ingesting and querying with Splunk.
+a format that is compatible for ingesting and querying with Splunk (or any other Data Analytics platform).
+
+Data Analytics platform is preferred over Excel or Event Log Viewers as it provides querying functions that facilitate 
+the aggregation of similar data and reduces the volume of data to be analysed.  
 
 ## Dependencies
 None if using [**release executable**](https://github.com/Silv3rHorn/evtx2json/releases). 
@@ -73,7 +76,7 @@ optional arguments:
   -o OUTPUT, --output OUTPUT
                         path to the directory to store the output.
   --evtxtract           file(s) to process is evtxtract output
-  --thorough            use python-evtx library instead to parse more malformed events at the cost of speed
+  --alternate           use python-evtx library instead (slower)
   --nodedup             skip de-duplication of events.
   --nodescr             excludes event description for faster and smaller output.
 ```
