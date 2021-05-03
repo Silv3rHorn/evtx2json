@@ -1897,7 +1897,7 @@ shell = {  # Microsoft-Windows-Shell-Core/Operational
            "Command": "Command",
            "PID": "ProcessId"},
 
-    28115: {"Descr": "Shortcut for application <> with ID <> and flags <> is added to app resolver cache",
+    28115: {"Descr": "Shortcut for <AppName> with <AppID> and <Flags> is added to app resolver cache",
             "Provider": "Microsoft-Windows-Shell-Core",
             "Name": "AppName",
             "AppID": "AppID",
