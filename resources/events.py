@@ -222,7 +222,7 @@ sec = {  # Security
            "ServiceFileName": "ServicePath",
            "ServiceType": "+ServiceType",
            "ServiceStartType": "+ServiceStartType",
-           "ServiceAccount": "Username"},
+           "ServiceAccount": "ServiceAccount"},
 
     4698: {"Descr": "A scheduled task was created",
            "Provider": "Microsoft-Windows-Security-Auditing",
@@ -899,8 +899,8 @@ sys = {  # System
            "ServiceName": "ServiceName",
            "ImagePath": "ServicePath",
            "ServiceType": "ServiceType",
-           "StartType": "StartType",
-           "AccountName": "Username"},
+           "StartType": "ServiceStartType",
+           "AccountName": "ServiceAccount"},
 
     9009: {"Descr": "The Desktop Window Manager has exited with code <ExitCode>",  # classic event, incorrect channel?
            "Param1": "ExitCode"},
