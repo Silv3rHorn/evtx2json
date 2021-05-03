@@ -1774,6 +1774,10 @@ pshell2 = {  # Microsoft-Windows-PowerShell/Operational
 }
 
 rcm = {  # Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational
+    261: {"Descr": "Listener <ListenerName> received a connection",
+          "Provider": "Microsoft-Windows-TerminalServices-RemoteConnectionManager",
+          "listenerName": "ListenerName"},
+
     1149: {"Descr": "Remote Desktop Services: User authentication established",
            "Provider": "Microsoft-Windows-TerminalServices-RemoteConnectionManager",
            "Param1": "TargetUsername",
