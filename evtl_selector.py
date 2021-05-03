@@ -19,7 +19,8 @@ CHANNEL_NAMES = {'app': "Application", 'appexp1': "Microsoft-Windows-Application
                  'kernelpnp': "Microsoft-Windows-Kernel-PnP/Configuration",
                  'lsm': "Microsoft-Windows-TerminalServices-LocalSessionManager/Operational",
                  'networkp': 'Microsoft-Windows-NetworkProfile/Operational',
-                 'ntfs': "Microsoft-Windows-Ntfs/Operational", 'offlinef': "Microsoft-Windows-OfflineFiles/Operational",
+                 'ntfs': "Microsoft-Windows-Ntfs/Operational", 'oalerts': "OAlerts",
+                 'offlinef': "Microsoft-Windows-OfflineFiles/Operational",
                  'partition': "Microsoft-Windows-Partition/Diagnostic",
                  'printsvc': "Microsoft-Windows-PrintService/Operational",
                  'pshell1': "Windows PowerShell", 'pshell2': "Microsoft-Windows-PowerShell/Operational",
@@ -117,6 +118,7 @@ def get_selection():
         '\t Security                                                                sec \n'
         '\t System                                                                  sys \n'
         '\t Application                                                             app \n'
+        '\t OAlerts                                                                 oalerts \n'
         '\t Microsoft-Windows-Application-Experience/Program-Inventory              appexp1 \n'
         '\t Microsoft-Windows-Application-Experience/Program-Telemetry              appexp2 \n'
         '\t Microsoft-Windows-AppLocker/EXE and DLL                                 applocker \n'

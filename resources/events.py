@@ -1645,6 +1645,10 @@ offlinef = {  # Microsoft-Windows-OfflineFiles/Operational
         "Session": "TargetSessionId"}
 }
 
+oalerts = {  # OAlerts
+    300: {"Descr": "Microsoft Office Alert"}
+}
+
 partition = {  # Microsoft-Windows-Partition/Diagnostic; Win10 v1709+
     1006: {"Descr": "A device is connected or disconnected from the system",
            "Provider": "Microsoft-Windows-Partition",

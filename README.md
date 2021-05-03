@@ -29,6 +29,7 @@ Supported Windows Event Logs:
          Security                                                                sec
          System                                                                  sys
          Application                                                             app
+         OAlerts                                                                 oalerts
          Microsoft-Windows-Application-Experience/Program-Inventory              appexp1
          Microsoft-Windows-Application-Experience/Program-Telemetry              appexp2
          Microsoft-Windows-AppLocker/EXE and DLL                                 applocker
