@@ -2582,7 +2582,30 @@ wlan = {  # Microsoft-Windows-WLAN-AutoConfig/Operational
             "Cipher": "CipherAlgo",
             "OnexEnabled": "IsOnexEnabled",
             "ConnectionId": "ConnectionId",
-            "IhvConnectivitySetting": "IhvConnectivitySetting"}
+            "IhvConnectivitySetting": "IhvConnectivitySetting"},
+
+    11001: {"Descr": "Wireless network association succeeded",
+            "Provider": "Microsoft-Windows-WLAN-AutoConfig",
+            "DeviceGuid": "InterfaceGuid",
+            "Adapter": "InterfaceDescr",
+            "LocalMac": "LocalMac",
+            "SSID": "SSID",
+            "BSSType": "BSSType",
+            "ConnectionId": "ConnectionId",
+            "MgmtFrameProtection": "MgmtFrameProtection"},
+
+    11002: {"Descr": "Wireless network association failed",
+            "Provider": "Microsoft-Windows-WLAN-AutoConfig",
+            "DeviceGuid": "InterfaceGuid",
+            "Adapter": "InterfaceDescr",
+            "LocalMac": "LocalMac",
+            "SSID": "SSID",
+            "BSSType": "BSSType",
+            "FailureReason": "FailureReason",
+            "ReasonCode": "ReasonCode",
+            "Dot11StatusCode": "Dot11StatusCode",
+            "ConnectionId": "ConnectionId",
+            "RSSI": "RSSI"}
 }
 
 wmi = {  # Microsoft-Windows-WMI-Activity/Operational (Win8+)
