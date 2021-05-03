@@ -1895,7 +1895,13 @@ shell = {  # Microsoft-Windows-Shell-Core/Operational
     9708: {"Descr": "Finished execution of <Command> (PID <ProcessPid>)",  # from Run/RunOnce
            "Provider": "Microsoft-Windows-Shell-Core",
            "Command": "Command",
-           "PID": "ProcessId"}
+           "PID": "ProcessId"},
+
+    28115: {"Descr": "Shortcut for application <> with ID <> and flags <> is added to app resolver cache",
+            "Provider": "Microsoft-Windows-Shell-Core",
+            "Name": "AppName",
+            "AppID": "AppID",
+            "Flags": "Flags"}
 }
 
 smbclient = {  # Microsoft-Windows-SmbClient/Security
